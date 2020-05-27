@@ -1,0 +1,38 @@
+\section{HITS}
+
+Hubs and Authorities (HITS) wurde von John M. Kleinberg in Authoritative Sources in a Hyperlinked Environment \footnote{\cite{Kleinberg98authoritativesources}} vorgestellt.
+
+Dabei werden in einem Netzwerk aus aufeinander verweisenden Doukumenten beurteilt. Beispiele für solche Netzwerke sind Internetseiten die aufeinander
+verlinken oder Wissenschaftliche Veröffentlichung die einander refenzieren. Ein Hub sind Dokumente die auf viele gute Quellen verweisen, während
+Authorities Doukumente sind die gute Quellen sind und auf welche oft verwiesen wird. Der Algorithmus läuft ähnlich zum PageRank-Algorithmus ab 
+jedoch wird nicht nur ein einzelner Werte für jeden Knoten bestimmt sonder jeweils ein Hub und Authority Werte pro Knoten. Umso höher der Wert umso
+ein besser Hub oder Authority ist ein Knoten.
+
+Für einen gerichteten Graphen $G = (V, E)$ weisen wir jedem Knoten $v \in V$ einen Authority $x_{v}$ und Hub $y_{v}$ Wert zu.
+
+HITS ist ein iterativer Algorithmus der für jeden Knoten eines Graphen jeweils einen Hub und einen Authority Wert bestimmt. Hierfür 
+werden jeweils die Hub oder Authority Werte der benachbarten Knoten genutzt. Damit die Authority und Hub Werte sich nicht gegen
+unendlich aufschaukeln werden sie in jeder Iterationen so normalisiert das die Summe der Quadrate 1 ergibt:
+$ \sum x_{i}^{2} = 1 $ und $ \sum y_{i}^{2} = 1$.
+Die Werte für jeden Knoten konvergieren im laufe der Iterationen.
+
+HITS aktualisiert zuerst die Authority Werte der Knoten und danach die Hub Werte.
+
+Authority Update:
+
+Für jeden Knoten $ v \in V $ wird der neue Authority Wert aus der Summe der Hub Werte der eingehenden Kanten gebildet.
+
+\[ x_{p} = \sum_{q; (q, p) \in E} y_{q} \]
+
+
+Danach werden alle Authority Werte wie oben beschrieben normalisiert:
+
+$ x_{p} =  \frac{x_{p}}{\sum x_{q}^{2}} $
+
+Hub Update:
+
+Genauso
+
+
+Um den Algorithmus konvergieren zu lassen wähle ein $ \epsilon $ und prüfe nach jeder Iteration ob die gesammte Änderung der Authority
+und Hub Werte kleiner als das $ \epsilon $ ist. Ist dies nicht der Fall werden weitere Iterationen durchgeführt.

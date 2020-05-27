@@ -1,0 +1,74 @@
+\documentclass{template/abschlussarbeit}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Allgemeine Variablen fuer die Abschlussarbeit (mit eigenen
+% Angaben ausfuellen!)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AutorVorname{Johannes}
+\AutorNachname{Thiel}
+\AutorGeburtsort{Solingen}
+\AbschlussarbeitTitel{Meine Abschlussarbeit}
+% Bachelorarbeit, Projektarbeit, Masterarbeit
+\AbschlussarbeitTyp{Masterarbeit}
+% keywords durch , getrennt
+\AbschlussarbeitKeywords{Distributed Systems, Big Data, Cloud}
+\Ort{Düsseldorf}
+\Datum{19. November 2015}
+\Erstgutachter{Prof. Dr. Michael Schöttner}
+\Zweitgutachter{Prof. Dr. Stefan Conrad}
+\Betreuer{Msc. Bernd Mustermann}
+
+% Hier den vollstaendigen Dateinamen der bibtex Datei angeben
+% Falls diese in einem Unterordner liegt, so ist dieser relativ
+% zu dieser Datei (document.tex) anzugeben.
+\LiteraturBibtexDatei{librarys}
+
+% Der Anhang (falls vorhanden) wird hier genauso wie diese
+% Bibtex-Datei angegeben (jedoch ohne .tex-Endung!)
+\AnhangDatei{chap/anhang}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optionen/Schalter um bestimmte Abschnitte an-/auszuschalten
+% WICHTIG: Nicht genutzte/leere Abschnitte vor der Abgabe/
+% dem finalen Druck abschalten durch auskommentieren.
+% Gleiches gilt fuer die Todo Liste, welche nicht in die 
+% finale Version gehoert.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\Titelblatt
+\TodoListe
+\Inhaltsverzeichnis
+\Abbildungsverzeichnis
+\Tabellenverzeichnis
+\Algorithmenverzeichnis
+\Anhang
+\Erklaerung
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{abschlussarbeit}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Hier werden die einzelnen Kapitel aufgelistet (Reihenfolge!)
+% Die vorgegebenen Kapitel dienen als Hilfestellung waehrend der Arbeit
+% und sind mit der Fertigstellung des finalen Dokuments zu entfernen!
+\include{chap/grundlagen}
+\include{chap/hautpteil}
+\include{chap/einleitung}
+\include{chap/gliederung}
+\include{chap/struktur}
+\include{chap/organisation}
+\include{chap/text}
+\include{chap/zitieren}
+\include{chap/auflistungen}
+\include{chap/bilder}
+\include{chap/tabellen}
+\include{chap/matheumgebung}
+\include{chap/code}
+
+\end{abschlussarbeit}
+\end{document}
+

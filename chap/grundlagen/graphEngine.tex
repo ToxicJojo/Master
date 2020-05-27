@@ -1,0 +1,117 @@
+\section{GraphEngine}
+
+Graph Engine (GE) ist ein verteiltes in-Memory Datenverarbeitungssystem welches von Microsoft Research Asia 
+entwickelt wurde. Es bietet einen verteilten Key-Value Speicher in dem Daten gespeichert und verarbeitet werden können
+
+\subsection{Memory Cloud}
+
+Im Kern von GE steht die sogenannte Memory Cloud. Diese stellt einen verteilten Key-Value Speicher dar, welcher im Arbeitsspeicher der Maschinen
+liegt um einen schnellen Zugriff zu gewährleisten.
+Als Schlüssel dienen hier 64 Bit Werte.
+Die Werte sind beliebig große Datenblobs, welche direkt im Arbeitsspeicher der Maschinen verwaltet werden.
+
+Jede Maschine speichert mehrere Memory Trunks, in denen die Key-Value Paare gespeichert werden.
+
+Um einen Wert anhand des Schlüssels zu finden werden zwei Schritte durchgeführt. Erst wird die Maschine gefunden, die für den jeweiligen Schlüssel
+verantwortlich ist. Danach wird der Schlüssel in den Memory Trunks dieser Maschine gefunden.
+
+Im ersten Schritt wird der Schlüssel auf einen p-Bit Wert gehasht um ein  $ i \in [0, 2^{p} - 1] $ zu erhalten. Der Schlüssel liegt demnach in
+Memory Trunk $ i $. Eine Adressierungstabelle hält fest welcher Trunk auf welcher Maschine liegt.
+
+Auf dieser Maschine muss nun der Schlüssel gefunden werden. Dafür besitzt jeder Memory Trunk eine Hashtabelle die zu jeden Schlüssel
+ein Offset und die Größe des Wertes im Speicher angbiet.
+
+\subsection{Graph Model}
+
+GE bietet ein flexibles Model mit denen die Graphdaten modelliert werden können. Es gibt keine festes Modell sondern es ist den Entwicklern
+überlassen Schemata für die Daten festzulegen. Hierbei hat man die Möglichkeit das Graphmodell genau an das zu lösende Problem anzupassen und 
+somit auch die Chance Optimierungen zu finden.
+
+Um das Datenmodell zu definieren benutzt GE eine eigene Sprache, die Trinity Specification Language (TSL). Mit dieser werden sowohl die Schemas
+für Daten als auch Server Protokolle und Schnittstellen erstellt. 
+
+TSL bietet die Möglichkeit Zellen zu definieren, welche im Betrieb im Key-Value Speicher liegen.
+
+\begin{lstlisting}{language=c}
+cell MyCell {
+  int Value;
+  string Name;
+}
+\end{lstlisting}
+
+GE hat einen eigenen Compiler für TSl, der die TSl Dateien in C\# Quellcode umwandelt. So werden aus den Definitionen für Zellen Schnittstellen
+generiert um diese in GE zu Erstellen, Verändern oder Löschen. 
+
+\subsection{Computation Engine}
+
+Um Berechnungen durchzuführen besteht ein GE Cluster aus drei verschiedenen Komponenten die unterschiedliche Aufgaben übernehmen.
+
+\begin{enumerate}
+  \item Server
+  \item Proxy
+  \item Client
+\end{enumerate}
+
+
+Server sind dafür verantwortlich Daten zu speichern und Berechnungen auf diesen durchzuführen.
+Hierfür können sie Nachrichten an anderen Servern und Proxies senden und von diesen erhalten.
+
+Proxies speichern selber keine Daten können aber Nachrichten austauschen und Berechnungen durchzuführen. Sie können als 
+Bindeglied zwischen Client und Server genutzt werden. So können sie z.B. von Clients geschickte Anfrangen auf die Server aufteilen und deren
+Berechnungen koordinieren oder einzelne Ergebnisse agreggieren.
+
+Clients laufen auf der Maschine des Benutzers der mit dem GE Cluster interagieren will. Clients senden anfragen an die Server oder Proxies und
+erhalten die entsprechenden Ergebnisse zurück.
+
+Server, Proxies und Clients kommunizieren über Nachrichten die sie einander schicken. GE unterstützt hierbei drei verschiedene Arten von Protokollen.
+Syncrone Protokolle sind ähnlich zu syncronen Funktionaufrufen, die auf einer anderen Maschinen stattfinden. Sie blockieren die weitere Ausführung bis
+eine Antwort erhalten wurde. Ein Syncrhones Protokoll kann sowohl im Request als auch im Response Daten mitsenden. So kann beispielsweise die Liste von
+relevanten CellIDs übergeben werden und mit deren Gesamtsumme geantwortet weredn.
+
+Ansyncrhone Protokolle blockieren die Ausführung nicht. Auf der Empfängerseite wird sofort eine Antwort gesendt das die Anfrage erhalten wurde. Dazu
+wird direkt ein Thread gestartet der die Anfrage verarbeitet.
+
+HTTP Protokolle bieten Clients die Möglichkeit eine RESTful Version der Syncronen Protokolle zu nutzen. GE erstellt automatisch die Endpunkte an denen
+auf Anfragen gewartet wird, so wird z.B. für ein Protokoll ``MyHTTProtocol'' am Endpunkt ``http://example.com/MyHttpProtocol'' gewartet. Die Anfrage und
+Antwort werden beide in JSON Strukturen übergeben.
+
+Die Kommunikationschemas von Servern und Proxies werden in TSL definiert. Der folgende Block bietet ein Beispiel für einen einfachen Ping Server der
+Syncrone Anfragen bearbeiten kann.
+
+\begin{lstlisting}{C}
+struct PingMessage {
+  string Content;
+}
+
+protocol SynEchoPing {
+  Type: Syn;
+  Request: PingMessage;
+  Response: PingMessage;
+}
+
+
+server PingServer {
+  protocol SynEchoPing;
+}
+\end{lstlisting}
+
+Wie schon bei den Zellen werden die Server und Protokolldefinitionen von dem TSL Compiler in C\# Code übersetzt. Für Server und Proxy
+Definitionen werden abstrakte Klassen erstellt in denen jeweils Methoden für die benötigten Protokolle implementiert werden müssen.
+Es werden zudem Methoden generiert um die definierten Anfragen an den Server oder die Proxy zu senden.
+
+
+\subsection{Datenzugriff}
+
+Die Daten der Zellen liegen im Arbeitsspeicher der Maschinen als Datenblobs. Um auf diese komfortabel zuzugreifen können die Daten in ein C\# Objekt
+serialisiert werden, das ist jedoch sehr langsam.
+Schnelerren zugriff hat man indem man die Daten direkt im RAM manipuliert. Das ist jedoch deutlich schwieriger da man das Speicherlayout der jeweiligen Daten
+kennen muss und entsprechende Zeiger Arithmetik betreiben muss. GE löst diesen Konflikt indem es aus der TSL Zellendefinition eine Zugriffklasse erzeugt.
+Diese übersetzt die Lese und Schreibzugriffe auf die Werte der Zelle auf die entsprechenden Operationen im Arbeitsspeicher. So lässt sich mit der Zugriffklasse arbeiten sowohl
+komfortabel als auch effizient arbeiten.
+
+\begin{lstlisting}{language=sharpc}
+  using (var node = Global.LocalStorage.UseNode(cellId, accessOptions)) {
+    int value = node.Value;
+    node.Value = 5;
+  }
+\end{lstlisting}
