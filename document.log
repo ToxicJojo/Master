@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  26 MAY 2020 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  3 JUN 2020 12:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1469,7 +1469,7 @@ Overfull \hbox (68.07173pt too wide) in paragraph at lines 74--77
  (./chap/hautpteil.tex
 Kapitel 2.
 (./chap/architektur/architektur.tex
-Underfull \vbox (badness 2245) has occurred while \output is active []
+Underfull \vbox (badness 1062) has occurred while \output is active []
 
  [5
 
@@ -1486,81 +1486,85 @@ LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 30.
  [7]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 91.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 114.
+ine 100.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 115.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [8]
+) [8] [9]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for TS1+pcr on input line 155.
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 175.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [9] [10] [11]
+) [10] [11]
 
-LaTeX Warning: Reference `lst:tslModel' on page 12 undefined on input line 237.
+LaTeX Warning: Reference `lst:tslModel' on page 12 undefined on input line 260.
 
 
 
-Overfull \hbox (5.95299pt too wide) in paragraph at lines 249--251
+Overfull \hbox (5.95299pt too wide) in paragraph at lines 272--274
 \OT1/ptm/m/n/10.95 che Schrit-te not-wen-dig sind um neue Funk-tio-na-lit[]at h
 in-zu-zuf[]ugen. Da-bei muss die gew[]unsch-
  []
 
-[12] [13] [14] [15])) [16]
+[12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14] [15] [16])) [17]
 \openout2 = `chap/einleitung.aux'.
 
- (./chap/einleitung.tex
+ (./chap/einleitung.tex [18
+
+
+
+]
 Kapitel 3.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 14.
 
-[17
-
-
-
-]
+[19]
 Overfull \hbox (6.07492pt too wide) in paragraph at lines 29--31
 \OT1/ptm/m/n/10.95 tun-gen f[]ur den Auf-bau von Te-stum-ge-bun-gen sind je-der
  ge-druck-ten Ar-beit auf CD/DVD
  []
 
-) [18]
+) [20]
 \openout2 = `chap/gliederung.aux'.
 
  (./chap/gliederung.tex
 Kapitel 4.
-) [19
+) [21
 
 
 
 ]
 \openout2 = `chap/struktur.aux'.
 
- (./chap/struktur.tex [20
+ (./chap/struktur.tex [22
 
 
 
 ]
 Kapitel 5.
-[21]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
 
-[22]) [23]
+[24]) [25]
 \openout2 = `chap/organisation.aux'.
 
- (./chap/organisation.tex [24
+ (./chap/organisation.tex [26
 
 
 
@@ -1577,47 +1581,47 @@ Overfull \hbox (28.13817pt too wide) in paragraph at lines 7--8
  (Son-der-zei-chen, Latex-Kommandos) 
  []
 
-) [25]
+) [27]
 \openout2 = `chap/text.aux'.
 
- (./chap/text.tex [26
+ (./chap/text.tex [28
 
 
 
 ]
 Kapitel 7.
-) [27]
+) [29]
 \openout2 = `chap/zitieren.aux'.
 
- (./chap/zitieren.tex [28
+ (./chap/zitieren.tex [30
 
 
 
 ]
 Kapitel 8.
 
-LaTeX Warning: Citation `Welsh:2001:SAW:502034.502057' on page 29 undefined on 
+LaTeX Warning: Citation `Welsh:2001:SAW:502034.502057' on page 31 undefined on 
 input line 4.
 
-) [29]
+) [31]
 \openout2 = `chap/auflistungen.aux'.
 
- (./chap/auflistungen.tex [30
+ (./chap/auflistungen.tex [32
 
 
 
 ]
 Kapitel 9.
-) [31]
+) [33]
 \openout2 = `chap/bilder.aux'.
 
- (./chap/bilder.tex [32
+ (./chap/bilder.tex [34
 
 
 
 ]
 Kapitel 10.
-<img/hhu_logo.jpg, id=736, 2276.2641pt x 869.8899pt>
+<img/hhu_logo.jpg, id=767, 2276.2641pt x 869.8899pt>
 File: img/hhu_logo.jpg Graphic file (type jpg)
  <use img/hhu_logo.jpg>
 Package pdftex.def Info: img/hhu_logo.jpg used on input line 12.
@@ -1644,8 +1648,8 @@ File: img/hhu_logo.jpg Graphic file (type jpg)
  <use img/hhu_logo.jpg>
 Package pdftex.def Info: img/hhu_logo.jpg used on input line 51.
 (pdftex.def)             Requested size: 318.67209pt x 121.77048pt.
-) [33 <./img/hhu_logo.jpg>]
-[34]
+) [35 <./img/hhu_logo.jpg>]
+[36]
 \openout2 = `chap/tabellen.aux'.
 
  (./chap/tabellen.tex
@@ -1658,24 +1662,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [35
+ [37
 
 
 
 ])
-[36]
+[38]
 \openout2 = `chap/matheumgebung.aux'.
 
  (./chap/matheumgebung.tex
 Kapitel 12.
-) [37
+) [39
 
 
 
 ]
 \openout2 = `chap/code.aux'.
 
- (./chap/code.tex [38
+ (./chap/code.tex [40
 
 
 
@@ -1689,20 +1693,20 @@ File: omlpcr.fd
 )
 LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 33.
- [39]
+ [41]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)) [40]
+)) [42]
 \openout2 = `chap/anhang.aux'.
 
 
 (./chap/anhang.tex
 Anhang A.
-) [41
+) [43
 
 
 
-] [42
+] [44
 
 
 ]
@@ -1712,29 +1716,29 @@ No file document.bbl.
 \tf@lof=\write8
 \openout8 = `document.lof'.
 
- [43
+ [45
 
 
 
 
-] [44
+] [46
 
 ] (./document.lot)
 \tf@lot=\write9
 \openout9 = `document.lot'.
 
- [45] [46
+ [47] [48
 
 ] (./document.loa)
 \tf@loa=\write10
 \openout10 = `document.loa'.
 
- [47
+ [49
 
 ]
-[48
+[50
 
-] [49] [50
+] [51] [52
 
 
 ]
@@ -1756,10 +1760,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
- 23493 strings out of 493013
- 414905 string characters out of 6135682
- 604577 words of memory out of 5000000
- 26056 multiletter control sequences out of 15000+600000
+ 23544 strings out of 493013
+ 415641 string characters out of 6135682
+ 619531 words of memory out of 5000000
+ 26082 multiletter control sequences out of 15000+600000
  56407 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,15n,95p,721b,2219s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1773,10 +1777,10 @@ rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (55 pages, 7243441 bytes).
+Output written on document.pdf (57 pages, 7247427 bytes).
 PDF statistics:
- 974 PDF objects out of 1000 (max. 8388607)
- 896 compressed objects within 9 object streams
- 416 named destinations out of 1000 (max. 500000)
+ 1012 PDF objects out of 1200 (max. 8388607)
+ 931 compressed objects within 10 object streams
+ 441 named destinations out of 1000 (max. 500000)
  455 words of extra memory for PDF output out of 10000 (max. 10000000)
 

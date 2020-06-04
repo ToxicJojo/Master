@@ -38,8 +38,17 @@ Dafür wird ein 'PhaseFinished' Protokoll erstellt. Die Server nutzen das Protok
 die Phase die beendet wurde und eine Liste an Strings welche das Ergebniss der jeweiligen Phase darstellt. Es wird hier aus zwei Gründen eine Liste an Strings verwendet. Zum einem gibt es Algorithmen die ein Ergebniss pro Layer des Graphen zurückgegeben wollen. Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet da die Ergbenisse verschiedenen Datentypen haben können welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus der Knoten zählt nur Integer Werte zurück während einer der PageRank Werte zurückgiebt Double werte benutzt.
 Die Phasen werden in einer seperaten TSL Datei verwaltet und als Enum abgespeichert.
 
+Um von der Proxy Ergebnisse zurück an den Client geben zu können gibt es das Konstrukt 'AlgorithmResult'. Dieses beinhaltet sowohl ein Ergebnis in Tabellenform als auch die Laufzeit des Algorithmusses.
+
 
 \begin{lstlisting}{language=c}
+
+struct AlgorithmResult {
+  string Name;
+  DateTime StartTime;
+  DateTime EndTime;
+  List<List<string>> ResultTable;
+}
 
 struct StandardAlgorithmMessage {
   AlgorithmOptions AlgorithmOptions;
@@ -96,6 +105,17 @@ Die Server definition zieht alle diese Protokolle zusammen. \todo{tsl von einem 
 
 Stellt eine statische Klasse 'Graph' zur Verfügung die von den anderen Komponenten genutzt wird. Die Klasse ermöglicht es mit dem in GE gespeicherten Graph zu interagieren ohne die Implementierungsdetails zu kenne. So kann auf Knoten zugregriffen werden wenn nur die ID und Layer bekannt sind ohne wissen zu müssen wie man diese in eine GE ZellenID übersetzt.
 
+
+\subsubsection{Ausgabe}
+
+Die Bibliothenk stellt die Funktionalität zur Ausgabe von Ergebnissen zur Verfügung. Die verschiedenen Arten Ergebnisse auszugeben implementieren alle
+das Interface 'IOutputWriter' weclhes die Funktion 'void WriteOutput(AlgorithmResult algorithmResult)' hat. Es gibt drei verschiedene Ausgabearten:
+
+\begin{itemize}
+  \item None, gibt nichts aus
+  \item Console, gibt das Ergbniss in der Konsole aus
+  \item CSV, gibt das Ergebniss in einer .csv Datei aus
+\end{itemize}
 
 
 \subsection{Client}
@@ -215,6 +235,9 @@ Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse
 
 
 \subsubsection{Ausgabe}
+
+Die Proxy stellt den Algorithmen 
+
 
 \todo{Output  refactor abschliesen und dann hier erklären}
 
@@ -345,28 +368,47 @@ In der 'Client' Klasse muss im Konstruktor nun noch das erstellte Kommando regis
 Für die Proxy müssen zwei Funktionen implementiert werden. Zum einem der Algorithmus der Anfragen an alle Server sendet ihre Anzahl an lokalen Knoten mit N Kanten zu senden und diese Ergebnisse aggregiert. Zum anderem muss 
 für das in TSL defineirte Proxy Protokoll 'GetNEdgeNodesProxy' ein entsprechneder Handler erstellt werden der die Anfrage verarbeitet und den Algorithmus startet.
 
-Der Algoritmus muss die abstrakte Klasse 'Algorithm' implementieren insbesondere die abstrakte Methode 'Run()'. In der Methode wird die im Model erstellte Anfrage an alle Server gesendet, welche auf diese mit ihrer lokalen Anzahl an Knoten mit der gewünschten Kantenanzahl antworten. Die Proxy
+Der Algoritmus muss die abstrakte Klasse 'Algorithm' implementieren insbesondere die abstrakte Methode 'Run()' und 'AlgorithmResult GetResult(OutputOptions outputOptions)'. In Run() wird die im Model erstellte Anfrage an alle Server gesendet, welche auf diese mit ihrer lokalen Anzahl an Knoten mit der gewünschten Kantenanzahl antworten. Die Proxy
 wartet bis alle Server Ergebnisse gesendet haben und zählt diese zu einem Gesamtergebniss zusammen.
+
+Die andere Methode dient dazu die Ergebnisse in einer Tabellenform darzustellen. Dazu wird sich die Anzahl der Knoten pro Layer gemerkt und jeder Layer als eine Reihe in der Tabelle dargestellt. Die erste Spalte ist die ID des Layers während die zweite die Anzahl der Knoten in diesem Layer ist. Es wird eine weitere Zeile mit der Gesamtanzahl der Knoten hinzugefügt.
 
 \begin{lstlisting}{language=c}
 
-  public override void Run() {
-    foreach(var server in Global.CloudStorage) {
-      MessagePassingExtension.GetNEdgeNodesServer(server);
-    }
-
-    List<List<long>> phaseResults =  Proxy.WaitForPhaseResultsAsLong(Phases.NEdgesCount);
-    long[] nodeCount = new long[phaseResults[0].Count];
-
-    // Sum up the results from all the servers.
-    foreach(List<long> result in phaseResults) {
-      for (int i = 0; i < result.Count; i++) {
-          nodeCount[i] += result[i];
-      }
-    }
-
-    WriteOutput(nodeCount);
+public override void Run() {
+  foreach(var server in Global.CloudStorage) {
+    MessagePassingExtension.GetNEdgeNodesServer(server);
   }
+
+  List<List<long>> phaseResults =  Proxy.WaitForPhaseResultsAsLong(Phases.NEdgesCount);
+  long[] nodeCount = new long[phaseResults[0].Count];
+
+  // Sum up the results from all the servers.
+  foreach(List<long> result in phaseResults) {
+    for (int i = 0; i < result.Count; i++) {
+        nodeCount[i] += result[i];
+    }
+  }
+}
+
+public override List<List<string>>  GetResultTable(OutputOptions options) {
+  List<List<string>> output = new List<List<string>>();
+  long totalNodeCount = 0;
+
+  for (int i = 0; i < nodeCount.Length; i++) {
+      List<string> outputRow = ResultHelper.Row("Layer" + (i + 1), nodeCount[i].ToString()); 
+      output.Add(outputRow);
+
+      totalNodeCount += nodeCount[i];
+  }
+
+
+  output.Add(ResultHelper.Row("Toal", totalNodeCount.ToString()));
+
+  return output;
+}
+
+
 
 \end{lstlisting}
 
