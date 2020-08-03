@@ -3,66 +3,75 @@
 \contentsline {section}{\numberline {1.2}HITS}{1}{section.1.2}
 \contentsline {section}{\numberline {1.3}GraphEngine}{2}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Memory Cloud}{2}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Graph Model}{2}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Computation Engine}{3}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Datenzugriff}{4}{subsection.1.3.4}
-\contentsline {chapter}{\numberline {2}Hauptteil}{5}{chapter.2}
-\contentsline {section}{\numberline {2.1}Architektur}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Model}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Lib}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Client}{6}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Proxy}{6}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}Server}{6}{subsection.2.1.5}
-\contentsline {section}{\numberline {2.2}Implementierung}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Model}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Lib}{8}{subsection.2.2.2}
-\contentsline {subsubsection}{Ausgabe}{8}{section*.4}
-\contentsline {subsection}{\numberline {2.2.3}Client}{9}{subsection.2.2.3}
-\contentsline {subsubsection}{Kommandos}{9}{section*.5}
-\contentsline {subsubsection}{Interaktiver Modus}{10}{section*.6}
-\contentsline {subsubsection}{Batch Modus}{10}{section*.7}
-\contentsline {subsection}{\numberline {2.2.4}Proxy}{10}{subsection.2.2.4}
-\contentsline {subsubsection}{BaseProxy}{10}{section*.8}
-\contentsline {subsubsection}{Algorithmen}{11}{section*.9}
-\contentsline {subsubsection}{Ausgabe}{11}{section*.10}
-\contentsline {subsection}{\numberline {2.2.5}Server}{12}{subsection.2.2.5}
-\contentsline {subsubsection}{Laden}{12}{section*.12}
-\contentsline {subsection}{\numberline {2.2.6}Erweiterbarkeit}{12}{subsection.2.2.6}
-\contentsline {subsubsection}{Model}{13}{section*.13}
-\contentsline {subsubsection}{Client}{14}{section*.14}
-\contentsline {subsubsection}{Proxy}{14}{section*.15}
-\contentsline {subsubsection}{Server}{16}{section*.16}
-\contentsline {chapter}{\numberline {3}Einleitung}{19}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}Vor dem Druck/Finale Version}{19}{subsection.3.0.1}
-\contentsline {chapter}{\numberline {4}Gliederung der Arbeit}{21}{chapter.4}
-\contentsline {chapter}{\numberline {5}Struktur}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Mein Abschnitt}{23}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Unterabschnitt}{23}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Noch ein Unterabschnitt}{23}{subsection.5.1.2}
-\contentsline {subsubsection}{Noch tiefere Hierarchie}{23}{section*.17}
-\contentsline {subsubsection}{Noch ein Unterpunkt vom Unterpunkt}{24}{section*.18}
-\contentsline {subsection}{\numberline {5.1.3}Wieder eine Subsection}{24}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Und eine einfache Section}{24}{section.5.2}
-\contentsline {section}{\numberline {5.3}Zeilenumbr\IeC {\"u}che und Abs\IeC {\"a}tze}{24}{section.5.3}
-\contentsline {section}{\numberline {5.4}Neue Seite erzwingen}{24}{section.5.4}
-\contentsline {chapter}{\numberline {6}Organisation}{27}{chapter.6}
-\contentsline {chapter}{\numberline {7}Text}{29}{chapter.7}
-\contentsline {chapter}{\numberline {8}Zitieren/Referenzen}{31}{chapter.8}
-\contentsline {chapter}{\numberline {9}Auflistungen}{33}{chapter.9}
-\contentsline {section}{\numberline {9.1}Enumeration}{33}{section.9.1}
-\contentsline {section}{\numberline {9.2}Bullet points}{33}{section.9.2}
-\contentsline {chapter}{\numberline {10}Bilder und Grafiken}{35}{chapter.10}
-\contentsline {chapter}{\numberline {11}Tabellen}{37}{chapter.11}
-\contentsline {section}{\numberline {11.1}Einfache Tabelle}{37}{section.11.1}
-\contentsline {section}{\numberline {11.2}Komplexere Tabelle: Multicolumn und Multirow}{38}{section.11.2}
-\contentsline {chapter}{\numberline {12}Matheumgebung}{39}{chapter.12}
-\contentsline {section}{\numberline {12.1}Indices/Zahlen hochstellen/tiefstellen}{39}{section.12.1}
-\contentsline {chapter}{\numberline {13}Code}{41}{chapter.13}
-\contentsline {section}{\numberline {13.1}Pseudocode}{41}{section.13.1}
-\contentsline {section}{\numberline {13.2}C-Code}{41}{section.13.2}
-\contentsline {section}{\numberline {13.3}Java-Code}{42}{section.13.3}
-\contentsline {chapter}{\numberline {A}Mein Anhang}{43}{appendix.A}
-\contentsline {chapter}{Literaturverzeichnis}{45}{appendix.A}
-\contentsline {chapter}{Abbildungsverzeichnis}{45}{appendix.A}
-\contentsline {chapter}{Tabellenverzeichnis}{47}{appendix.A}
-\contentsline {chapter}{Algorithmenverzeichnis}{49}{appendix.A}
+\contentsline {subsection}{\numberline {1.3.2}Graph Model}{3}{subsection.1.3.2}
+\contentsline {subsubsection}{Trinity Specification Language (TSL)}{3}{section*.3}
+\contentsline {subsection}{\numberline {1.3.3}Computation Engine}{4}{subsection.1.3.3}
+\contentsline {subsubsection}{Server}{4}{section*.4}
+\contentsline {subsubsection}{Proxy}{4}{section*.5}
+\contentsline {subsubsection}{Client}{4}{section*.6}
+\contentsline {subsubsection}{Protokolle}{4}{section*.7}
+\contentsline {subsubsection}{TSL}{5}{section*.8}
+\contentsline {subsection}{\numberline {1.3.4}Datenzugriff}{5}{subsection.1.3.4}
+\contentsline {chapter}{\numberline {2}Hauptteil}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Architektur}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Model}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Lib}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Client}{8}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Proxy}{8}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Server}{8}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Implementierung}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Model}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Lib}{10}{subsection.2.2.2}
+\contentsline {subsubsection}{Ausgabe}{10}{section*.10}
+\contentsline {subsection}{\numberline {2.2.3}Client}{11}{subsection.2.2.3}
+\contentsline {subsubsection}{Kommandos}{11}{section*.11}
+\contentsline {subsubsection}{Interaktiver Modus}{12}{section*.12}
+\contentsline {subsubsection}{Batch Modus}{12}{section*.13}
+\contentsline {subsection}{\numberline {2.2.4}Proxy}{12}{subsection.2.2.4}
+\contentsline {subsubsection}{BaseProxy}{12}{section*.14}
+\contentsline {subsubsection}{Algorithmen}{13}{section*.15}
+\contentsline {subsubsection}{Ausgabe}{13}{section*.16}
+\contentsline {subsection}{\numberline {2.2.5}Server}{14}{subsection.2.2.5}
+\contentsline {subsubsection}{Laden}{14}{section*.18}
+\contentsline {subsection}{\numberline {2.2.6}Erweiterbarkeit}{14}{subsection.2.2.6}
+\contentsline {subsubsection}{Model}{15}{section*.19}
+\contentsline {subsubsection}{Client}{16}{section*.20}
+\contentsline {subsubsection}{Proxy}{16}{section*.21}
+\contentsline {subsubsection}{Server}{18}{section*.22}
+\contentsline {chapter}{\numberline {3}Evaluation}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Cluster}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Testdaten}{21}{section.3.2}
+\contentsline {chapter}{\numberline {4}Einleitung}{23}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.1}Vor dem Druck/Finale Version}{23}{subsection.4.0.1}
+\contentsline {chapter}{\numberline {5}Gliederung der Arbeit}{25}{chapter.5}
+\contentsline {chapter}{\numberline {6}Struktur}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}Mein Abschnitt}{27}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Unterabschnitt}{27}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Noch ein Unterabschnitt}{27}{subsection.6.1.2}
+\contentsline {subsubsection}{Noch tiefere Hierarchie}{27}{section*.23}
+\contentsline {subsubsection}{Noch ein Unterpunkt vom Unterpunkt}{28}{section*.24}
+\contentsline {subsection}{\numberline {6.1.3}Wieder eine Subsection}{28}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Und eine einfache Section}{28}{section.6.2}
+\contentsline {section}{\numberline {6.3}Zeilenumbr\IeC {\"u}che und Abs\IeC {\"a}tze}{28}{section.6.3}
+\contentsline {section}{\numberline {6.4}Neue Seite erzwingen}{28}{section.6.4}
+\contentsline {chapter}{\numberline {7}Organisation}{31}{chapter.7}
+\contentsline {chapter}{\numberline {8}Text}{33}{chapter.8}
+\contentsline {chapter}{\numberline {9}Zitieren/Referenzen}{35}{chapter.9}
+\contentsline {chapter}{\numberline {10}Auflistungen}{37}{chapter.10}
+\contentsline {section}{\numberline {10.1}Enumeration}{37}{section.10.1}
+\contentsline {section}{\numberline {10.2}Bullet points}{37}{section.10.2}
+\contentsline {chapter}{\numberline {11}Bilder und Grafiken}{39}{chapter.11}
+\contentsline {chapter}{\numberline {12}Tabellen}{41}{chapter.12}
+\contentsline {section}{\numberline {12.1}Einfache Tabelle}{41}{section.12.1}
+\contentsline {section}{\numberline {12.2}Komplexere Tabelle: Multicolumn und Multirow}{42}{section.12.2}
+\contentsline {chapter}{\numberline {13}Matheumgebung}{43}{chapter.13}
+\contentsline {section}{\numberline {13.1}Indices/Zahlen hochstellen/tiefstellen}{43}{section.13.1}
+\contentsline {chapter}{\numberline {14}Code}{45}{chapter.14}
+\contentsline {section}{\numberline {14.1}Pseudocode}{45}{section.14.1}
+\contentsline {section}{\numberline {14.2}C-Code}{45}{section.14.2}
+\contentsline {section}{\numberline {14.3}Java-Code}{46}{section.14.3}
+\contentsline {chapter}{\numberline {A}Mein Anhang}{47}{appendix.A}
+\contentsline {chapter}{Literaturverzeichnis}{49}{appendix.A}
+\contentsline {chapter}{Abbildungsverzeichnis}{49}{appendix.A}
+\contentsline {chapter}{Tabellenverzeichnis}{51}{appendix.A}
+\contentsline {chapter}{Algorithmenverzeichnis}{53}{appendix.A}
