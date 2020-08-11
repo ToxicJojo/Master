@@ -95,10 +95,8 @@ enum Phases {
 \end{lstlisting}
 
 
-Die einzelnen Algorithmen definieren ihre benötigen Protokolle und Nachrichten in eigenen Dateien. 
-
-Die Server definition zieht alle diese Protokolle zusammen. \todo{tsl von einem algorithmus ausführlich erklären}
-
+Die einzelnen Algorithmen definieren ihre benötigen Protokolle und Nachrichten in eigenen Dateien. Diese sind jeweils auf den jeweiligen Algorithmus zugeschnitten.
+Die Server Definition zieht alle diese Protokolle zusammen, sodass die entsprechenden abstrakten Methoden in der Serverklasse generiert werden.
 
 \subsection{Lib}
 
@@ -234,12 +232,6 @@ Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse
 \subsubsection{Algorithmen}
 
 
-\subsubsection{Ausgabe}
-
-Die Proxy stellt den Algorithmen 
-
-
-\todo{Output  refactor abschliesen und dann hier erklären}
 
 \subsection{Server}
 
@@ -270,7 +262,9 @@ Für alle Formate die unterstützt werden sollen muss nun eine Klasse erstellt w
 \subsection{Erweiterbarkeit}
 
 Das System ist um weitere Funktionen erweiterbar. In diesem Abschnitt wird erläutert welche Schritte notwendig sind um neue Funktionalität hinzuzufügen.
-Dabei muss die gewünschte Funktionalität im Model, Client, Proxy und Server hinzugefügt werden. Um den Ablauf zu veranschaulichen wird dies für eine Beispielfunktion erklärt. Diese zählt die Anzahl an Knoten die eine vom Client bestimmte Anzahl an ausgehenden Kanten besitzt.
+Dabei muss die gewünschte Funktionalität im Model, Client, Proxy und Server hinzugefügt werden.
+
+Um den Ablauf zu veranschaulichen wird dies für eine Beispielfunktion erklärt. Diese zählt die Anzahl an Knoten die eine vom Client bestimmte Anzahl an ausgehenden Kanten besitzt.
 
 \subsubsection{Model}
 

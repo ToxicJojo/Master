@@ -1,57 +1,63 @@
-\BOOKMARK [0][-]{chapter.1}{Grundlagen}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Page Rank}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{HITS}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{GraphEngine}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.3.1}{Memory Cloud}{section.1.3}% 5
-\BOOKMARK [2][-]{subsection.1.3.2}{Graph Model}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.3}{Computation Engine}{section.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.3.4}{Datenzugriff}{section.1.3}% 8
-\BOOKMARK [0][-]{chapter.2}{Hauptteil}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Architektur}{chapter.2}% 10
-\BOOKMARK [2][-]{subsection.2.1.1}{Model}{section.2.1}% 11
-\BOOKMARK [2][-]{subsection.2.1.2}{Lib}{section.2.1}% 12
-\BOOKMARK [2][-]{subsection.2.1.3}{Client}{section.2.1}% 13
-\BOOKMARK [2][-]{subsection.2.1.4}{Proxy}{section.2.1}% 14
-\BOOKMARK [2][-]{subsection.2.1.5}{Server}{section.2.1}% 15
-\BOOKMARK [1][-]{section.2.2}{Implementierung}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.2.1}{Model}{section.2.2}% 17
-\BOOKMARK [2][-]{subsection.2.2.2}{Lib}{section.2.2}% 18
-\BOOKMARK [2][-]{subsection.2.2.3}{Client}{section.2.2}% 19
-\BOOKMARK [2][-]{subsection.2.2.4}{Proxy}{section.2.2}% 20
-\BOOKMARK [2][-]{subsection.2.2.5}{Server}{section.2.2}% 21
-\BOOKMARK [2][-]{subsection.2.2.6}{Erweiterbarkeit}{section.2.2}% 22
-\BOOKMARK [0][-]{chapter.3}{Evaluation}{}% 23
-\BOOKMARK [1][-]{section.3.1}{Cluster}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.2}{Testdaten}{chapter.3}% 25
-\BOOKMARK [0][-]{chapter.4}{Einleitung}{}% 26
-\BOOKMARK [1][-]{subsection.4.0.1}{Vor dem Druck/Finale Version}{chapter.4}% 27
-\BOOKMARK [0][-]{chapter.5}{Gliederung der Arbeit}{}% 28
-\BOOKMARK [0][-]{chapter.6}{Struktur}{}% 29
-\BOOKMARK [1][-]{section.6.1}{Mein Abschnitt}{chapter.6}% 30
-\BOOKMARK [2][-]{subsection.6.1.1}{Unterabschnitt}{section.6.1}% 31
-\BOOKMARK [2][-]{subsection.6.1.2}{Noch ein Unterabschnitt}{section.6.1}% 32
-\BOOKMARK [2][-]{subsection.6.1.3}{Wieder eine Subsection}{section.6.1}% 33
-\BOOKMARK [1][-]{section.6.2}{Und eine einfache Section}{chapter.6}% 34
-\BOOKMARK [1][-]{section.6.3}{Zeilenumbr\374che und Abs\344tze}{chapter.6}% 35
-\BOOKMARK [1][-]{section.6.4}{Neue Seite erzwingen}{chapter.6}% 36
-\BOOKMARK [0][-]{chapter.7}{Organisation}{}% 37
-\BOOKMARK [0][-]{chapter.8}{Text}{}% 38
-\BOOKMARK [0][-]{chapter.9}{Zitieren/Referenzen}{}% 39
-\BOOKMARK [0][-]{chapter.10}{Auflistungen}{}% 40
-\BOOKMARK [1][-]{section.10.1}{Enumeration}{chapter.10}% 41
-\BOOKMARK [1][-]{section.10.2}{Bullet points}{chapter.10}% 42
-\BOOKMARK [0][-]{chapter.11}{Bilder und Grafiken}{}% 43
-\BOOKMARK [0][-]{chapter.12}{Tabellen}{}% 44
-\BOOKMARK [1][-]{section.12.1}{Einfache Tabelle}{chapter.12}% 45
-\BOOKMARK [1][-]{section.12.2}{Komplexere Tabelle: Multicolumn und Multirow}{chapter.12}% 46
-\BOOKMARK [0][-]{chapter.13}{Matheumgebung}{}% 47
-\BOOKMARK [1][-]{section.13.1}{Indices/Zahlen hochstellen/tiefstellen}{chapter.13}% 48
-\BOOKMARK [0][-]{chapter.14}{Code}{}% 49
-\BOOKMARK [1][-]{section.14.1}{Pseudocode}{chapter.14}% 50
-\BOOKMARK [1][-]{section.14.2}{C-Code}{chapter.14}% 51
-\BOOKMARK [1][-]{section.14.3}{Java-Code}{chapter.14}% 52
-\BOOKMARK [0][-]{appendix.A}{Mein Anhang}{}% 53
-\BOOKMARK [0][-]{appendix.A}{Literaturverzeichnis}{}% 54
-\BOOKMARK [0][-]{appendix.A}{Abbildungsverzeichnis}{}% 55
-\BOOKMARK [0][-]{appendix.A}{Tabellenverzeichnis}{}% 56
-\BOOKMARK [0][-]{appendix.A}{Algorithmenverzeichnis}{}% 57
+\BOOKMARK [0][-]{chapter.1}{Einleitung}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Grundlagen}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Graphen}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Multi Layer Graphen}{section.2.1}% 4
+\BOOKMARK [1][-]{section.2.2}{Page Rank}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{HITS}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.4}{Andere Multi Layer Graph Systeme}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.4.1}{MuxViz}{section.2.4}% 8
+\BOOKMARK [2][-]{subsection.2.4.2}{Multilayer Networks Library for Python}{section.2.4}% 9
+\BOOKMARK [1][-]{section.2.5}{GraphEngine}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.5.1}{Memory Cloud}{section.2.5}% 11
+\BOOKMARK [2][-]{subsection.2.5.2}{Graph Model}{section.2.5}% 12
+\BOOKMARK [2][-]{subsection.2.5.3}{Computation Engine}{section.2.5}% 13
+\BOOKMARK [2][-]{subsection.2.5.4}{Datenzugriff}{section.2.5}% 14
+\BOOKMARK [0][-]{chapter.3}{Hauptteil}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Architektur}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.1.1}{Model}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.2}{Lib}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.3}{Client}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.4}{Proxy}{section.3.1}% 20
+\BOOKMARK [2][-]{subsection.3.1.5}{Server}{section.3.1}% 21
+\BOOKMARK [1][-]{section.3.2}{Implementierung}{chapter.3}% 22
+\BOOKMARK [2][-]{subsection.3.2.1}{Model}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.2}{Lib}{section.3.2}% 24
+\BOOKMARK [2][-]{subsection.3.2.3}{Client}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.4}{Proxy}{section.3.2}% 26
+\BOOKMARK [2][-]{subsection.3.2.5}{Server}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.6}{Erweiterbarkeit}{section.3.2}% 28
+\BOOKMARK [0][-]{chapter.4}{Evaluation}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Cluster}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Testdaten}{chapter.4}% 31
+\BOOKMARK [0][-]{chapter.5}{Einleitung}{}% 32
+\BOOKMARK [1][-]{subsection.5.0.1}{Vor dem Druck/Finale Version}{chapter.5}% 33
+\BOOKMARK [0][-]{chapter.6}{Gliederung der Arbeit}{}% 34
+\BOOKMARK [0][-]{chapter.7}{Struktur}{}% 35
+\BOOKMARK [1][-]{section.7.1}{Mein Abschnitt}{chapter.7}% 36
+\BOOKMARK [2][-]{subsection.7.1.1}{Unterabschnitt}{section.7.1}% 37
+\BOOKMARK [2][-]{subsection.7.1.2}{Noch ein Unterabschnitt}{section.7.1}% 38
+\BOOKMARK [2][-]{subsection.7.1.3}{Wieder eine Subsection}{section.7.1}% 39
+\BOOKMARK [1][-]{section.7.2}{Und eine einfache Section}{chapter.7}% 40
+\BOOKMARK [1][-]{section.7.3}{Zeilenumbr\374che und Abs\344tze}{chapter.7}% 41
+\BOOKMARK [1][-]{section.7.4}{Neue Seite erzwingen}{chapter.7}% 42
+\BOOKMARK [0][-]{chapter.8}{Organisation}{}% 43
+\BOOKMARK [0][-]{chapter.9}{Text}{}% 44
+\BOOKMARK [0][-]{chapter.10}{Zitieren/Referenzen}{}% 45
+\BOOKMARK [0][-]{chapter.11}{Auflistungen}{}% 46
+\BOOKMARK [1][-]{section.11.1}{Enumeration}{chapter.11}% 47
+\BOOKMARK [1][-]{section.11.2}{Bullet points}{chapter.11}% 48
+\BOOKMARK [0][-]{chapter.12}{Bilder und Grafiken}{}% 49
+\BOOKMARK [0][-]{chapter.13}{Tabellen}{}% 50
+\BOOKMARK [1][-]{section.13.1}{Einfache Tabelle}{chapter.13}% 51
+\BOOKMARK [1][-]{section.13.2}{Komplexere Tabelle: Multicolumn und Multirow}{chapter.13}% 52
+\BOOKMARK [0][-]{chapter.14}{Matheumgebung}{}% 53
+\BOOKMARK [1][-]{section.14.1}{Indices/Zahlen hochstellen/tiefstellen}{chapter.14}% 54
+\BOOKMARK [0][-]{chapter.15}{Code}{}% 55
+\BOOKMARK [1][-]{section.15.1}{Pseudocode}{chapter.15}% 56
+\BOOKMARK [1][-]{section.15.2}{C-Code}{chapter.15}% 57
+\BOOKMARK [1][-]{section.15.3}{Java-Code}{chapter.15}% 58
+\BOOKMARK [0][-]{appendix.A}{Mein Anhang}{}% 59
+\BOOKMARK [0][-]{appendix.A}{Literaturverzeichnis}{}% 60
+\BOOKMARK [0][-]{appendix.A}{Abbildungsverzeichnis}{}% 61
+\BOOKMARK [0][-]{appendix.A}{Tabellenverzeichnis}{}% 62
+\BOOKMARK [0][-]{appendix.A}{Algorithmenverzeichnis}{}% 63
