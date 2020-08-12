@@ -405,6 +405,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pslatex/pcrr8rn.tfm
 OUTPUT chap/hautpteil.aux
 INPUT chap/hautpteil.tex
 INPUT chap/hautpteil.tex
+INPUT chap/architektur/ge.tex
+INPUT chap/architektur/ge.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pslatex/pcrr7tn.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/pslatex/pcrr7tn.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pslatex/pcrr8rn.tfm
 INPUT chap/architektur/architektur.tex
 INPUT chap/architektur/architektur.tex
 INPUT chap/architektur/implementierung.tex
@@ -432,9 +437,6 @@ INPUT chap/gliederung.tex
 OUTPUT chap/struktur.aux
 INPUT chap/struktur.tex
 INPUT chap/struktur.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pslatex/pcrr7tn.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/pslatex/pcrr7tn.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pslatex/pcrr8rn.tfm
 OUTPUT chap/organisation.aux
 INPUT chap/organisation.tex
 INPUT chap/organisation.tex

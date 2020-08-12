@@ -26,30 +26,34 @@
 \contentsline {subsubsection}{TSL}{10}{section*.17}
 \contentsline {subsection}{\numberline {2.5.4}Datenzugriff}{11}{subsection.2.5.4}
 \contentsline {chapter}{\numberline {3}Hauptteil}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Architektur}{13}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Model}{13}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Lib}{13}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Client}{14}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Proxy}{14}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Server}{14}{subsection.3.1.5}
-\contentsline {section}{\numberline {3.2}Implementierung}{15}{section.3.2}
+\contentsline {section}{\numberline {3.1}Graph Engine}{13}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Einrichtung}{13}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Datenzugriff}{13}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Schwierigkeiten}{14}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Architektur}{14}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Model}{15}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Lib}{17}{subsection.3.2.2}
-\contentsline {subsubsection}{Ausgabe}{17}{section*.18}
-\contentsline {subsection}{\numberline {3.2.3}Client}{17}{subsection.3.2.3}
-\contentsline {subsubsection}{Kommandos}{17}{section*.19}
-\contentsline {subsubsection}{Interaktiver Modus}{18}{section*.20}
-\contentsline {subsubsection}{Batch Modus}{18}{section*.21}
-\contentsline {subsection}{\numberline {3.2.4}Proxy}{19}{subsection.3.2.4}
-\contentsline {subsubsection}{BaseProxy}{19}{section*.22}
-\contentsline {subsubsection}{Algorithmen}{20}{section*.23}
-\contentsline {subsection}{\numberline {3.2.5}Server}{20}{subsection.3.2.5}
-\contentsline {subsubsection}{Laden}{20}{section*.24}
-\contentsline {subsection}{\numberline {3.2.6}Erweiterbarkeit}{21}{subsection.3.2.6}
-\contentsline {subsubsection}{Model}{21}{section*.25}
-\contentsline {subsubsection}{Client}{22}{section*.26}
-\contentsline {subsubsection}{Proxy}{23}{section*.27}
-\contentsline {subsubsection}{Server}{24}{section*.28}
+\contentsline {subsection}{\numberline {3.2.2}Lib}{15}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Client}{15}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Proxy}{15}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Server}{16}{subsection.3.2.5}
+\contentsline {section}{\numberline {3.3}Implementierung}{16}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Model}{16}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Lib}{18}{subsection.3.3.2}
+\contentsline {subsubsection}{Ausgabe}{18}{section*.18}
+\contentsline {subsection}{\numberline {3.3.3}Client}{18}{subsection.3.3.3}
+\contentsline {subsubsection}{Kommandos}{18}{section*.19}
+\contentsline {subsubsection}{Interaktiver Modus}{19}{section*.20}
+\contentsline {subsubsection}{Batch Modus}{20}{section*.21}
+\contentsline {subsection}{\numberline {3.3.4}Proxy}{20}{subsection.3.3.4}
+\contentsline {subsubsection}{BaseProxy}{20}{section*.22}
+\contentsline {subsubsection}{Algorithmen}{21}{section*.23}
+\contentsline {subsection}{\numberline {3.3.5}Server}{21}{subsection.3.3.5}
+\contentsline {subsubsection}{Laden}{21}{section*.24}
+\contentsline {subsection}{\numberline {3.3.6}Erweiterbarkeit}{22}{subsection.3.3.6}
+\contentsline {subsubsection}{Model}{22}{section*.25}
+\contentsline {subsubsection}{Client}{23}{section*.26}
+\contentsline {subsubsection}{Proxy}{24}{section*.27}
+\contentsline {subsubsection}{Server}{25}{section*.28}
 \contentsline {chapter}{\numberline {4}Evaluation}{27}{chapter.4}
 \contentsline {section}{\numberline {4.1}Cluster}{27}{section.4.1}
 \contentsline {section}{\numberline {4.2}Testdaten}{27}{section.4.2}

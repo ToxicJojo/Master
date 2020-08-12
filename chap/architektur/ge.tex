@@ -1,0 +1,42 @@
+\section{Graph Engine}
+
+Da Graph Engine eine wichtige Rolle in dem MultiLayer Graph System spielt werden im folgendem einige Dinge betrachtet, die wichtig für die Verwendung von Graph Engine sind.
+Dies ist insbesondere interassant, da die aktuelle Version 2 von GraphEngine sich zurzeit noch in Entwicklung befindet und dadurch die Verwendung durch fehlende Dokumentation erschwert wird..
+
+
+\subsection{Einrichtung}
+
+Graph Engine wurde in C\# entwickelt und verwendet den dafür verbreitet Paket-Manager NuGet, mit dem Pakete verwaltet werden können.
+Die aktuellste Version von dem GraphEngine.Core Paket auf NuGet ist 1.0.8467 vom 	19.08.2016. Da in dieser Arbeit die Version 2.0.9912 verwendet wird, ist es nötig das GraphEngine.Core Paket selber vom Quellcode aus zu bauen.
+
+Der Quellcode ist auf Github in dem Repository https://github.com/microsoft/GraphEngine zu finden. 
+
+
+\subsection{Datenzugriff}
+
+
+Graph Engine bietet mehrer Arten auf die Daten von Zellen zuzugreifen. Dabei ist es wichtig zu verstehen, wie die verschiedenen Arten funktionieren und welche wie deren Performance ist.
+
+Die erste Möglichkeit ist auf Zellen von entfernten Maschinen zuzugreifen. Dabei werden die Funktionen der \verb|Global.CloudStorage| verwendet. Dies ist die langsamste Art , da für jeden Zellenzugriff eine Netzwerknachricht an die entfernte Maschine geschickt werden muss.
+
+Dazu gibt es zwei weitere Möglichkeiten auf Lokale Zelle mittels \verb|Global.LocalStorage| zuzugreifen. Die erste ist \verb|LoadCell()|. Diese Methode lädt die Daten einer Zelle aus dem von GE verwalteten Arbeitsspeicher in ein Objekt des C\# Heaps.
+Dabei wird jedes mal ein neues Objekt erzeugt und die Werte in dieses kopiert. Hiermit kann nur auf die Daten der Zelle zugegriffen diese aber nicht verändert werden.
+
+Die andere Methode ist der direkte Zugriff über \verb|UseCell()|. Dabei wird direkt auf die im Arbeitsspeicher vorhandene Zelle zugegriffen ohne das diese kopiert werden muss. Dazu können so auch die Werte der Zelle direkt verändert werden. Diese Methode ist damit von der Performance her beste Art auf Zellen zuzugreifen und sollte, wenn möglich immer verwendet werden.
+
+
+
+\subsection{Schwierigkeiten}
+
+Da sich die Version 2 von GraphEngine noch in Entwicklung befindet gibt es einige Schwierigkeiten die bei der Entwicklung von Anwedungen mit GraphEngine entstehen.
+
+Hauptsächlich ist hierbei die kaum vorhandene Dokumentation für Version 2 problematisch. Viele Änderungen zwischen den beiden Versionen sind nicht dokumentiert. So wurden zum Beispiel
+das Attribut jeder Zelle, welches die ID der Zelle beinhaltete von \verb|cell.CellID| zu \verb|cell.CellId| umbenannt. Auch wurde die Bezeichnung für entfernte Server von \verb|Server| zu \verb|Partition| geändert.
+Solche Änderungen machen das Entwickeln von Anwendungen mit GraphEngine Zeitaufwändig, da immer wieder im Quellcode nachgeschaut werden muss wie bestimmte Dinge heißen. 
+
+Dazu sind viele Funktionen auch wenig oder gar nicht dokumentiert. So zum Beispiel die Funktion \verb|Global.CloudStorage.BarrierSync(int)| welche es erlaubt die Server an einer Barriere warten zu lassen bis alle diese erreicht haben.
+Dies macht es schwierig alle Möglichkeiten von GraphEngine auszunutzen und erfordert regelmäßiges Nachforschen im Quellcode, ob gewisse Funktionen vorhanden sind und was diese im Detail machen.
+
+Zudem sind alle Beispielanwendungen, die es im GraphEngine Repository gibt noch auf Version 1 und einige dadurch nicht kompatibel mit der neuren Version.
+
+
