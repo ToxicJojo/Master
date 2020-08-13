@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  12 AUG 2020 13:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  13 AUG 2020 14:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1240,11 +1240,8 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 130.
 ) (./document.aux (./chap/einleitung/einleitung.aux) (./chap/grundlagen.aux)
-(./chap/hautpteil.aux) (./chap/evalution/evalutation.aux)
-(./chap/einleitung.aux) (./chap/gliederung.aux) (./chap/struktur.aux)
-(./chap/organisation.aux) (./chap/text.aux) (./chap/zitieren.aux)
-(./chap/auflistungen.aux) (./chap/bilder.aux) (./chap/tabellen.aux)
-(./chap/matheumgebung.aux) (./chap/code.aux) (./chap/anhang.aux))
+(./chap/architektur.aux) (./chap/implementierung.aux)
+(./chap/evalution/evalutation.aux) (./chap/anhang.aux))
 \openout1 = `document.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -1368,7 +1365,30 @@ LaTeX Info: Redefining \nameref on input line 50.
 \c@lstlisting=\count157
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
- (./document.tdo
+ (./document.tdo)
+\tf@tdo=\write6
+\openout6 = `document.tdo'.
+
+ [1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<template/hhu_logo.jpg, id=179, 2276.2641pt x 869.8899pt>
+File: template/hhu_logo.jpg Graphic file (type jpg)
+
+<use template/hhu_logo.jpg>
+Package pdftex.def Info: template/hhu_logo.jpg used on input line 51.
+(pdftex.def)             Requested size: 159.333pt x 60.88524pt.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+ [1
+
+ <./template/hhu_logo.jpg>] [2
+
+
+] (./document.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 1.
 
 
@@ -1387,45 +1407,19 @@ LaTeX Font Info:    Try loading font information for OMX+psycm on input line 1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-)
-\tf@tdo=\write6
-\openout6 = `document.tdo'.
-
- [1
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<template/hhu_logo.jpg, id=285, 2276.2641pt x 869.8899pt>
-File: template/hhu_logo.jpg Graphic file (type jpg)
-
-<use template/hhu_logo.jpg>
-Package pdftex.def Info: template/hhu_logo.jpg used on input line 51.
-(pdftex.def)             Requested size: 159.333pt x 60.88524pt.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
- [1
-
- <./template/hhu_logo.jpg>] [2
-
-
-] (./document.toc
-[3] [4])
+ [3])
 \tf@toc=\write7
 \openout7 = `document.toc'.
 
- [5] [6
-
-
-]
+ [4]
 \openout2 = `chap/einleitung/einleitung.aux'.
 
- (./chap/einleitung/einleitung.tex
+
+(./chap/einleitung/einleitung.tex
 Kapitel 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -1434,6 +1428,8 @@ been already used, duplicate ignored
 l.28 I
       n dieser Arbeit wird untersucht inwiefern mit Graph Engine ein System ...
 [1
+
+
 
 
 ]) [2]
@@ -1447,7 +1443,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 
-<img/network_types.png, id=388, 555.57562pt x 142.28156pt>
+<img/network_types.png, id=249, 555.57562pt x 142.28156pt>
 File: img/network_types.png Graphic file (type png)
 
 <use img/network_types.png>
@@ -1473,43 +1469,42 @@ LaTeX Font Info:    Try loading font information for TS1+ptm on input line 42.
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ))
 (./chap/grundlagen/pageRank.tex [4]) (./chap/grundlagen/hits.tex [5])
-(./chap/grundlagen/systeme.tex [6]
-<img/muxViz.png, id=421, 746.79pt x 485.56406pt>
-File: img/muxViz.png Graphic file (type png)
- <use img/muxViz.png>
-Package pdftex.def Info: img/muxViz.png used on input line 18.
-(pdftex.def)             Requested size: 398.3386pt x 258.99995pt.
-)
-Overfull \hbox (15.18446pt too wide) in paragraph at lines 26--10
-\OT1/ptm/m/n/10.95 Die Mul-ti-layer Net-works Li-bra-ry for Py-thon (Pym-net) w
-ur-de von Mik-ko Ki-vel[]a 2015 ver[]offent-
- []
-
-(./chap/grundlagen/graphEngine.tex [7 <./img/muxViz.png>]
+(./chap/grundlagen/graphEngine.tex [6] [7]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 44.
- [8]
+nput line 52.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 45.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 45.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 52.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 53.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 52.
- [9]
-Overfull \hbox (107.4693pt too wide) in paragraph at lines 107--111
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 60.
+ [8]
+Overfull \hbox (107.4693pt too wide) in paragraph at lines 115--119
 \OT1/ptm/m/n/10.95 ge-war-tet wird, so wird z.B. f[]ur ein Pro-to-koll ``My-HTT
 -Pro-to-col'' am End-punkt ``http://example.com/MyHttpProtocol''
  []
 
-[10])) [11]
-\openout2 = `chap/hautpteil.aux'.
+[9]) (./chap/grundlagen/systeme.tex
+<img/muxViz.png, id=332, 746.79pt x 485.56406pt>
+File: img/muxViz.png Graphic file (type png)
+ <use img/muxViz.png>
+Package pdftex.def Info: img/muxViz.png used on input line 18.
+(pdftex.def)             Requested size: 398.3386pt x 258.99995pt.
+))
+Overfull \hbox (15.18446pt too wide) in paragraph at lines 26--59
+\OT1/ptm/m/n/10.95 Die Mul-ti-layer Net-works Li-bra-ry for Py-thon (Pym-net) w
+ur-de von Mik-ko Ki-vel[]a 2015 ver[]offent-
+ []
 
- (./chap/hautpteil.tex [12
+[10] [11 <./img/muxViz.png>]
+\openout2 = `chap/architektur.aux'.
+
+ (./chap/architektur.tex [12
 
 
 
@@ -1519,7 +1514,16 @@ Kapitel 3.
 Underfull \vbox (badness 1975) has occurred while \output is active []
 
  [14]
-[15]) (./chap/architektur/implementierung.tex [16] [17] [18]
+[15])) [16]
+\openout2 = `chap/implementierung.aux'.
+
+ (./chap/implementierung.tex
+Kapitel 4.
+(./chap/architektur/implementierung.tex [17
+
+
+
+] [18] [19]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -1531,222 +1535,42 @@ LaTeX Font Info:    Try loading font information for TS1+pcr on input line 173.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [19] [20]
+) [20] [21]
 
-LaTeX Warning: Reference `lst:tslModel' on page 21 undefined on input line 252.
+LaTeX Warning: Reference `lst:tslModel' on page 22 undefined on input line 252.
 
 
-[21]
+[22]
 Overfull \hbox (5.95299pt too wide) in paragraph at lines 264--266
 \OT1/ptm/m/n/10.95 che Schrit-te not-wen-dig sind um neue Funk-tio-na-lit[]at h
 in-zu-zuf[]ugen. Da-bei muss die gew[]unsch-
  []
 
-[22] [23] [24] [25])) [26]
+[23] [24] [25] [26])) [27]
 \openout2 = `chap/evalution/evalutation.aux'.
 
- (./chap/evalution/evalutation.tex
-Kapitel 4.
+ (./chap/evalution/evalutation.tex [28
+
+
+
+]
+Kapitel 5.
 (./chap/evalution/cluster.tex
 Overfull \hbox (6.81749pt too wide) in paragraph at lines 4--6
 \OT1/ptm/m/n/10.95 Die Eva-lua-ti-on wur-de auf dem Re-chen-clu-ster des Lehr-s
 tuhl f[]ur Be-triebs-sy-ste-me der Heinrich-
  []
 
-)) [27
-
-
-
-]
-\openout2 = `chap/einleitung.aux'.
-
- (./chap/einleitung.tex [28
-
-
-
-]
-Kapitel 5.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 14.
-
-[29]
-Overfull \hbox (6.07492pt too wide) in paragraph at lines 29--31
-\OT1/ptm/m/n/10.95 tun-gen f[]ur den Auf-bau von Te-stum-ge-bun-gen sind je-der
- ge-druck-ten Ar-beit auf CD/DVD
- []
-
-) [30]
-\openout2 = `chap/gliederung.aux'.
-
- (./chap/gliederung.tex
-Kapitel 6.
-) [31
-
-
-
-]
-\openout2 = `chap/struktur.aux'.
-
- (./chap/struktur.tex [32
-
-
-
-]
-Kapitel 7.
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 30--33
-
- []
-
-[34]) [35]
-\openout2 = `chap/organisation.aux'.
-
- (./chap/organisation.tex [36
-
-
-
-]
-Kapitel 8.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Overfull \hbox (28.13817pt too wide) in paragraph at lines 7--8
-[]\OT1/ptm/m/n/10.95 Text in die-sem Block wird von La-tex nicht aus-ge-wer-tet
- (Son-der-zei-chen, Latex-Kommandos) 
- []
-
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 12.
-) [37]
-\openout2 = `chap/text.aux'.
-
- (./chap/text.tex [38
-
-
-
-]
-Kapitel 9.
-) [39]
-\openout2 = `chap/zitieren.aux'.
-
- (./chap/zitieren.tex [40
-
-
-
-]
-Kapitel 10.
-
-LaTeX Warning: Citation `Welsh:2001:SAW:502034.502057' on page 41 undefined on 
-input line 4.
-
-) [41]
-\openout2 = `chap/auflistungen.aux'.
-
- (./chap/auflistungen.tex [42
-
-
-
-]
-Kapitel 11.
-) [43]
-\openout2 = `chap/bilder.aux'.
-
- (./chap/bilder.tex [44
-
-
-
-]
-Kapitel 12.
-<img/hhu_logo.jpg, id=903, 2276.2641pt x 869.8899pt>
-File: img/hhu_logo.jpg Graphic file (type jpg)
- <use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 12.
-(pdftex.def)             Requested size: 398.3386pt x 152.21973pt.
-File: img/hhu_logo.jpg Graphic file (type jpg)
-
-<use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 21.
-(pdftex.def)             Requested size: 199.1693pt x 76.10986pt.
-File: img/hhu_logo.jpg Graphic file (type jpg)
- <use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 30.
-(pdftex.def)             Requested size: 179.25114pt x 68.4909pt.
-File: img/hhu_logo.jpg Graphic file (type jpg)
- <use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 35.
-(pdftex.def)             Requested size: 179.25114pt x 68.4909pt.
-File: img/hhu_logo.jpg Graphic file (type jpg)
-
-<use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 46.
-(pdftex.def)             Requested size: 318.67209pt x 121.77048pt.
-File: img/hhu_logo.jpg Graphic file (type jpg)
- <use img/hhu_logo.jpg>
-Package pdftex.def Info: img/hhu_logo.jpg used on input line 51.
-(pdftex.def)             Requested size: 318.67209pt x 121.77048pt.
-) [45 <./img/hhu_logo.jpg>]
-[46]
-\openout2 = `chap/tabellen.aux'.
-
- (./chap/tabellen.tex
-Kapitel 13.
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47
-
-
-
-])
-[48]
-\openout2 = `chap/matheumgebung.aux'.
-
- (./chap/matheumgebung.tex
-Kapitel 14.
-) [49
-
-
-
-]
-\openout2 = `chap/code.aux'.
-
- (./chap/code.tex [50
-
-
-
-]
-Kapitel 15.
-LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 33.
-LaTeX Font Info:    Try loading font information for OML+pcr on input line 33.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlpcr.fd
-File: omlpcr.fd 
-)
-LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 33.
- [51]
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)) [52]
+)) [29]
 \openout2 = `chap/anhang.aux'.
 
+ (./chap/anhang.tex [30
 
-(./chap/anhang.tex
+
+
+]
 Anhang A.
-) [53
-
-
-
-] [54
+) [31] [32
 
 
 ]
@@ -1756,64 +1580,60 @@ No file document.bbl.
 \tf@lof=\write8
 \openout8 = `document.lof'.
 
- [55
+ [33
 
 
 
 
-] [56
+] [34
 
 ] (./document.lot)
 \tf@lot=\write9
 \openout9 = `document.lot'.
 
- [57] [58
+ [35] [36
 
 ] (./document.loa)
 \tf@loa=\write10
 \openout10 = `document.loa'.
 
- [59
+ [37
 
 ]
-[60
+[38
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
- [61] [62
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
+ [39] [40
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 75.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 75.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
  (./document.aux (./chap/einleitung/einleitung.aux)
-(./chap/grundlagen.aux) (./chap/hautpteil.aux)
-(./chap/evalution/evalutation.aux) (./chap/einleitung.aux)
-(./chap/gliederung.aux) (./chap/struktur.aux) (./chap/organisation.aux)
-(./chap/text.aux) (./chap/zitieren.aux) (./chap/auflistungen.aux)
-(./chap/bilder.aux) (./chap/tabellen.aux) (./chap/matheumgebung.aux)
-(./chap/code.aux) (./chap/anhang.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 75.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 75.
+(./chap/grundlagen.aux) (./chap/architektur.aux) (./chap/implementierung.aux)
+(./chap/evalution/evalutation.aux) (./chap/anhang.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: EC90B03105B5626237C1ACDD3ADA771C;4043.
+(rerunfilecheck)             Checksum: 0033C637BA73AB91DE3903EB7C3FA8F4;2502.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 75.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
  ) 
 Here is how much of TeX's memory you used:
- 23616 strings out of 493013
- 416809 string characters out of 6135682
- 602163 words of memory out of 5000000
- 26092 multiletter control sequences out of 15000+600000
- 50480 words of font info for 107 fonts, out of 8000000 for 9000
+ 23204 strings out of 493013
+ 410356 string characters out of 6135682
+ 598300 words of memory out of 5000000
+ 25866 multiletter control sequences out of 15000+600000
+ 47221 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,15n,95p,721b,2188s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,95p,727b,2057s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
@@ -1824,10 +1644,10 @@ rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (69 pages, 8173119 bytes).
+Output written on document.pdf (45 pages, 4621006 bytes).
 PDF statistics:
- 1158 PDF objects out of 1200 (max. 8388607)
- 1060 compressed objects within 11 object streams
- 482 named destinations out of 1000 (max. 500000)
- 569 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 834 PDF objects out of 1000 (max. 8388607)
+ 764 compressed objects within 8 object streams
+ 375 named destinations out of 1000 (max. 500000)
+ 364 words of extra memory for PDF output out of 10000 (max. 10000000)
 
