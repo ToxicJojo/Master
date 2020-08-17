@@ -6,13 +6,14 @@ A level-1 auxiliary file: chap/grundlagen.aux
 A level-1 auxiliary file: chap/architektur.aux
 A level-1 auxiliary file: chap/implementierung.aux
 A level-1 auxiliary file: chap/evalution/evalutation.aux
+A level-1 auxiliary file: chap/fazit.aux
 A level-1 auxiliary file: chap/anhang.aux
 The style file: plain.bst
 Database file #1: library.bib.bib
 Warning--empty booktitle in graphEngine
 You've used 5 entries,
             2118 wiz_defined-function locations,
-            535 strings with 5073 characters,
+            536 strings with 5087 characters,
 and the built_in function-call counts, 1878 in all, are:
 = -- 172
 > -- 109

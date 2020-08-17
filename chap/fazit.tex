@@ -1,0 +1,26 @@
+\chapter{Fazit}
+
+In dieser Arbeit wurde mithilfe von Graph Engine ein erweiterbares System gebaut, welches genutzt werden kann um Multi Layer Graphen verteilt und skalierbar zu verarbeiten.
+Dazu wurden in C\# drei Anwendungen erstellt, die als Client, Proxy und Server miteinander agieren.
+Danach wurde die Performance von verschiedenen Funktionen und Algorithmen in hinsicht auf ihre Skalierbarkeit mit mehreren Servern gemessen.
+
+
+Es konnte gezeigt werden, dass mit der Freiheit die Graph Engine bei der Gestaltung der Graphstruktur ermöglicht, Multi Layer Graphen dargestellt werden können.
+Dazu konnten die Funktion von Graph Engine zum Austausch von Nachrichten zwischen einzelnen Komponenten genutzt werden, um eine effiziente Kommunikation zwischen Client, Proxy und Server zu gewährleisten. 
+Diese ermöglicht es eine auf die einzelnen Algorithmen und Funktionen zugeschnittene Kommunikation zu haben.
+
+
+Es wurde eine Client-Anwendung entwickelt, welche auf der Maschine des Benutzer läuft. Diese kann über die Kommandozeilen bedient werden und bietet sowohl die Möglichkeit interaktiv Kommandos auszuführen oder in einem Batch Modus eine Reihe an Kommandos aus einer Datei heraus auszuführen.
+
+Eine Proxy Anwendung wurde erstellt, die als Bindeglied zwischen Client und Server fungiert. Sie kann Anfragen vom Client verarbeiten und die Server anweisen die Anfrage enstprechend zu bearbeiten. Sie koordiniert die Server und kann aus deren Zwischenergebnissen ein Gesamtergebniss bilden, welches an den Client zurückgegeben wird.
+
+Der entwickelte Server kann unter der Koordinierung der Proxy verschiedenen Algorithmen ausführen. Dabei sind die Server in der Lage untereinander zu kommunizieren und nötige Daten auszutauschen.
+
+
+Es wurde gezeigt, dass das System in der Lage ist einen große Multi Layer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält wenn man die Anzahl der Server im Cluster erhöht.
+Sowohl beim Laden, als auch bei den beiden geprüften Algorithmen konnte gezeigt werden, dass durch die parallele Implementierung eine größere Server Anzahl zu deutlich besserer Performance führt.
+Hierbei wurde insbesondere beobachtet, dass ab einer bestimmten Serverzahl der Overhead der Berechnungen den Großteil der Laufzeit ausmacht, sodass weitere Server nur zu kleineren Verbesserungen führen.
+
+
+\section{Ausblick}
+
