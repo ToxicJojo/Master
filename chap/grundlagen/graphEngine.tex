@@ -1,12 +1,10 @@
 \section{GraphEngine}
 
 Graph Engine (GE) ist ein verteiltes in-Memory Datenverarbeitungssystem, welches von Microsoft Research Asia 
-entwickelt wurde. Der Quellcode von GE ist quelloffen auf Github verfügbar und in C\# geschrieben.
+entwickelt wurde \cite{graphEngine}. Der Quellcode von GE ist quelloffen auf Github verfügbar und in C\# geschrieben.
 
 Es bietet einen verteilten Key-Value Speicher in dem Daten gespeichert und verarbeitet werden können. Dabei ist GE sehr flexibel darin, wie die Daten gespeichert werden. Der Anwender muss selbst
-Schemata für die zu Speichernden Daten erstellen. Dazu bietet GE die Möglichkeit die Kommunikation unter den verschiedenen Servern mit selbst erstellten Protokollen zu koordinieren.
-
-Im Folgendem werden die verschiedenen Komponenten von GE besprochen.
+Schemata für die zu speichernden Daten erstellen. Dazu bietet GE die Möglichkeit die Kommunikation unter den verschiedenen Servern mit selbst erstellten Protokollen zu koordinieren. Im Folgendem werden die verschiedenen Komponenten von GE besprochen.
 
 \subsection{Memory Cloud}
 
@@ -63,18 +61,12 @@ cell struct GraphNode {
 
 
 
-GE hat einen eigenen Compiler für TSl, der die TSl Dateien in C\# Quellcode umwandelt. So werden aus den Definitionen für Zellen, Schnittstellen
-generiert um diese in GE zu Erstellen, Verändern oder Löschen. 
+GE hat einen eigenen Compiler für TSl, der die TSl Dateien in C\# Quellcode umwandelt. So werden aus den Definitionen Schnittstellen
+generiert um die entsprechenden Zellen in GE zu Erstellen, Verändern oder Löschen. 
 
 \subsection{Computation Engine}
 
 Um Berechnungen durchzuführen besteht ein GE Cluster aus drei verschiedenen Komponenten die unterschiedliche Aufgaben übernehmen.
-
-\begin{enumerate}
-  \item Server
-  \item Proxy
-  \item Client
-\end{enumerate}
 
 
 \subsubsection{Server}
@@ -113,7 +105,9 @@ Der Empfänger startet einen Thread, der die Anfrage abarbeitet. Der Absender er
 
 
 HTTP Protokolle bieten Clients die Möglichkeit eine RESTful Version der Syncronen Protokolle über HTTP zu nutzen. GE erstellt automatisch die Endpunkte an denen
-auf Anfragen gewartet wird, so wird z.B. für ein Protokoll ``MyHTTProtocol'' am Endpunkt ``http://example.com/MyHttpProtocol'' gewartet. Die Anfrage und
+auf Anfragen gewartet wird, so wird z.B. für ein Protokoll \verb|MyHTTProtocol| am Endpunkt
+
+\verb|http://example.com/MyHttpProtocol| gewartet. Die Anfrage und
 Antwort werden jeweils in JSON Strukturen übergeben. HTTP Protokolle werden nicht für Server zu Server Kommunikation genutzt, da sie deutlich weniger effizient sind als die
 Synrchonen und Asynchronen Protokolle.
 

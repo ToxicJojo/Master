@@ -341,8 +341,8 @@
 
 \newcommand{\literatur}
 {
-  \bibliography{\literaturbibtexdatei}
-  \bibliographystyle{plain}
+  %\bibliography{\literaturbibtexdatei}
+  %\bibliographystyle{plain}
 
   \addcontentsline{toc}{chapter}{Literaturverzeichnis}
   \cleardoublepage

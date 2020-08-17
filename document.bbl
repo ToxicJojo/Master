@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{De_Domenico_2014}
+M.~De~Domenico, M.~A. Porter, and A.~Arenas.
+\newblock Muxviz: a tool for multilayer analysis and visualization of networks.
+\newblock {\em Journal of Complex Networks}, 3(2):159–176, Oct 2014.
+
+\bibitem{article}
+Manlio De~Domenico, Albert Solè-Ribalta, Emanuele Cozzo, Mikko Kivelä, Yamir
+  Moreno, Mason Porter, Sergio Gomez, and Alex Arenas.
+\newblock Mathematical formulation of multi-layer networks.
+\newblock {\em Physical Review X}, 3, 07 2013.
+
+\bibitem{Kleinberg98authoritativesources}
+Jon~M. Kleinberg.
+\newblock Authoritative sources in a hyperlinked environment.
+\newblock {\em Journal of the ACM}, 46:668--677, 1998.
+
+\bibitem{Page98thepagerank}
+Larry Page, Sergey Brin, R.~Motwani, and T.~Winograd.
+\newblock The pagerank citation ranking: Bringing order to the web, 1998.
+
+\bibitem{graphEngine}
+Bin Shao, Haixun Wang, and Yatao Li.
+\newblock Trinity: A distributed graph engine on a memory cloud.
+\newblock pages 505--516, 06 2013.
+
+\end{thebibliography}

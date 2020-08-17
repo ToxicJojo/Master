@@ -6,7 +6,19 @@ Dabei wird GE genutzt um die Graph Daten effizent im Arbeitsspeicher der Server 
 anderen Komponenten.
 
 In der Architektur ist der Client für das Senden von Anfragen, wie das Ausführunen eine Algorithmus oder das Laden eines Graphen, an die Proxy zuständig.
-Die Proxy verarbeitet die Anfrage und koordiniert ggf. die Berechnungen der Server. Sobald die Anfrage fertig bearbeitet ist schickt die Proxy eine Antwort mit den enstprechnden Ergebnissen an den Client.
+Die Proxy verarbeitet die Anfrage und koordiniert ggf. die Berechnungen der Server. Die Server kommunizieren falls nötig für ihre Berechnungen untereinander um Daten über entfernte Knoten anzufragen oder zu senden. Sobald die Anfrage fertig bearbeitet ist schickt die Proxy eine Antwort mit den enstprechnden Ergebnissen an den Client.
+Eine Darstellung dieser Arbeitsweise ist in Abbildung \ref{architektur} dargestellt.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{1.0\textwidth}
+    \includegraphics[width=1.0\linewidth]{img/Architektur-Cluster.png}
+  \end{subfigure}
+  \caption{Aufbau des Multilayer Clusters}
+  \label{architektur}
+\end{figure}
+
+
 
 \subsection{Model}
 
