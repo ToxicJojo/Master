@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{geVersion}
+Nuget graphengine.core version.
+\newblock \url{https://www.nuget.org/packages/GraphEngine.Core/}.
+\newblock Accessed: 2020-08-18.
+
 \bibitem{De_Domenico_2014}
 M.~De~Domenico, M.~A. Porter, and A.~Arenas.
 \newblock Muxviz: a tool for multilayer analysis and visualization of networks.
@@ -24,5 +29,10 @@ Larry Page, Sergey Brin, R.~Motwani, and T.~Winograd.
 Bin Shao, Haixun Wang, and Yatao Li.
 \newblock Trinity: A distributed graph engine on a memory cloud.
 \newblock pages 505--516, 06 2013.
+
+\bibitem{sinha2015an}
+Arnab Sinha, Zhihong Shen, Yang Song, Hao Ma, Darrin Eide, and Kuansan Wang.
+\newblock An overview of microsoft academic service (mas) and applications.
+\newblock In {\em WWW - World Wide Web Consortium (W3C)}, May 2015.
 
 \end{thebibliography}

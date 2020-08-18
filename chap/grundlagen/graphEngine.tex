@@ -3,49 +3,49 @@
 Graph Engine (GE) ist ein verteiltes in-Memory Datenverarbeitungssystem, welches von Microsoft Research Asia 
 entwickelt wurde \cite{graphEngine}. Der Quellcode von GE ist quelloffen auf Github verfügbar und in C\# geschrieben.
 
-Es bietet einen verteilten Key-Value Speicher in dem Daten gespeichert und verarbeitet werden können. Dabei ist GE sehr flexibel darin, wie die Daten gespeichert werden. Der Anwender muss selbst
-Schemata für die zu speichernden Daten erstellen. Dazu bietet GE die Möglichkeit die Kommunikation unter den verschiedenen Servern mit selbst erstellten Protokollen zu koordinieren. Im Folgendem werden die verschiedenen Komponenten von GE besprochen.
+Es bietet einen verteilten Key-Value Speicher, in dem Daten gespeichert und verarbeitet werden können. Dabei ist GE sehr flexibel darin, wie die Daten gespeichert werden. Der Anwender muss selbst
+Schemata für die zu speichernden Daten erstellen. Dazu bietet GE die Möglichkeit, die Kommunikation unter den verschiedenen Servern mit selbst erstellten Protokollen zu koordinieren. Im Folgenden werden die verschiedenen Komponenten von GE besprochen.
 
 \subsection{Memory Cloud}
 
 Im Kern von GE steht die sogenannte Memory Cloud. Diese stellt einen verteilten Key-Value Speicher dar, welcher im Arbeitsspeicher der Maschinen
-liegt um einen schnellen Zugriff zu gewährleisten.
+liegt, um einen schnellen Zugriff zu gewährleisten.
 
 GE verwaltet sogenannte Memory Trunks, in denen die Key-Value Paare gespeichert werden. Jeder der Trunks ist auf einer Maschine gespeichert.
-In der Regel gibt es mehr Trunks als Maschinen sodass eine Maschine mehrere Trunks hält. Durch die Aufteilung in mehrere Trunks kann parallel auf Daten aus verschiedenen Trunks zugegriffen
-werden, ohne das ein weiterer Lock Mechanismus benötigt wird. Die Größe der Trunks kann manuell gewählt werden liegt aber bei den Standardeinstellungen bei 2GB.
-Um zu gewährleisten dass die Daten wiederhergestellt werden können, werden die Memory Trunks in dem verteilten Dateisystem Trinity File System (TFS) gespeichert. Das Design von TFS ist ähnlich zu Googles HDFS.
+In der Regel gibt es mehr Trunks als Maschinen, sodass eine Maschine mehrere Trunks hält. Durch die Aufteilung in mehrere Trunks kann parallel auf Daten aus verschiedenen Trunks zugegriffen
+werden, ohne das ein weiterer Lock Mechanismus benötigt wird. Die Größe der Trunks kann manuell gewählt werden, liegt aber bei den Standardeinstellungen bei 2GB.
+Um zu gewährleisten, dass die Daten wiederhergestellt werden können, werden die Memory Trunks in dem verteilten Dateisystem Trinity File System (TFS) gespeichert. Das Design von TFS ist ähnlich zu Googles HDFS.
 
 Als Schlüssel für die Werte werden 64-Bit Werte verwendet.
 Die Werte selbst sind beliebig große Datenblobs, welche direkt im Arbeitsspeicher der Maschinen verwaltet werden.
 
 
-Um einen Wert anhand des Schlüssels zu finden werden zwei Schritte durchgeführt. Erst wird die Maschine gefunden, die für den jeweiligen Schlüssel
+Um einen Wert anhand des Schlüssels zu finden, werden zwei Schritte durchgeführt. Erst wird die Maschine gefunden, die für den jeweiligen Schlüssel
 verantwortlich ist. Danach wird der Schlüssel in den Memory Trunks dieser Maschine gefunden.
 
-Im ersten Schritt wird der Schlüssel auf einen p-Bit Wert gehasht um ein  $ i \in [0, 2^{p} - 1] $ zu erhalten. Der Schlüssel liegt demnach in
-Memory Trunk $ i $. Jede Maschine besitzt eine Adressierungstabelle die fest hält welcher Trunk auf welcher Maschine liegt.
+Im ersten Schritt wird der Schlüssel auf einen p-Bit Wert gehasht, um ein  $ i \in [0, 2^{p} - 1] $ zu erhalten. Der Schlüssel liegt demnach in
+Memory Trunk $ i $. Jede Maschine besitzt eine Adressierungstabelle, die festhält, welcher Trunk auf welcher Maschine liegt.
 
-Auf dieser Maschine muss nun der Schlüssel gefunden werden. Dafür besitzt jeder Memory Trunk eine Hashtabelle die zu jeden Schlüssel
+Auf dieser Maschine muss nun der Schlüssel gefunden werden. Dafür besitzt jeder Memory Trunk eine Hashtabelle, die zu jeden Schlüssel
 ein Offset und die Größe des Wertes im Speicher angbiet.
 
 \subsection{Graph Model}
 
-GE bietet ein flexibles Model mit denen die Graphdaten modelliert werden können. Es gibt keine festgelegte Struktur und es ist den Entwicklern
+GE bietet ein flexibles Model, mit denen die Graphdaten modelliert werden können. Es gibt keine festgelegte Struktur und es ist den Entwicklern
 überlassen Schemata für die Daten festzulegen. Hierbei hat man die Möglichkeit das Graphmodell genau an das zu lösende Problem anzupassen.
 Dies bietet die Chance Optimierungen zu finden und gibt eine sehr feine Kontrolle über die gespeicherten Daten.
 
 \subsubsection{Trinity Specification Language (TSL)}
 
 Um das Datenmodell zu definieren benutzt GE eine eigene Sprache, die Trinity Specification Language (TSL). Mit dieser werden sowohl die Schemas
-für Daten als auch Server Protokolle und Schnittstellen erstellt. 
+für Daten, als auch Server Protokolle und Schnittstellen erstellt. 
 
 TSL bietet die Möglichkeit Zellen zu definieren, welche im Betrieb als Werte im Key-Value Speicher abgelegt werden können.
-Zellen können Grunddatentypen wie int, float, string etc. speichern sowie Listen von Werten. Um komplexere Werte darzustellen können auch in TSL erstellte structs verwendet werden.
+Zellen können Grunddatentypen wie int, float, string etc. speichern, sowie Listen von Werten. Um komplexere Werte darzustellen, können auch in TSL erstellte structs verwendet werden.
 Mit diesen Möglichkeiten lassen sich sehr viele Datenstrukturen in TSL modellieren. 
 
 Ein Beispiel für einen simplen Graphen ist in  \ref{lst:tsl} dargestellt. In diesem Beispielgraph hat jeder Knoten 
-einen Wert und eine Liste an Kanten. Die Kanten selbst haben ein Gewicht sowie, einen Verweiß auf die ID des Knoten auf den sie zeigen.
+einen Wert und eine Liste an Kanten. Die Kanten selbst haben ein Gewicht, sowie einen Verweiß auf die ID des Knoten, auf den sie zeigen.
 
 \begin{lstlisting}[language=c,label={lst:tsl}, caption={Beispiel für einen in TSL definierte Graphenstruktur}]
 struct Edge {
@@ -62,50 +62,50 @@ cell struct GraphNode {
 
 
 GE hat einen eigenen Compiler für TSl, der die TSl Dateien in C\# Quellcode umwandelt. So werden aus den Definitionen Schnittstellen
-generiert um die entsprechenden Zellen in GE zu Erstellen, Verändern oder Löschen. 
+generiert, um die entsprechenden Zellen in GE zu erstellen, verändern oder löschen. 
 
 \subsection{Computation Engine}
 
-Um Berechnungen durchzuführen besteht ein GE Cluster aus drei verschiedenen Komponenten die unterschiedliche Aufgaben übernehmen.
+Um Berechnungen durchzuführen, besteht ein GE Cluster aus drei verschiedenen Komponenten, die unterschiedliche Aufgaben übernehmen.
 
 
 \subsubsection{Server}
 
-Die Server in einem GE Cluster haben zwei Aufgaben. Zum einem speichern sie die Memory Trunks in ihrem Arbeitsspeicher, 
+Die Server in einem GE Cluster haben zwei Aufgaben: Zum einem speichern sie die Memory Trunks in ihrem Arbeitsspeicher, 
 zum anderen führen sie Berechnungen auf den gespeicherten Daten durch.
-Um diese Berechnungen durchzuführen werden in der Regel Nachrichten mit anderen GE Komponenten ausgetauscht. Insbesondere die Kommunikation zwischen den Servern
+Um diese Berechnungen durchzuführen, werden in der Regel Nachrichten mit anderen GE Komponenten ausgetauscht. Insbesondere die Kommunikation zwischen den Servern
 selbst ist oft notwendig, da jeder Server nur eine Sicht auf seine lokal gespeicherten Daten hat.
 
 \subsubsection{Proxy}
 
-Proxies speichern selber keine Daten können aber Nachrichten austauschen und Berechnungen durchführen. Sie können als 
+Proxies speichern selber keine Daten, können aber Nachrichten austauschen und Berechnungen durchführen. Sie können als 
 Bindeglied zwischen Client und Server genutzt werden. So können sie z.B. von Clients geschickte Anfrangen auf die Server aufteilen und deren
 Berechnungen koordinieren oder die einzelne Ergebnisse agreggieren. Insbesondere in aufwändigeren Algorithmen kann eine Proxy 
 den Ablauf kontrollieren und Entscheidungen wie Abbruchsbedingungen prüfen.
 
 \subsubsection{Client}
 
-Clients laufen auf der Maschine des Benutzers der mit dem GE Cluster interagieren will. Clients senden Anfragen an die Server oder Proxies und
+Clients laufen auf der Maschine des Benutzers, der mit dem GE Cluster interagieren will. Clients senden Anfragen an die Server oder Proxies und
 erhalten die entsprechenden Ergebnisse zurück. Sie halten keine Daten und führen in der Regel auch keine Berechnungen durch, womit es keine großen Hardwareanforderungen
-an die Maschine gibt auf der ein Client läuft.
+an die Maschine gibt, auf der ein Client läuft.
 
 \subsubsection{Protokolle}
 
-Server, Proxies und Clients kommunizieren über Nachrichten die sie einander schicken. GE unterstützt hierbei drei verschiedene Arten von Protokollen.
+Server, Proxies und Clients kommunizieren über Nachrichten, die sie einander schicken. GE unterstützt hierbei drei verschiedene Arten von Protokollen.
 
 
-Syncrone Protokolle sind ähnlich zu syncronen Funktionaufrufen, die auf einer anderen Maschinen stattfinden. Sie blockieren die weitere Ausführung bis
-eine Antwort erhalten wurde. Ein Synchrones Protokoll kann sowohl in der Anfrage als auch in der Antwort Daten mitsenden. So kann beispielsweise die Liste von
+Syncrone Protokolle sind ähnlich zu syncronen Funktionaufrufen, die auf einer anderen Maschinen stattfinden. Sie blockieren die weitere Ausführung, bis
+eine Antwort erhalten wurde. Ein Synchrones Protokoll kann sowohl in der Anfrage, als auch in der Antwort Daten mitsenden. So kann beispielsweise die Liste von
 relevanten Schlüsseln übergeben werden und mit deren Gesamtsumme der Werte geantwortet werden.
 
 
-Ansyncrhone Protokolle blockieren die Ausführung des Absenders nicht. Der Empfänger antwortet beim erhalten der Anfrage sofort mit der Bestätigung das diese erhalten wurde.
+Ansynchrone Protokolle blockieren die Ausführung des Absenders nicht. Der Empfänger antwortet beim erhalten der Anfrage sofort mit der Bestätigung, dass diese erhalten wurde.
 In einem Synchronen Protokoll können lediglich in der Anfrage Werte mitgegeben werden.
-Der Empfänger startet einen Thread, der die Anfrage abarbeitet. Der Absender erfährt nicht wann die Anfrage vollständig bearbeitet wurde.
+Der Empfänger startet einen Thread, der die Anfrage abarbeitet. Der Absender erfährt nicht, wann die Anfrage vollständig bearbeitet wurde.
 
 
-HTTP Protokolle bieten Clients die Möglichkeit eine RESTful Version der Syncronen Protokolle über HTTP zu nutzen. GE erstellt automatisch die Endpunkte an denen
-auf Anfragen gewartet wird, so wird z.B. für ein Protokoll \verb|MyHTTProtocol| am Endpunkt
+HTTP Protokolle bieten Clients die Möglichkeit eine RESTful Version der Syncronen Protokolle über HTTP zu nutzen. GE erstellt automatisch die Endpunkte, an denen
+auf Anfragen gewartet wird. So wird z.B. für ein Protokoll \verb|MyHTTProtocol| am Endpunkt
 
 \verb|http://example.com/MyHttpProtocol| gewartet. Die Anfrage und
 Antwort werden jeweils in JSON Strukturen übergeben. HTTP Protokolle werden nicht für Server zu Server Kommunikation genutzt, da sie deutlich weniger effizient sind als die
@@ -113,9 +113,9 @@ Synrchonen und Asynchronen Protokolle.
 
 \subsubsection{TSL}
 
-Die Kommunikationschemas von Servern und Proxies werden in TSL definiert. Der folgende Block bietet ein Beispiel für einen Server der ein Synchrones Ping Protokoll unterstützt.
+Die Kommunikationschemas von Servern und Proxies werden in TSL definiert. In \ref{lst:ping} ist ein Beispiel für einen Server, der ein Synchrones Ping Protokoll unterstützt, dargestellt.
 
-\begin{lstlisting}{C}
+\begin{lstlisting}[language=c,label={lst:ping}, caption={In TSL definiertes Ping Protokoll}]
 struct PingMessage {
   string Content;
 }
@@ -133,20 +133,20 @@ server PingServer {
 \end{lstlisting}
 
 Wie schon bei den Zellen werden die Server und Protokolldefinitionen von dem TSL Compiler in C\# Code übersetzt. Für Server und Proxy
-Definitionen werden abstrakte Klassen erstellt in denen jeweils Methoden für die benötigten Protokolle implementiert werden müssen.
-Es werden zudem Methoden generiert um die definierten Anfragen an den Server oder die Proxy zu erstellen und diese zu senden.
+Definitionen werden abstrakte Klassen erstellt, in denen jeweils Methoden für die benötigten Protokolle implementiert werden müssen.
+Es werden zudem Methoden generiert, um die definierten Anfragen an den Server oder die Proxy zu erstellen und diese zu senden.
 
 
 \subsection{Datenzugriff}
 
-Die Daten der Zellen liegen im Arbeitsspeicher der Maschinen als Datenblobs. Um auf diese komfortabel zuzugreifen können die Daten in ein C\# Objekt
-serialisiert werden, das ist jedoch sehr langsam.
-Schnelerren zugriff hat man indem man die Daten direkt im RAM manipuliert. Das ist jedoch deutlich schwieriger da man das Speicherlayout der jeweiligen Daten
-kennen muss und entsprechende Zeiger Arithmetik betreiben muss. GE löst diesen Konflikt indem es aus der TSL Zellendefinition eine Zugriffklasse erzeugt.
-Diese übersetzt die Lese und Schreibzugriffe auf die Werte der Zelle auf die entsprechenden Operationen im Arbeitsspeicher. So lässt sich mit der Zugriffklasse arbeiten sowohl
-komfortabel als auch effizient arbeiten.
+Die Daten der Zellen liegen im Arbeitsspeicher der Maschinen als Datenblobs. Um auf diese komfortabel zuzugreifen, können die Daten in ein C\# Objekt
+serialisiert werden; das ist jedoch sehr langsam.
+Schnelleren Zugriff hat man, indem man die Daten direkt im RAM manipuliert. Das ist jedoch deutlich schwieriger, da man das Speicherlayout der jeweiligen Daten
+kennen und entsprechende Zeiger Arithmetik betreiben muss. GE löst diesen Konflikt, indem es aus der TSL Zellendefinition eine Zugriffklasse erzeugt.
+Diese übersetzt die Lese- und Schreibzugriffe auf die Werte der Zelle auf die entsprechenden Operationen im Arbeitsspeicher. So lässt sich mit der Zugriffklasse sowohl
+komfortabel, als auch effizient arbeiten.
 
-\begin{lstlisting}{language=sharpc}
+\begin{lstlisting}[language=c, caption={Bearbeitung einer Zelle mithilfe der Zugriffklasse}]
   using (var node = Global.LocalStorage.UseNode(cellId, accessOptions)) {
     int value = node.Value;
     node.Value = 5;

@@ -2,29 +2,29 @@
 
 
 Die Untersuchung von komplexen Netzwerken ist für viele verschiedene Forschungsbereiche, wie der Biologie, Soziologie, Transportation, Physik und vielen mehr, relevant. 
-Netzwerke können viele verschiedene reale oder künstliche Systeme darstellen und für die Forschung an diesen genutzt werden. Netzwerke wurden zum Beispiel benutzt um, Beziehungen zwischen Personen, Verlinkungen zwischen Websiten, Interaktion zwischen Proteinen und mehr darzustellen.
+Netzwerke können viele verschiedene reale oder künstliche Systeme darstellen und für die Forschung an diesen genutzt werden. Netzwerke wurden zum Beispiel benutzt um Beziehungen zwischen Personen, Verlinkungen zwischen Websiten, Interaktion zwischen Proteinen und mehr darzustellen.
 
 In traditionellen Netzwerken gibt es in der Regel nur eine Art von Kante, die alle Verbindungen zwischen Knoten beschreiben muss.
-Diese Einschränkung ist in den meisten Fällen eine Vereinfachung und kann dazu führen das gewisse Probleme nur schwer angegangen werden können. 
+Diese Einschränkung ist in den meisten Fällen eine Vereinfachung und kann dazu führen, dass gewisse Probleme nur schwer angegangen werden können. 
 
-Multilayer Netzwerke besitzen verschiedene Arten von Verbindungen zwischen Knoten und können somit Systeme darstellen in denen eine Entität verschiedene Nachbarn in verschiedenen Ebenen hat.
-Diese Ebenen können je nach Anwendugsfall verschiedene Kategorien sein. In diesen Multilayer Netzwerken gibt es neben den Verbindungen zwischen Knoten in der gleichen Ebene noch Verbindungen zwischen Knoten unterschiedlicher Ebenen.
+Multilayer Netzwerke besitzen verschiedene Arten von Verbindungen zwischen Knoten und können somit Systeme darstellen, in denen eine Entität verschiedene Nachbarn in verschiedenen Ebenen hat.
+Diese Ebenen können, je nach Anwendugsfall, verschiedene Kategorien sein. In diesen Multilayer Netzwerken gibt es neben den Verbindungen zwischen Knoten in der gleichen Ebene noch Verbindungen zwischen Knoten unterschiedlicher Ebenen.
 So lassen sich Systeme wie Transportnetzwerke mit verschiedenen Modi der Transportation und den Übergang zwischen diesen Modi darstellen.
 
-In vielen Bereichen steigen die enstehenden Datenmengen die für Netzwerk Analysen benutzt werden immer weiter an. Ein großes Beispiel hierfür sind soziale Netzwerke in denen sich die Verbindungen zwischen Nutzern und deren Interaktionen sich durch Multilayer Netzwerke darstellen lassen.
+In vielen Bereichen steigen die enstehenden Datenmengen, die für Netzwerkanalysen benutzt werden, immer weiter an. Ein großes Beispiel hierfür sind soziale Netzwerke, in denen sich die Verbindungen zwischen Nutzern und deren Interaktionen sich durch Multilayer Netzwerke darstellen lassen.
 
 
 Zur Analysen von Multilayer Netzwerken wurden bereits verschiedene Anwendungen, wie muxViz entwickelt. Diese Anwendungen können Multilayer Netzwerke laden, verschiedne Statistiken zu ihnen bilden und Algorithmen auf ihnen laufen lassen.
 
-Die verschiednen Anwendungen haben jedoch keinen verteilten Ansatz und laufen alle auf einer einzelnen Maschine. Dadurch können Graphen, die zu groß für den Arbeitsspeicher einer Maschine sind nicht verarbeitet werden. 
-Um solch große Graphen zu handhaben bietet sich ein verteilter Ansatz mit mehren Maschinen, auf die der Graph aufgeteilt wird an.
+Die verschiednen Anwendungen haben jedoch keinen verteilten Ansatz und laufen alle auf einer einzelnen Maschine. Dadurch können Graphen, die zu groß für den Arbeitsspeicher einer Maschine sind, nicht verarbeitet werden. 
+Um solch große Graphen zu handhaben bietet sich ein verteilter Ansatz mit mehreren Maschinen, auf die der Graph aufgeteilt wird, an.
 
 
-Es gibt Systeme zur verteilten Verarbeitung von großen Graphen, wie zum Beispiel Pregel oder Giraph. Diese Systeme können große Graphen verteilt auf vielen Maschinen verarbeiten und effzient Berechnungen auf diesen Graphen durchführen. Allerdings  sind sie sind jedoch nicht auf Multilayer Netzwerke ausgerichtet und können nur mit klassichen Graphen umgehen.
+Es gibt Systeme zur verteilten Verarbeitung von großen Graphen, wie zum Beispiel Pregel oder Giraph. Diese Systeme können große Graphen verteilt auf vielen Maschinen verarbeiten und effzient Berechnungen auf diesen Graphen durchführen. Allerdings sind sie nicht auf Multilayer Netzwerke ausgerichtet und können nur mit klassichen Graphen umgehen.
 
 
-Ein verteiltes Graph System, in welchem die Darstellung des Graphen frei gewählt werden kann ist das von Microsoft Research Asia entwickelte Graph Engine.
-In dieser Arbeit wird untersucht inwiefern mit Graph Engine ein System zur verteilten Verarbeitung von Multilayer Graphen geschaffen werden kann. Dabei wird geschaut, wie die Freiheiten in der Graph Darstellung und Speicherung von GE genutzt werden können
+Ein verteiltes Graphsystem, in welchem die Darstellung des Graphen frei gewählt werden kann, ist das von Microsoft Research Asia entwickelte Graph Engine.
+In dieser Arbeit wird untersucht, inwiefern mit Graph Engine ein System zur verteilten Verarbeitung von Multilayer Graphen geschaffen werden kann. Dabei wird geschaut, wie die Freiheiten in der Graph Darstellung und Speicherung von GE genutzt werden können,
 um Multilayer Graphen in GE zu speichern. Zudem bietet Graph Engine die Möglichkeit Nachrichten zwischen den einzelnen Maschinen auszutauschen und aufgrund dieser Berechnungen durchzuführen. Auch diese Kommunikation kann frei gestaltet und für die Zwecke der Multilayer Graph Verarbeitung genutzt werden.
 
 Es wird ein System mithilfe von Graph Engine erstellt, welches Multilayer Graphen laden, verändern und Algorithmen auf ihnen ausführen kann. 

@@ -1,18 +1,18 @@
 \section{Page Rank}
 
-Page Rank wurde von Larry Page, Sergey Brin, R. Motwani und T. Winograd in der Arbeit The PageRank Citation Ranking:
-Bringing Order to the Web\cite{Page98thepagerank} vorgestellt. Sie beschreiben, wie PageRank genutzt werden kann um die Wichtigkeit von Internetseiten zu bewerten.
+Page Rank wurde von Larry Page, Sergey Brin, R. Motwani und T. Winograd in der Arbeit ''The PageRank Citation Ranking:
+Bringing Order to the Web''\cite{Page98thepagerank} vorgestellt. Sie beschreiben, wie PageRank genutzt werden kann, um die Wichtigkeit von Internetseiten zu bewerten.
 
 Neben Internetseiten kann PageRank aber auch auf andere Graphen angewandt werden.
-PageRank bewertet Knoten in einem Graphen anhand von ihren Kanten. Knoten erhalten eine hohe Bewertung, wenn sie viele eingehenden Kanten besitzen. Auch die Bewertung der Knoten von denen die eingehenden Kanten ausgehen wirkt sich auf die Bewertung aus.
+PageRank bewertet Knoten in einem Graphen anhand von ihren Kanten. Knoten erhalten eine hohe Bewertung, wenn sie viele eingehenden Kanten besitzen. Auch die Bewertung der Knoten, von denen die eingehenden Kanten ausgehen, wirkt sich auf die Bewertung aus.
 
-Da, die Daten verteilt auf mehren Servern liegen und keine globale Sicht existiert wird die iterative Variant von PageRank betrachtet.
-Bei dieser verteilt jeder Knoten in jeder Iteration seinen eigenen PageRank Wert gleichmäßig auf alle Knoten zu denen er ausgehende Kanten besitzt. 
+Da die Daten verteilt auf mehren Servern liegen und keine globale Sicht existiert, wird die iterative Variant von PageRank betrachtet.
+Bei dieser verteilt jeder Knoten in jeder Iteration seinen eigenen PageRank Wert gleichmäßig auf alle Knoten, zu denen er ausgehende Kanten besitzt. 
 
 
 Sei $ PR(p_{i}; t)$ der PageRank Wert des Knoten $p_{i}$ zu dem Iterationsschrit $t$ und die gesamte Zahl aller Knoten $N$.
-Zudem sei $M(p_{i})$ die Knoten die eine ausgehende Kante zu $p_{i}$ haben und $L(p_{i})$ die Anzahl an ausgehenden Kanten von Knoten $p_{i}$.
-Jeder Knoten startet mit einem PageRank Wert von
+Zudem sei $M(p_{i})$ die Knoten, die eine ausgehende Kante zu $p_{i}$ haben und $L(p_{i})$ die Anzahl an ausgehenden Kanten von Knoten $p_{i}$.
+Jeder Knoten startet mit einem PageRank Wert von:
 
 \[  PR(p_{i}; 0) = \frac{1}{N}   \]
 
@@ -21,6 +21,5 @@ Bei jedem Iterationsschrit wird für jeden Knoten ein neuer Wert mit folgender F
 \[ PR(p_{i}; t+1) = \frac{1 - d}{N} + d \sum_{p_{j} \in M(p_{i})} \frac{PR(p_{j}; t)}{L(p_{j})} \]
 
 
-Dabei ist $d$ ein Dämpfungsfaktor, der verhindert das einzelne Knoten, die keine ausgehenden Knoten besitzen die einzigen sind die keinen Wert von 0 am Ende haben.
-
-Als Abbruchbedingung für die Iterationen können eine feste Anzahl an Iterationsschritten gewählt werden. Alternativ kann auch ein Grenzwert $\epsilon$ festgelegt werden und der Algorithmus bricht ab sobald die Veränderung aller Werte unter $\epsilon$ liegt.
+Dabei ist $d$ ein Dämpfungsfaktor. Er verhindert, dass die Werte nicht nur zu Knoten fließen, die keine ausgehenden Kanten haben.
+Als Abbruchbedingung für die Iterationen können eine feste Anzahl an Iterationsschritten gewählt werden. Alternativ kann auch ein Grenzwert $\epsilon$ festgelegt werden und der Algorithmus bricht ab, sobald die Veränderung aller Werte unter $\epsilon$ liegt.
