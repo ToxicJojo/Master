@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  18 AUG 2020 14:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.4.15)  19 AUG 2020 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1373,7 +1373,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<template/hhu_logo.jpg, id=192, 2276.2641pt x 869.8899pt>
+<template/hhu_logo.jpg, id=209, 2276.2641pt x 869.8899pt>
 File: template/hhu_logo.jpg Graphic file (type jpg)
 
 <use template/hhu_logo.jpg>
@@ -1442,7 +1442,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 
-<img/network_types.png, id=265, 555.57562pt x 142.28156pt>
+<img/network_types.png, id=285, 555.57562pt x 142.28156pt>
 File: img/network_types.png Graphic file (type png)
 
 <use img/network_types.png>
@@ -1461,21 +1461,21 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 (./chap/grundlagen/pageRank.tex [4]) (./chap/grundlagen/hits.tex [5])
 (./chap/grundlagen/graphEngine.tex [6] [7]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 50.
+nput line 51.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 51.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 52.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 51.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 58.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 52.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 59.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 58.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 59.
  [8] [9])
 (./chap/grundlagen/systeme.tex [10]
-<img/muxViz.png, id=364, 746.79pt x 485.56406pt>
+<img/muxViz.png, id=384, 746.79pt x 485.56406pt>
 File: img/muxViz.png Graphic file (type png)
  <use img/muxViz.png>
 Package pdftex.def Info: img/muxViz.png used on input line 18.
@@ -1496,34 +1496,44 @@ ur-de von Mik-ko Ki-vel[]a 2015 ver[]offent-
 ]
 Kapitel 3.
 (./chap/architektur/architektur.tex
-<img/Architektur-Cluster.png, id=377, 753.81625pt x 353.32pt>
+<img/Architektur-Cluster.png, id=397, 753.81625pt x 353.32pt>
 File: img/Architektur-Cluster.png Graphic file (type png)
 
 <use img/Architektur-Cluster.png>
-Package pdftex.def Info: img/Architektur-Cluster.png used on input line 15.
+Package pdftex.def Info: img/Architektur-Cluster.png used on input line 14.
 (pdftex.def)             Requested size: 398.3386pt x 186.70341pt.
-
-Overfull \hbox (5.1245pt too wide) in paragraph at lines 14--16
-[]\OT1/ptm/m/n/10.95 i [] 
- []
-
-[13] [14 <./img/Architektur-Cluster.png>])) [15]
+ [13] [14 <./img/Architektur-Cluster.png>]))
+[15]
 \openout2 = `chap/implementierung.aux'.
 
- (./chap/implementierung.tex
-[16
+ (./chap/implementierung.tex [16
 
 
 
 ]
 Kapitel 4.
-(./chap/architektur/ge.tex [17]
-Overfull \hbox (0.6866pt too wide) in paragraph at lines 31--32
+(./chap/architektur/ge.tex
+Overfull \hbox (55.98274pt too wide) in paragraph at lines 9--12
+\OT1/ptm/m/n/10.95 aus zu bau-en. Der Quell-co-de ist auf Github in dem Re-po-s
+i-to-ry htt-ps://github.com/microsoft/GraphEngine
+ []
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+) [17]
+Overfull \hbox (0.6866pt too wide) in paragraph at lines 47--48
 \OT1/ptm/m/n/10.95 Da sich die Ver-si-on 2 von Gra-phEn-gi-ne noch in Ent-wick-
 lung be-fin-det, gibt es ei-ni-ge Schwie-
  []
 
-) (./chap/architektur/implementierung.tex [18] [19]
+) (./chap/architektur/implementierung.tex
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+ [18]
+[19] [20]
 Overfull \hbox (17.91032pt too wide) in paragraph at lines 109--111
 \OT1/ptm/m/n/10.95 ver-schie-de-nen Ar-ten Er-geb-nis-se aus-zu-ge-ben im-ple-m
 en-tie-ren al-le das In-ter-face []\OT1/pcr/m/n/10.95 IOutputWriter\OT1/ptm/m/n
@@ -1536,61 +1546,79 @@ Overfull \hbox (0.97235pt too wide) in paragraph at lines 109--111
 t(AlgorithmResult algorithmResult) \OT1/ptm/m/n/10.95 hat. Es
  []
 
-[20]
-Overfull \hbox (0.7973pt too wide) in paragraph at lines 133--134
+
+Overfull \hbox (0.7973pt too wide) in paragraph at lines 137--138
 [][]\OT1/pcr/m/n/10.95 ApplyArguments(string[] arguments)\OT1/ptm/m/n/10.95 , w
 en-det die Ar-gu-men-te auf das Kom-man-
  []
 
-[21] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+[21] <img/client_class.png, id=523, 904.37875pt x 559.08875pt>
+File: img/client_class.png Graphic file (type png)
+
+<use img/client_class.png>
+Package pdftex.def Info: img/client_class.png used on input line 160.
+(pdftex.def)             Requested size: 398.3386pt x 246.2472pt.
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
+) [22 <./img/client_class.png>]
 LaTeX Font Info:    Try loading font information for TS1+pcr on input line 173.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
 )
-Overfull \hbox (0.88322pt too wide) in paragraph at lines 198--200
+<img/Klassendiagramm-Proxy.png, id=530, 984.67876pt x 1095.09125pt>
+File: img/Klassendiagramm-Proxy.png Graphic file (type png)
+
+<use img/Klassendiagramm-Proxy.png>
+Package pdftex.def Info: img/Klassendiagramm-Proxy.png used on input line 201.
+(pdftex.def)             Requested size: 398.3386pt x 443.00824pt.
+
+Overfull \hbox (0.88322pt too wide) in paragraph at lines 210--212
 \OT1/ptm/m/n/10.95 In 'Mul-ti-Layer-Ba-se-Proxy.cs' wird grund-le-gen-de Funk-t
 io-na-lit[]at der Proxy de-fi-niert, die nicht
  []
 
-[22]
-Overfull \hbox (10.49866pt too wide) in paragraph at lines 239--242
+[23] [24 <./img/Klassendiagramm-Proxy.png>]
+Overfull \hbox (13.80638pt too wide) in paragraph at lines 253--254
+[][]\OT1/pcr/m/n/10.95 List<List<string>> GetResultTable(OutputOptions outputOp
+tions)\OT1/ptm/m/n/10.95 , gibt das
+ []
+
+[25]
+Overfull \hbox (10.49866pt too wide) in paragraph at lines 266--270
 \OT1/ptm/m/n/10.95 Pro-to-koll-hand-ler. Die []\OT1/pcr/m/n/10.95 MultiLayerSer
 verBase \OT1/ptm/m/n/10.95 wird von der Klas-se []\OT1/pcr/m/n/10.95 MultiLayer
 ServerImpl
  []
 
-[23] [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<img/Klassendiagramm-Server.png, id=577, 729.72626pt x 708.6475pt>
+File: img/Klassendiagramm-Server.png Graphic file (type png)
 
- [25]
-[26]
-Overfull \hbox (26.74878pt too wide) in paragraph at lines 366--368
+<use img/Klassendiagramm-Server.png>
+Package pdftex.def Info: img/Klassendiagramm-Server.png used on input line 275.
+
+(pdftex.def)             Requested size: 398.3386pt x 386.827pt.
+ [26] [27 <./img/Klassendiagramm-Server.png>] [28] [29]
+Overfull \hbox (26.74878pt too wide) in paragraph at lines 404--406
 \OT1/ptm/m/n/10.95 strak-te Me-tho-de []\OT1/pcr/m/n/10.95 Run() \OT1/ptm/m/n/1
 0.95 und []\OT1/pcr/m/n/10.95 AlgorithmResult GetResult(OutputOptions outputOpt
 ions)\OT1/ptm/m/n/10.95 .
  []
 
-
-Overfull \hbox (13.26782pt too wide) in paragraph at lines 411--413
+[30]
+Overfull \hbox (13.26782pt too wide) in paragraph at lines 449--451
 \OT1/ptm/m/n/10.95 den die the-ma-tisch zu dem Hand-ler passt. Da Kno-tenz[]ahl
 en be-reits in []\OT1/pcr/m/n/10.95 MultiLayerStatsProxy
  []
 
-[27] [28])) [29]
+[31])) [32]
 \openout2 = `chap/evalution/evalutation.aux'.
 
- (./chap/evalution/evalutation.tex [30
-
-
-
-]
+ (./chap/evalution/evalutation.tex
 Kapitel 5.
 (./chap/evalution/cluster.tex
 Overfull \hbox (6.81749pt too wide) in paragraph at lines 4--6
@@ -1601,46 +1629,50 @@ tuhl f[]ur Be-triebs-sy-ste-me der Heinrich-
 
 Underfull \vbox (badness 2050) has occurred while \output is active []
 
- [31]
-<img/eval_load.png, id=708, 814.04124pt x 452.69125pt>
+ [33
+
+
+
+]
+<img/eval_load.png, id=755, 814.04124pt x 452.69125pt>
 File: img/eval_load.png Graphic file (type png)
  <use img/eval_load.png>
 Package pdftex.def Info: img/eval_load.png used on input line 52.
 (pdftex.def)             Requested size: 398.3386pt x 221.51672pt.
 
-[32] <img/eval_density.png, id=717, 775.89874pt x 479.7925pt>
+[34] <img/eval_density.png, id=763, 775.89874pt x 479.7925pt>
 File: img/eval_density.png Graphic file (type png)
 
 <use img/eval_density.png>
 Package pdftex.def Info: img/eval_density.png used on input line 68.
 (pdftex.def)             Requested size: 398.3386pt x 246.32352pt.
 
-<img/eval_hits.png, id=719, 654.445pt x 404.51125pt>
+<img/eval_hits.png, id=765, 654.445pt x 404.51125pt>
 File: img/eval_hits.png Graphic file (type png)
  <use img/eval_hits.png>
 Package pdftex.def Info: img/eval_hits.png used on input line 91.
 (pdftex.def)             Requested size: 398.3386pt x 246.21451pt.
 ))
-[33 <./img/eval_load.png>] [34 <./img/eval_density.png> <./img/eval_hits.png>]
+[35 <./img/eval_load.png>] [36 <./img/eval_density.png> <./img/eval_hits.png>]
 \openout2 = `chap/fazit.aux'.
 
 
 (./chap/fazit.tex
 Kapitel 6.
-[35
+[37
 
 
 
-]) [36]
+]) [38]
 \openout2 = `chap/anhang.aux'.
 
  (./chap/anhang.tex
 Anhang A.
-) [37
+) [39
 
 
 
-] [38
+] [40
 
 
 ] (./document.bbl
@@ -1649,41 +1681,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--7
 .95 https : / / www . nuget . org / packages /
  []
 
-) [39
+) [41
 
 
-] [40
+] [42
 
 
 ] (./document.lof)
 \tf@lof=\write8
 \openout8 = `document.lof'.
 
- [41
+ [43
 
-] [42
+] [44
 
 ] (./document.lot)
 \tf@lot=\write9
 \openout9 = `document.lot'.
 
- [43] [44
+ [45] [46
 
 ]
 (./document.loa)
 \tf@loa=\write10
 \openout10 = `document.loa'.
 
- [45
+ [47
 
-] [46
+] [48
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
- [47] [48
+ [49] [50
 
 
 ]
@@ -1696,17 +1728,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 67.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 67.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: DFD0A0DE2B04C9A75B9B36C0D0AAFBD4;2684.
+(rerunfilecheck)             Checksum: 35100161F135DAA4247A3F6658D708CF;2936.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
  ) 
 Here is how much of TeX's memory you used:
- 23266 strings out of 493013
- 411345 string characters out of 6135682
+ 23364 strings out of 493013
+ 413012 string characters out of 6135682
  614300 words of memory out of 5000000
- 25893 multiletter control sequences out of 15000+600000
+ 25974 multiletter control sequences out of 15000+600000
  47221 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,12n,95p,483b,2059s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,12n,95p,502b,1957s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
@@ -1717,10 +1749,10 @@ rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (53 pages, 4668891 bytes).
+Output written on document.pdf (55 pages, 4751891 bytes).
 PDF statistics:
- 924 PDF objects out of 1000 (max. 8388607)
- 837 compressed objects within 9 object streams
- 397 named destinations out of 1000 (max. 500000)
- 408 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 974 PDF objects out of 1000 (max. 8388607)
+ 879 compressed objects within 9 object streams
+ 407 named destinations out of 1000 (max. 500000)
+ 455 words of extra memory for PDF output out of 10000 (max. 10000000)
 

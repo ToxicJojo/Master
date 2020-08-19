@@ -1,12 +1,12 @@
 \section{Graphen}
 
 
-Im Allgemeinen kann ein Graph durch $G = (V, E)$ dargestellt werden, wobei $V$ eine Menge an Knoten und $E$ eine Menge an Kanten ist. Die Kanten sind jeweils jewils ein geoordnetes Knotenpaar $(u, v) \subseteq V \times V$.
+Im Allgemeinen kann ein Graph durch $G = (V, E)$ dargestellt werden, wobei $V$ eine Menge an Knoten und $E$ eine Menge an Kanten ist. Die Kanten sind jewils ein geoordnetes Knotenpaar $(u, v) \subseteq V \times V$.
 
 \subsection{Multi Layer Graphen}
 
-Im Folgendem werden Multi Layer Graphen betrachtet. Diese Graphen haben neben Knoten und Kanten auch eine Menge an Ebenen. Dabei kann, je nach Art des Graphen, der gleiche Knoten in verschiednen Ebenen vorhanden sein oder auch Verbindungen zwischen den Knoten in verschiedenen Ebenen bestehen.
-Welche Bedeutung den Ebenen zukommt, hängt vom Graphen und dem Anwendungsfall der Daten ab. Multi Layer Graphen können genutzt werden, um Netwzerken in unterschiedlichen Themengebieten abzubilden z.B. soziale Netwzerke, Transport oder Biologie.
+Im Folgenden werden Multi Layer Graphen betrachtet. Diese Graphen haben neben Knoten und Kanten auch eine Menge an Ebenen. Dabei kann, je nach Art des Graphen, der gleiche Knoten in verschiedene Ebenen vorhanden sein oder auch Verbindungen zwischen den Knoten in verschiedenen Ebenen bestehen.
+Welche Bedeutung den Ebenen zukommt, hängt vom Graphen und dem Anwendungsfall der Daten ab. Multi Layer Graphen können genutzt werden, um Netzwerke in unterschiedlichen Themengebieten abzubilden, z.B. soziale Netzwerke, Transport oder Biologie.
 
 Multi Layer Graphen können, abhängig von ihren Verbindungen, in verschiedene Kategorien eingeteilt werden. Die verschiedenen Kategorien sind in Abbildung \ref{network_types} dargestellt. 
 
@@ -33,16 +33,16 @@ In Multiplex Netzwerken gibt es zum einem Kanten zwischen Knoten, die sich im gl
 In Inderdependet Networks gibt es keine Knoten, die in mehr als einem Layer vorkommen. Kanten können Knoten innerhalb eines Layers, aber auch zwischen zwei Layern verbinden.
 
 \subsubsection{Generelle Multi Layer}
-In einem Generellen Multi Layer Graph gibt es keine Restriktion, wie die Knoten der verschiedene Ebenen miteinander verbunden sein können. Es kann sowohl Verbindungen zwischen dem gleichen Knoten in verschiedenen Ebenen geben, als auch Verbindung zu Knoten in anderen Ebenen.
+In einem Generellen Multi Layer Graph gibt es keine Restriktion, wie die Knoten der verschiedene Ebenen miteinander verbunden sein können. Es kann sowohl Verbindungen zwischen dem gleichen Knoten in verschiedenen Ebenen geben, als auch Verbindungen zu Knoten in anderen Ebenen.
 
 
 Ein genereller Multi Layer Graph kann formal als ein gerichteter Multigraph\cite{article} $G = (\Sigma_{V}, \Sigma_{E}, V, E, s, t, l_{V}, l_{E})$, dessen Knoten und Kanten ein Label besitzen, definiert werden, wo
 
 \begin{itemize}
   \item V die Menge an Knoten und E die Menge an Kanten ist
-  \item $\Sigma_{V}$ und $\Sigma{E}$ die Alphabete sind die als Label für Knoten und Kanten dienen
-  \item $s: E \rightarrow V$ und $t: E \rightarrow V$ zwei Zuordnungen sind, die angeben von welchem Knoten eine Kante aussgeht und zu welchem sie führt
+  \item $\Sigma_{V}$ und $\Sigma_{E}$ die Alphabete sind, die als Label für Knoten und Kanten dienen
+  \item $s: E \rightarrow V$ und $t: E \rightarrow V$ zwei Zuordnungen sind, die angeben, von welchem Knoten eine Kante ausgeht und zu welchem sie führt
   \item $l_{V}: V \rightarrow \Sigma_{V}$ und $l_{E}: V \rightarrow \Sigma_{E}$ zwei Zuordnungen sind, die den Knoten und Kanten ihre Labels zuweisen
 \end{itemize}
 
-Da mit den Generellen Multilayer Graphen auch alle anderen Arten von MultiLayer Graphen dargestellt werden können, werden im Folgendem nur noch Genrelle Multigraphen betrachtet.
+Da mit den Generellen Multilayer Graphen auch alle anderen Arten von MultiLayer Graphen dargestellt werden können, werden im Folgendem nur noch Generelle Multigraphen betrachtet.

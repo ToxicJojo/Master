@@ -7,6 +7,7 @@ Es bietet einen verteilten Key-Value Speicher, in dem Daten gespeichert und vera
 Schemata für die zu speichernden Daten erstellen. Dazu bietet GE die Möglichkeit, die Kommunikation unter den verschiedenen Servern mit selbst erstellten Protokollen zu koordinieren. Im Folgenden werden die verschiedenen Komponenten von GE besprochen.
 
 \subsection{Memory Cloud}
+\label{memoryCloud}
 
 Im Kern von GE steht die sogenannte Memory Cloud. Diese stellt einen verteilten Key-Value Speicher dar, welcher im Arbeitsspeicher der Maschinen
 liegt, um einen schnellen Zugriff zu gewährleisten.
@@ -138,6 +139,7 @@ Es werden zudem Methoden generiert, um die definierten Anfragen an den Server od
 
 
 \subsection{Datenzugriff}
+\label{geAccessor}
 
 Die Daten der Zellen liegen im Arbeitsspeicher der Maschinen als Datenblobs. Um auf diese komfortabel zuzugreifen, können die Daten in ein C\# Objekt
 serialisiert werden; das ist jedoch sehr langsam.

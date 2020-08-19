@@ -13,12 +13,12 @@
 \BOOKMARK [2][-]{subsection.2.5.1}{MuxViz}{section.2.5}% 13
 \BOOKMARK [2][-]{subsection.2.5.2}{Multilayer Networks Library for Python}{section.2.5}% 14
 \BOOKMARK [0][-]{chapter.3}{Architektur}{}% 15
-\BOOKMARK [1][-]{section.3.1}{Architektur}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.1.1}{Model}{section.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.1.2}{Lib}{section.3.1}% 18
-\BOOKMARK [2][-]{subsection.3.1.3}{Client}{section.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.1.4}{Proxy}{section.3.1}% 20
-\BOOKMARK [2][-]{subsection.3.1.5}{Server}{section.3.1}% 21
+\BOOKMARK [1][-]{section.3.1}{Model}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Lib}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.3}{Client}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{Proxy}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.5}{Server}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.5.1}{Laden}{section.3.5}% 21
 \BOOKMARK [0][-]{chapter.4}{Implementierung}{}% 22
 \BOOKMARK [1][-]{section.4.1}{Graph Engine}{chapter.4}% 23
 \BOOKMARK [2][-]{subsection.4.1.1}{Einrichtung}{section.4.1}% 24
@@ -38,8 +38,12 @@
 \BOOKMARK [2][-]{subsection.5.3.1}{Ladezeiten}{section.5.3}% 38
 \BOOKMARK [0][-]{chapter.6}{Fazit}{}% 39
 \BOOKMARK [1][-]{section.6.1}{Ausblick}{chapter.6}% 40
-\BOOKMARK [0][-]{appendix.A}{Mein Anhang}{}% 41
-\BOOKMARK [0][-]{appendix.A}{Literaturverzeichnis}{}% 42
-\BOOKMARK [0][-]{appendix*.35}{Abbildungsverzeichnis}{}% 43
-\BOOKMARK [0][-]{appendix*.35}{Tabellenverzeichnis}{}% 44
-\BOOKMARK [0][-]{appendix*.35}{Algorithmenverzeichnis}{}% 45
+\BOOKMARK [2][-]{subsection.6.1.1}{Benutzeroberfl\344che}{section.6.1}% 41
+\BOOKMARK [2][-]{subsection.6.1.2}{Grafische Auswertung}{section.6.1}% 42
+\BOOKMARK [2][-]{subsection.6.1.3}{Cluster Verwaltung}{section.6.1}% 43
+\BOOKMARK [2][-]{subsection.6.1.4}{Algorithmen}{section.6.1}% 44
+\BOOKMARK [0][-]{appendix.A}{Mein Anhang}{}% 45
+\BOOKMARK [0][-]{appendix.A}{Literaturverzeichnis}{}% 46
+\BOOKMARK [0][-]{appendix*.39}{Abbildungsverzeichnis}{}% 47
+\BOOKMARK [0][-]{appendix*.39}{Tabellenverzeichnis}{}% 48
+\BOOKMARK [0][-]{appendix*.39}{Algorithmenverzeichnis}{}% 49

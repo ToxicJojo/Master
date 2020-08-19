@@ -8,8 +8,24 @@ Dies ist insbesondere interessant, da die aktuelle Version 2 von GraphEngine sic
 
 Graph Engine wurde in C\# entwickelt und verwendet den dafür verbreiteten Paket-Manager NuGet, mit dem Pakete verwaltet werden können.
 Die aktuellste Version von dem GraphEngine.Core Paket auf NuGet ist 1.0.8467 vom 	19.08.2016 \cite{geVersion}. Da in dieser Arbeit die Version 2.0.9912 verwendet wird, ist es nötig, dass GraphEngine.Core Paket selber vom Quellcode aus zu bauen.
+Der Quellcode ist auf Github in dem Repository https://github.com/microsoft/GraphEngine zu finden. Dabei ist auch die Anleitung zum kompilieren des Pakets.
 
-Der Quellcode ist auf Github in dem Repository https://github.com/microsoft/GraphEngine zu finden. 
+
+\subsubsection{Konfigurationsdatei}
+
+Graph Engine benutzt eine .xml Konfigurationsdatei, um das Cluster aus Proxy und Servern zu definieren.
+In der Datei können zudem weitere Einstellungen, wie Dateipfade oder Logging, für die Server gemacht werden (siehe \ref{lst:config}).
+
+\begin{lstlisting}[language=xml, label={lst:config}, caption={Beispiel Konfigurationsdatei für ein Cluster mit einer Proxy und zwei Servern}]
+  <Trinity ConfigVersion="2.0">
+  <Cluster>
+    <Proxy Endpoint="node52:8133" LogDirectory="D:\log-dir" LoggingLevel="Info" />  
+    <Server Endpoint="node55:8133" />
+    <Server Endpoint="node63:8133" />
+  </Cluster>
+</Trinity>
+
+\end{lstlisting}
 
 
 \subsection{Datenzugriff}
@@ -22,7 +38,7 @@ Die erste Möglichkeit ist auf Zellen von entfernten Maschinen zuzugreifen. Dabe
 Dazu gibt es zwei weitere Möglichkeiten auf lokale Zellen mittels \verb|Global.LocalStorage| zuzugreifen. Die erste ist \verb|LoadCell()|. Diese Methode lädt die Daten einer Zelle aus dem von GE verwalteten Arbeitsspeicher in ein Objekt des C\# Heaps.
 Dabei wird jedes Mal ein neues Objekt erzeugt und die Werte in dieses kopiert. Hiermit kann nur auf die Daten der Zelle zugegriffen, diese aber nicht verändert werden.
 
-Die andere Methode ist der direkte Zugriff über \verb|UseCell()|. Dabei wird direkt auf die im Arbeitsspeicher vorhandene Zelle zugegriffen, ohne das diese kopiert werden muss. Dazu können so auch die Werte der Zelle direkt verändert werden. Diese Methode ist damit von der Performance her die beste Art auf Zellen zuzugreifen und sollte, wenn möglich, immer verwendet werden.
+Die andere Methode ist der direkte Zugriff über \verb|UseCell()|. Dabei wird direkt auf die im Arbeitsspeicher vorhandene Zelle zugegriffen, ohne das diese kopiert werden muss (siehe \ref{geAccessor}). Dazu können so auch die Werte der Zelle direkt verändert werden. Diese Methode ist damit von der Performance her die beste Art auf Zellen zuzugreifen und sollte, wenn möglich, immer verwendet werden.
 
 
 

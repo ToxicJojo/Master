@@ -118,8 +118,12 @@ das Interface \verb|IOutputWriter|, welches die Funktion \verb|void WriteOutput(
 
 \subsection{Client}
 
-Der Client kann über die Kommandozeile gestartet und bedient werden. Entweder mit dem Argument 'interactive', um eine interaktive Sitzung zu starten,
-in der der Nutzer Befehle eingeben kann, die die Proxy dann ausführt. Oder im 'batch' Modus, wo zudem eine Datei mitgegeben werden muss, die Anweisungen erhält.
+Der Client kann über die Kommandozeile gestartet und bedient werden. Mit dem Argument 'interactive' wird eine interaktive Sitzung gestartet,
+in der der Nutzer Befehle eingeben kann, die die Proxy dann ausführt. Im 'batch' Modus wird zudem eine Datei mitgegeben, die Anweisungen erhält.
+
+Der Client verwaltet eine Liste an ausführbaren Kommandos, die vom Nutzer abgerufen werden können. Dazu speichert er die aktuellen Einstellungen zur Ausfürung von Funktionen und Ausgabe der Ergebnisse. Eine Übersicht über die Struktur ist in Abbildung \ref{clientClass} gezeigt.
+
+
 
 \subsubsection{Kommandos}
 
@@ -146,22 +150,18 @@ Die Kommandos füllen die Informationen über sich selbst jeweils in ihrem Konst
   \item \verb|ArgumentsDescription|, eine Beschreibung für die einezelnen Argumente
 \end{itemize}
 
-\begin{lstlisting}[language=c, caption={Konstruktor des ShowNode Kommandos}]
-public ShowNode (): base (null) {
-  Name = "Show Node";
-  Keyword = "showNode";
-  Description = "Shows information about a single node";
-  Arguments = new string[] {"long", "int"};
-  ArgumentsDescription = new string[] {"Id", "Layer"};
-}
-\end{lstlisting}
-
-
 Die Verifizierung der Argumente findet in zwei Schritten statt. Erst wird die Anzahl der gegeben Argumente mit der Anzahl der Elemente von 'Arguments' verglichen.
 Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das gegeben Argument dem jeweiligen Type enstpricht.
 
 
-
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{1.0\textwidth}
+    \includegraphics[width=1.0\linewidth]{img/client_class.png}
+  \end{subfigure}
+  \caption{Klassendiagramm für die Client-Anwendung}
+  \label{clientClass}
+\end{figure}
 
 
 \subsubsection{Interaktiver Modus}
@@ -192,11 +192,23 @@ Der Batch Modus wird mit dem Argument 'interactive' gestartet. Sobald der Client
 Die in den TSL Dateien definierte Proxy \verb|MultiLayerProxy| wird vom TSL Compiler in eine abstrakte Klasse \verb|MultiLayerProxyBase| mit abstrakten Request Handlern kompiliert. Diese wird hier von 'MultiLayerProxyImpl' implementiert.
 
 Da die \verb|MultiLayerProxyImpl| alle Request für alle Protokolle handhaben muss, wird sie über mehrere Dateien als partielle Klasse implementiert. Dies ermöglicht die sonst sehr groß werdende Klasse in kleine Teile aufzuteilen, sodass eine Datei jeweils nur für einen Algorithmus verantwortlich ist.
+Die Abbildung \ref{proxyClass} gibt eine Übersicht über den Aufbau der Proxy-Anwendung.
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{1.0\textwidth}
+    \includegraphics[width=1.0\linewidth]{img/Klassendiagramm-Proxy.png}
+  \end{subfigure}
+  \caption{Klassendiagramm für die Proxy-Anwendung}
+  \label{proxyClass}
+\end{figure}
+
 
 \subsubsection{BaseProxy}
 
 In 'MultiLayerBaseProxy.cs' wird grundlegende Funktionalität der Proxy definiert, die nicht zu einem einzelnem Algorithmus gehört. Dies ist zum einem die Möglichkeit Algorithmen zu starten und deren Ergebnisse auszugeben, zum anderem wird hier die Möglichkeit geboten auf Antworten der einzelnen Servern, sobald diese eine Phase beendet haben, zu warten.
-Hat ein Server eine Phase beendet, sendet er an die Proxy einen \verb|PhaseFinished| Request, der die Phase enthält, die er beendet hat und wenn nötig sein lokales Ergebnis. Die 'MultiLayerBaseProxy' handhabt diesen Request und zählt wieviele Server eine jeweilige Phase schon beendet haben und sammelt deren Ergbenisse. Hierfür werden drei Elemente verwendet:
+Hat ein Server eine Phase beendet, sendet er an die Proxy einen \verb|PhaseFinished| Request, der die Phase enthält, die er beendet hat und wenn nötig sein lokales Ergebnis. Die \verb|MultiLayerBaseProxy| handhabt diesen Request und zählt wieviele Server eine jeweilige Phase schon beendet haben und sammelt deren Ergbenisse. Hierfür werden drei Elemente verwendet:
 
 \begin{itemize}
   \item \verb|Dictionary<Phases, int> phaseFinishedCount|, um zu zählen wieviele Server bereits eine bestimmte Phase abgeschlossen haben.
@@ -232,6 +244,21 @@ Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse
 
 \subsubsection{Algorithmen}
 
+Um die Ausfürung, Perfomance Messung und Ausgabe von Ergebnissen einheitlich zu halten, gibt es das Interface \verb|IAlgorithm|, welches die Grundfunktionen der Algorithmen definiert(siehe Abbildung \ref{proxyClass}).
+Es besitzt vier Methoden:
+
+\begin{itemize}
+  \item \verb|Run()|, führt den Algorithmus aus
+  \item \verb|TimedRun()|, führt den Algorithmus aus und misst die Laufzeit
+  \item \verb|List<List<string>> GetResultTable(OutputOptions outputOptions)|, gibt das Ergebnis in Tabellenform zurück
+  \item \verb|AlgorithmResult GetResult(OutputOptions outputOptions)|, gibt das komplette Ergebnis inklusive Laufzeit zurück
+\end{itemize}
+
+Das Interface wird von der abstrakten Klasse \verb|Algorithm| implementiert. In dieser Klasse bleibt die \verb|Run()| Methode abstrakt.
+Die Klassen für die einzelnen Algorhtmen erben von \verb|Algorithm| und implementieren entsprechend ihrer Anforderungen die \verb|Run()| Methode.
+
+Erhält die Proxy eine Anfrage einen bestimmten Algorithmus auszuführen ruft der entsprechende Requesthandler den angefragten Algorithmus auf.
+
 
 
 \subsection{Server}
@@ -239,6 +266,17 @@ Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse
 Wie schon bei der Proxy wird der in TSL definierte Server \verb|MultiLayerServer| zu der abstrakten Klasse \verb|MultiLayerServerBase| kompiliert. Diese hat abstrakte Methoden für die Protokollhandler.
 Die \verb|MultiLayerServerBase| wird von der Klasse \verb|MultiLayerServerImpl| implementiert, welche auch wieder zur besseren Übersicht in einzelne partielle Klassen aufgeteilt wird. Diese partiellen Teile sind in die jeweiligen Algorithmen und eine Basisklasse \verb|MultiLayerBaserServer| aufgeteilt.
 Der \verb|MultiLayerBaserServer| bietet den Algorithmen Methoden, um der Proxy mitzuteilen, dass sie eine Phase beendet haben.
+Der Aufbau der Server-Anwendung ist in Abbildung \ref{serverClass} dargestellt.
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{1.0\textwidth}
+    \includegraphics[width=1.0\linewidth]{img/Klassendiagramm-Server.png}
+  \end{subfigure}
+  \caption{Klassendiagramm für die Server-Anwendung}
+  \label{serverClass}
+\end{figure}
 
 
 \subsubsection{Laden}

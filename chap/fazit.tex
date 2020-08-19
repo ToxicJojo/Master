@@ -1,34 +1,50 @@
 \chapter{Fazit}
 
-In dieser Arbeit wurde mithilfe von Graph Engine ein erweiterbares System gebaut, welches genutzt werden kann um Multi Layer Graphen verteilt und skalierbar zu verarbeiten.
+In dieser Arbeit wurde mithilfe von Graph Engine ein erweiterbares System gebaut, welches genutzt werden kann, um Multi Layer Graphen verteilt und skalierbar zu verarbeiten.
 Dazu wurden in C\# drei Anwendungen erstellt, die als Client, Proxy und Server miteinander agieren.
-Danach wurde die Performance von verschiedenen Funktionen und Algorithmen in hinsicht auf ihre Skalierbarkeit mit mehreren Servern gemessen.
+Danach wurde die Performance von verschiedenen Funktionen und Algorithmen in Hinsicht auf ihre Skalierbarkeit mit mehreren Servern gemessen.
 
 
-Es konnte gezeigt werden, dass mit der Freiheit die Graph Engine bei der Gestaltung der Graphstruktur ermöglicht, Multi Layer Graphen dargestellt werden können.
+Es konnte gezeigt werden, dass mit der Freiheit, die Graph Engine bei der Gestaltung der Graphstruktur ermöglicht, Multi Layer Graphen dargestellt werden können.
 Dazu konnten die Funktion von Graph Engine zum Austausch von Nachrichten zwischen einzelnen Komponenten genutzt werden, um eine effiziente Kommunikation zwischen Client, Proxy und Server zu gewährleisten. 
 Diese ermöglicht es eine auf die einzelnen Algorithmen und Funktionen zugeschnittene Kommunikation zu haben.
 
 
-Es wurde eine Client-Anwendung entwickelt, welche auf der Maschine des Benutzer läuft. Diese kann über die Kommandozeilen bedient werden und bietet sowohl die Möglichkeit interaktiv Kommandos auszuführen oder in einem Batch Modus eine Reihe an Kommandos aus einer Datei heraus auszuführen.
+Es wurde eine Client-Anwendung entwickelt, welche auf der Maschine des Benutzer läuft. Diese kann über die Kommandozeilen bedient werden und bietet die Möglichkeit interaktiv Kommandos auszuführen oder in einem Batch Modus eine Reihe an Kommandos aus einer Datei heraus auszuführen.
 
-Eine Proxy Anwendung wurde erstellt, die als Bindeglied zwischen Client und Server fungiert. Sie kann Anfragen vom Client verarbeiten und die Server anweisen die Anfrage enstprechend zu bearbeiten. Sie koordiniert die Server und kann aus deren Zwischenergebnissen ein Gesamtergebniss bilden, welches an den Client zurückgegeben wird.
+Eine Proxy Anwendung wurde erstellt, die als Bindeglied zwischen Client und Server fungiert. Sie kann Anfragen vom Client verarbeiten und die Server anweisen die Anfrage enstprechend zu bearbeiten. Sie koordiniert die Server und kann aus deren Zwischenergebnissen ein Gesamtergebnis bilden, welches an den Client zurückgegeben wird.
 
 Der entwickelte Server kann unter der Koordinierung der Proxy verschiedenen Algorithmen ausführen. Dabei sind die Server in der Lage untereinander zu kommunizieren und nötige Daten auszutauschen.
 
 
-Es wurde gezeigt, dass das System in der Lage ist einen große Multi Layer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält wenn man die Anzahl der Server im Cluster erhöht.
-Sowohl beim Laden, als auch bei den beiden geprüften Algorithmen konnte gezeigt werden, dass durch die parallele Implementierung eine größere Server Anzahl zu deutlich besserer Performance führt.
+Es wurde gezeigt, dass das System in der Lage ist einen große Multi Layer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält, wenn man die Anzahl der Server im Cluster erhöht.
+Sowohl beim Laden, als auch bei den beiden geprüften Algorithmen konnte gezeigt werden, dass durch die parallele Implementierung eine größere Serveranzahl zu deutlich besserer Performance führt.
 Hierbei wurde insbesondere beobachtet, dass ab einer bestimmten Serverzahl der Overhead der Berechnungen den Großteil der Laufzeit ausmacht, sodass weitere Server nur zu kleineren Verbesserungen führen.
 
 
 \section{Ausblick}
 
+In diesem Abschnitt werden einige mögliche Verbesserungen für das Multi Layer System vorgestellt.
+Sie richten sich an die Nutzbarkeit des Systems für einen Endanwender.
 
-- GUI
 
-- Diagramme
+\subsection{Benutzeroberfläche}
 
-- Weitere Algorithmen
+Aktuell kann der Client nur über die Kommandozeile bedient werden. Dies ist umständlich und macht die Benutzung gerade für technisch weniger versierte Nutzer schwierig.
+Eine grafische Benutzeroberfläche, ähnlich zu der von muxViz, würde die Bedienung um einiges erleichtern. 
 
-- Server Managment, die müssen ja noch händisch gestartet werden.
+\subsection{Grafische Auswertung}
+
+Viele andere Graph Analyse Tools bieten die Möglichkeit sich Ergebnisse visuell darstellen zu lassen. Momentan können die Ergebnisse nur in der Kommandozeile oder als .csv Datei ausgegeben werden.
+In Verbindung mit einer grafischen Benutzeroberfläche könnten die .csv Dateien genutzt werden, um die Ergebnisse visuell darzustellen.
+
+\subsection{Cluster Verwaltung}
+
+Noch gibt es keine Möglichkeit die Proxy und Server automatisch zusammen starten zu lassen. Die Anwendungen müssen aktuell händisch auf jeder Maschine gestartet werden. Das ist gerade für Cluster mit einer hohen Serveranzahl viel Arbeit.
+Es müsste eine kleine Anwendung entworfen werden, welche die Cluster Konfiguration liest und automatisch auf den enstprechenden Maschinen die Server bzw. Proxy startet.
+
+\subsection{Algorithmen}
+
+In der aktuellen Form bietet das Multi Layer Graph System noch nicht viele Algorithmen von Haus aus an. Die zwingt Nutzer dazu selber die benötigen Algorithmen zu implementieren. Damit das System einfacher zu benuzten ist,
+müssten weitere, häufig verwendete, Algorithmen und Metriken hinzugefügt werden.
+
