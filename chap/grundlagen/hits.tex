@@ -1,10 +1,11 @@
 \section{Hubs and Authorities}
+\label{hits}
 
 Hubs and Authorities (HITS) ist ein Algorithmus zur Bewertung von Knoten in einem Netzwerk, der von John M. Kleinberg in dem Paper ''Authoritative Sources a Hyperlinked Environment'' vorgestellt wurde \cite{Kleinberg98authoritativesources}.
 
-Dabei werden in einem Netzwerk aufeinander verweisenden Doukumenten beurteilt. Beispiele für solche Netzwerke sind Internetseiten, die aufeinander
-verlinken oder wissenschaftliche Veröffentlichung, die einander refenzieren. Ein Hub sind Dokumente, die auf viele gute Quellen verweisen, während
-Authorities Doukumente gute Quellen sind, auf welche oft verwiesen wird. Der Algorithmus läuft ähnlich zum PageRank-Algorithmus ab, 
+Dabei werden in einem Netzwerk aufeinander verweisenden Dokumenten beurteilt. Beispiele für solche Netzwerke sind Internetseiten, die aufeinander
+verlinken oder wissenschaftliche Veröffentlichung, die einander referenzieren. Ein Hub sind Dokumente, die auf viele gute Quellen verweisen, während
+Authorities Dokumente gute Quellen sind, auf welche oft verwiesen wird. Der Algorithmus läuft ähnlich zum PageRank-Algorithmus ab, 
 jedoch wird nicht nur ein einzelner Wert für jeden Knoten bestimmt, sondern jeweils ein Hub und Authority Werte pro Knoten.
 
 Für einen gerichteten Graphen $G = (V, E)$ weisen wir jedem Knoten $v \in V$ einen Hub $y_{v}$ und Authority $x_{v}$ Wert zu.
@@ -40,7 +41,7 @@ Danach werden alle Hub Werte wie oben beschrieben normalisiert:
 
 \subsubsection{Konvergenz}
 
-Um den Algorithmus konvergieren zu lassen, wähle ein $ \epsilon $ und prüfe nach jeder Iteration, ob die gesammte Änderung der Authority
+Um den Algorithmus konvergieren zu lassen, wähle ein $ \epsilon $ und prüfe nach jeder Iteration, ob die gesamte Änderung der Authority
 und Hub Werte kleiner als das $ \epsilon $ ist. Ist dies nicht der Fall, werden weitere Iterationen durchgeführt.
 
 

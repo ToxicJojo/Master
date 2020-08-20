@@ -1,9 +1,9 @@
 Das Multilayer Graph System setzt sich aus mehren Komponenten zusammen, die miteinander arbeiten, um die gewünschten Anforderungen zu gewährleisten.
-Dabei wird GE genutzt, um die Graph Daten effizent im Arbeitsspeicher der Server zu verwalten und die Kommunikation der einzelnen Komponenten zu steuern.  Das TSL-Model und eine geteilte Bibliothek bieten die Basis für die
+Dabei wird GE genutzt, um die Graph Daten effizient im Arbeitsspeicher der Server zu verwalten und die Kommunikation der einzelnen Komponenten zu steuern.  Das TSL-Model und eine geteilte Bibliothek bieten die Basis für die
 anderen Komponenten.
 
 In der Architektur ist der Client für das Senden von Anfragen, sowie das Ausführen eines Algorithmus oder das Laden eines Graphen an die Proxy zuständig.
-Die Proxy verarbeitet die Anfrage und koordiniert ggf. die Berechnungen der Server. Die Server kommunizieren, falls nötig für ihre Berechnungen untereinander, um Daten über entfernte Knoten anzufragen oder zu senden. Sobald die Anfrage fertig bearbeitet ist, schickt die Proxy eine Antwort mit den enstprechnden Ergebnissen an den Client.
+Die Proxy verarbeitet die Anfrage und koordiniert ggf. die Berechnungen der Server. Die Server kommunizieren, falls nötig für ihre Berechnungen untereinander, um Daten über entfernte Knoten anzufragen oder zu senden. Sobald die Anfrage fertig bearbeitet ist, schickt die Proxy eine Antwort mit den entsprechenden Ergebnissen an den Client.
 Eine Darstellung dieser Arbeitsweise ist in Abbildung \ref{architektur} dargestellt.
 
 Der Client, Proxy und Server werden als C\# Anwendungen umgesetzt. 
@@ -22,7 +22,7 @@ Der Client, Proxy und Server werden als C\# Anwendungen umgesetzt.
 \section{Model}
 
 Das TSL Model dient als Basis für den Rest der Anwendung. Es wird definiert, wie Knoten gespeichert werden und wie Client, Server und Proxy miteinander
-kommunizieren können. Die einzelnen Komponenten müssen die von GE automatisch generierten Klassen implementiernen.
+kommunizieren können. Die einzelnen Komponenten müssen die von GE automatisch generierten Klassen implementieren.
 
 
 Es wird die grundlegende Graphenstruktur definiert, die genutzt wird, um Multilayer Graphen darzustellen. Knoten speichern hierbei jeweils ihre ID, zu welchem Layer sie gehören
@@ -31,7 +31,7 @@ und ihre Liste an ausgehenden Kanten. Dazu kommen Daten, die gebraucht werden, u
 
 \section{Lib}
 
-Die geteilte Bibliothek besteht aus zwei Komponenten. Sie enthält den von TSl generierten Code und macht es so dem Client/Proxy/Server möglich darauf zuzugreifen. Der generierte Code enthält auch die abstraken Klassen für Proxy und Server. Diese werden in den enstprechnden Komponenten implementiert. 
+Die geteilte Bibliothek besteht aus zwei Komponenten. Sie enthält den von TSl generierten Code und macht es so dem Client/Proxy/Server möglich darauf zuzugreifen. Der generierte Code enthält auch die abstrakten Klassen für Proxy und Server. Diese werden in den entsprechenden Komponenten implementiert. 
 
 Außerdem enthält sie eine Sammlung aus Funktionen, die alle Projekte nutzen können. Insbesondere besitzt sie ein Interface, um mit dem Graphen zu interagieren und z.B. neue Knoten anzulegen oder einem Knoten neue Kanten hinzuzufügen.
 Dazu kommt die Funktionalität, Ergebnisse von Algorithmen ausgeben zu lassen, da dies sowohl auf dem Client, als auch der Proxy möglich ist.
@@ -51,7 +51,7 @@ Die Anweisungen werden interpretiert und in Anfragen an die Proxy übersetzt, we
 Die Proxy dient als Bindeglied zwischen dem Client und den Servern. Sie nimmt Anfragen vom Client an und sorgt dafür, dass diese ausgeführt werden.
 Dabei koordiniert sie die Ausführung der verschiedenen Algorithmen und sendet die nötigen Anfragen an die Server. Wenn es nötig ist, kann gewartet werden,
 bis alle Server die Anfrage abgearbeitet haben. Die Server können dabei auch ein Ergebnis zurücksenden, welches die Proxy weiter verwenden kann. Ein häufiger Fall
-ist hierbei, dass die Ergbenisse der einzelnen Server aggregiert werden.
+ist hierbei, dass die Ergebnisse der einzelnen Server aggregiert werden.
 
 
 Abhänging von der Client Anfrage ist die Proxy auch für das Messen der Laufzeit und das Bilden der Ergebnisse verantwortlich. Die Ergebnisse können im gewünschten Format entweder direkt auf der Proxy ausgegeben
@@ -67,7 +67,7 @@ Ist ein Server mit einer angeforderten Aufgabe fertig, kann er dies der Proxy me
 
 \subsection{Laden}
 
-Das Laden des Graphens findet verteilt über alle Server statt. Jeder Server liest die Kantendatei Zeile für Zeile und lädt die Kanten und Knoten, für die er verantwortlich.
+Das Laden des Graphen findet verteilt über alle Server statt. Jeder Server liest die Kantendatei Zeile für Zeile und lädt die Kanten und Knoten, für die er verantwortlich.
 Um herauszufinden, ob ein Server für einen Knoten verantwortlich ist wird aus der ID und dem Layer des Knoten ein 64-Bit Hash-Wert gebildet. Dieser wird als Schlüssel für den Key-Value Store von GE verwendet.
 Nun prüft der Server, wie in \ref{memoryCloud} beschrieben, ob er für den Knoten verantwortlich ist.
 

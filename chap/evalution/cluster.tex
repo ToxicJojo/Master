@@ -4,17 +4,17 @@
 Die Evaluation wurde auf dem Rechencluster des Lehrstuhl für Betriebssysteme der Heinrich-Heine Universität Düsseldorf durchgeführt.
 Das Cluster besitzt mehrere Knoten die Nutzer reservieren und benutzen können.
 
-Die zur Evalutation verwendeten Knoten haben den Xeon E3-1220 Prozessor, bezitzen 16Gigabyte Arbeitsspeicher und eine 240 Gigabyte SSD.
+Die zur Evaluation verwendeten Knoten haben den Xeon E3-1220 Prozessor, besitzen 16Gigabyte Arbeitsspeicher und eine 240 Gigabyte SSD.
 Alle Knoten im Cluster sind mit Gigabit-Ethernet verbunden und können miteinander kommunizieren. 
 
-Das home-Verzeichnis eines Nutzer ist in einem verteilten Dateisystem gespeichert. Damit können Dateien im home-Verzeichnis, unabhänging davon welcher Knoten genutzt wird, gelesen werden.
+Das home-Verzeichnis eines Nutzer ist in einem verteilten Dateisystem gespeichert. Damit können Dateien im home-Verzeichnis, unabhängig davon welcher Knoten genutzt wird, gelesen werden.
 
 \section{Testdaten}
 
 
-Als Testdatensatz wird ein Teil des Microsoft Acadmic Graph genutzt \cite{sinha2015an}. Der Graph enthält wissenschaftliche Publikationen und die Zitierungsbeziehungen zwischen diesen Publikation, sowie Autoren, Institutionen, Journals, Konferenzen und Forschungsgebieten.
+Als Testdatensatz wird ein Teil des Microsoft Academic Graph genutzt \cite{sinha2015an}. Der Graph enthält wissenschaftliche Publikationen und die Zitierungsbeziehungen zwischen diesen Publikation, sowie Autoren, Institutionen, Journals, Konferenzen und Forschungsgebieten.
 
-In dem Testdatensatz werden nur die Zitierungen zwischen Journals betrachtet. Dabei sind nur Journals enhalten, in denen zwischen 2007 und 2011 mehr als 100 Paper veröffentlicht wurden und die mindestens auf andere Journals fünf mal verwiesen haben.
+In dem Testdatensatz werden nur die Zitierungen zwischen Journals betrachtet. Dabei sind nur Journals enthalten, in denen zwischen 2007 und 2011 mehr als 100 Paper veröffentlicht wurden und die mindestens auf andere Journals fünf mal verwiesen haben.
 Der Datensatzt besteht aus einer Kantendatei, in die die Verweise von einem Journal auf ein anderes darstellen. Dabei speichert jede Kante welches Journals auf welches verweist, in welchem Forschungsgebiet, in welchem Jahr und die Anzahl der Verweise.
 
 Die verschiedene Forschungsgebiete stellen dabei die Layer des Graphen dar.
@@ -27,13 +27,13 @@ Die Kantendatei besteht aus 34715307 Kanten, die zwischen 12670 Journals in 1261
 Um die Perfomance des MultiLayer Systems in GE zu testen, wurden für verschiedenen Funktionen Benchmarks durchgeführt. Um zu prüfen, wie sich die Perfomance mit unterschiedlicher Anzahl von Servern verändert,
 wurde jeder der Benchmarks mit 1 bis 8 Servern durchgeführt. Bei allen Benchmarks ist die Proxy für das Messen der Laufzeit verantwortlich.
 
-Es wird das Laden der Kantendatei, das Berechnen der Graph Dichte und das Berechnen der Hub und Authority Werte untersucht. Die Funktionen für die Benchmarks wurden ausgewählt, um die Performance für verschiedene Arten der Berechungen zu testen.
+Es wird das Laden der Kantendatei, das Berechnen der Graph Dichte und das Berechnen der Hub und Authority Werte untersucht. Die Funktionen für die Benchmarks wurden ausgewählt, um die Performance für verschiedene Arten der Berechnungen zu testen.
 
 Bei der Berechnung der Dichte handelt es sich um eine Funktion, bei der die Server nicht untereinander kommunizieren müssen. Jeder Server berechnet sein lokales Ergebnis für die Knoten, die er speichert und sendet dieses an die Proxy. 
-Diese aggregiert am Ende das Geamtergbeniss. Hier lässt sich prüfen, wie sich die Laufzeit verhält, wenn die Server für die Ausführung nicht miteinander kommunizieren müssen.
+Diese aggregiert am Ende das Gesamtergebnis. Hier lässt sich prüfen, wie sich die Laufzeit verhält, wenn die Server für die Ausführung nicht miteinander kommunizieren müssen.
 
 Bei der Berechnung der Hub und Authority Werte müssen die Server viel untereinander kommunizieren. Sie führen soweit es geht die Aktualisierungen der Werte lokal durch, müssen aber, falls sie entfernte Knoten aktualisieren müssen oder die Werte von entfernten Knoten benötigt werden, diese von den anderen Servern erhalten.
-Die Proxy koordiniert hierbei nur die Ausführung der einzelnen Aktualisierungen und Normalisierung der Wert. Hiermit wird geprüft, wie sich die Laufzeit verhält, wenn einiges an inter Server Kommunikation nötig ist.
+Die Proxy koordiniert hierbei nur die Ausführung der einzelnen Aktualisierungen und Normalisierung der Wert. Hiermit wird geprüft, wie sich die Laufzeit verhält, wenn einiges an Server zu Server Kommunikation nötig ist.
 
 
 \subsection{Ladezeiten}
@@ -59,7 +59,7 @@ Ab dem Punkt, wo das Lesen der Kantendatei länger dauert, als das Speichern der
 
 Bei der Graphdichte wurden für jede Konfiguration an Servern jeweils 10 Durchläufe gemessen und der Mittelwert gebildet. Die Ergebnisse sind in Abbildung \ref{eval:density} gezeigt.
 
-Die Zeit, um die Graphdichte zu berechnent, sinkt von 11.47 Sekunden auf 2.19 Sekunden. Umso größer die Anzahl der Server desto geringer ist die Anzahl an Knoten, für die ein einzelner Server verantwortlich ist. Damit sinkt auch der Aufwand für jeden einzelnen Server, umso mehr Server beteiligte sind. 
+Die Zeit, um die Graphdichte zu berechnen, sinkt von 11.47 Sekunden auf 2.19 Sekunden. Umso größer die Anzahl der Server desto geringer ist die Anzahl an Knoten, für die ein einzelner Server verantwortlich ist. Damit sinkt auch der Aufwand für jeden einzelnen Server, umso mehr Server beteiligte sind. 
 Diese Entwicklung lässt sich in den Werten gut beobachten. Besonders der Sprung von einem zu zwei Servern halbiert knapp die Laufzeit zur Berechnung der Graphdichte.
 
 \begin{figure}

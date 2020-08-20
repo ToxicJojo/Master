@@ -1,7 +1,24 @@
 \section{Graphen}
 
 
-Im Allgemeinen kann ein Graph durch $G = (V, E)$ dargestellt werden, wobei $V$ eine Menge an Knoten und $E$ eine Menge an Kanten ist. Die Kanten sind jewils ein geoordnetes Knotenpaar $(u, v) \subseteq V \times V$.
+Im Allgemeinen kann ein Graph durch $G = (V, E)$ dargestellt werden, wobei $V$ eine Menge an Knoten und $E$ eine Menge an Kanten ist. Die Kanten sind jeweils ein geordnetes Knotenpaar $(u, v) \subseteq V \times V$.
+
+\subsection{Dichte}
+\label{dichte}
+
+Die Dichte eines Graphen gibt das Verhältnis zwischen der Anzahl an Kanten und der potentiell möglichen Anzahl an Kanten an \cite{diestel2010graphentheorie}.
+Sie lässt sich bestimmen mit:
+
+\[ d(G) =  \frac{2|{E}|}{|V|(|V| - 1)}    \]
+
+
+\subsection{Knotengrad}
+\label{knotengrad}
+
+In einem gerichteten Graphen besitzt jeder Knoten einen Ausgang- und Eingangsgrad. Dies ist jeweils die Anzahl an Kanten, die bei dem Knoten starten bzw. bei ihm enden \cite{diestel2010graphentheorie}.
+Der Ausgangsgrad für einen Knoten $v$ im Graph $G$ wird mit $d^{+}_{G}(v)$ und den Eingangsgrad mit $d^{-}_{G}(v)$ bezeichnet.
+
+
 
 \subsection{Multi Layer Graphen}
 

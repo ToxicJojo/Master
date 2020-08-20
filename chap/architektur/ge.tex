@@ -17,19 +17,18 @@ Graph Engine benutzt eine .xml Konfigurationsdatei, um das Cluster aus Proxy und
 In der Datei können zudem weitere Einstellungen, wie Dateipfade oder Logging, für die Server gemacht werden (siehe \ref{lst:config}).
 
 \begin{lstlisting}[language=xml, label={lst:config}, caption={Beispiel Konfigurationsdatei für ein Cluster mit einer Proxy und zwei Servern}]
-  <Trinity ConfigVersion="2.0">
+<Trinity ConfigVersion="2.0">
   <Cluster>
     <Proxy Endpoint="node52:8133" LogDirectory="D:\log-dir" LoggingLevel="Info" />  
     <Server Endpoint="node55:8133" />
     <Server Endpoint="node63:8133" />
   </Cluster>
 </Trinity>
-
 \end{lstlisting}
 
 
 \subsection{Datenzugriff}
-
+\label{datenzugriff}
 
 Graph Engine bietet mehrere Arten auf die Daten von Zellen zuzugreifen. Dabei ist es wichtig zu verstehen, wie die verschiedenen Arten funktionieren und wie deren Performance ist.
 
@@ -44,7 +43,7 @@ Die andere Methode ist der direkte Zugriff über \verb|UseCell()|. Dabei wird di
 
 \subsection{Schwierigkeiten}
 
-Da sich die Version 2 von GraphEngine noch in Entwicklung befindet, gibt es einige Schwierigkeiten, die bei der Entwicklung von Anwedungen mit Graph Engine entstehen.
+Da sich die Version 2 von GraphEngine noch in Entwicklung befindet, gibt es einige Schwierigkeiten, die bei der Entwicklung von Anwendungen mit Graph Engine entstehen.
 
 Hauptsächlich ist hierbei die kaum vorhandene Dokumentation für Version 2 problematisch. Viele Änderungen zwischen den beiden Versionen sind nicht dokumentiert. So wurden zum Beispiel
 das Attribut jeder Zelle, welches die ID der Zelle beinhaltete, von \verb|cell.CellID| zu \verb|cell.CellId| umbenannt. Auch wurde die Bezeichnung für entfernte Server von \verb|Server| zu \verb|Partition| geändert.

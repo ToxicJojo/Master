@@ -16,10 +16,21 @@ Manlio De~Domenico, Albert Solè-Ribalta, Emanuele Cozzo, Mikko Kivelä, Yamir
 \newblock Mathematical formulation of multi-layer networks.
 \newblock {\em Physical Review X}, 3, 07 2013.
 
+\bibitem{diestel2010graphentheorie}
+R.~Diestel.
+\newblock {\em Graphentheorie}.
+\newblock Springer-Lehrbuch Masterclass. Springer Berlin Heidelberg, 2010.
+
 \bibitem{Kleinberg98authoritativesources}
 Jon~M. Kleinberg.
 \newblock Authoritative sources in a hyperlinked environment.
 \newblock {\em Journal of the ACM}, 46:668--677, 1998.
+
+\bibitem{pregel}
+Grzegorz Malewicz, Matthew Austern, Aart Bik, James Dehnert, Ilan Horn, Naty
+  Leiser, and Grzegorz Czajkowski.
+\newblock Pregel: A system for large-scale graph processing.
+\newblock page~48, 01 2009.
 
 \bibitem{Page98thepagerank}
 Larry Page, Sergey Brin, R.~Motwani, and T.~Winograd.

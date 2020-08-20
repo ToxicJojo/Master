@@ -11,7 +11,7 @@ Multilayer Netzwerke besitzen verschiedene Arten von Verbindungen zwischen Knote
 Diese Ebenen können, je nach Anwendungsfall, verschiedene Kategorien sein. In diesen Multilayer Netzwerken gibt es neben den Verbindungen zwischen Knoten in der gleichen Ebene noch Verbindungen zwischen Knoten unterschiedlicher Ebenen.
 So lassen sich Systeme wie Transportnetzwerke mit verschiedenen Modi der Transportation und dem Übergang zwischen diesen Modi darstellen.
 
-In vielen Bereichen steigen die enstehenden Datenmengen, die für Netzwerkanalysen benutzt werden, immer weiter an. Ein großes Beispiel hierfür sind soziale Netzwerke, in denen sich die Verbindungen zwischen Nutzern und deren Interaktionen durch Multilayer Netzwerke darstellen lassen.
+In vielen Bereichen steigen die entstehenden Datenmengen, die für Netzwerkanalysen benutzt werden, immer weiter an. Ein großes Beispiel hierfür sind soziale Netzwerke, in denen sich die Verbindungen zwischen Nutzern und deren Interaktionen durch Multilayer Netzwerke darstellen lassen.
 
 
 Zur Analyse von Multilayer Netzwerken wurden bereits verschiedene Anwendungen, wie muxViz entwickelt. Diese Anwendungen können Multilayer Netzwerke laden, verschiedene Statistiken zu ihnen bilden und Algorithmen auf ihnen laufen lassen.
@@ -20,7 +20,7 @@ Die verschiedene Anwendungen haben jedoch keinen verteilten Ansatz und laufen al
 Um solch große Graphen zu handhaben bietet sich ein verteilter Ansatz mit mehreren Maschinen, auf die der Graph aufgeteilt wird, an.
 
 
-Es gibt Systeme zur verteilten Verarbeitung von großen Graphen, wie zum Beispiel Pregel oder Giraph. Diese Systeme können große Graphen verteilt auf vielen Maschinen verarbeiten und effzient Berechnungen auf diesen Graphen durchführen. Allerdings sind sie nicht auf Multilayer Netzwerke ausgerichtet und können nur mit klassichen Graphen umgehen.
+Es gibt Systeme zur verteilten Verarbeitung von großen Graphen, wie zum Beispiel Pregel \cite{pregel} oder Apache Giraph. Diese Systeme können große Graphen verteilt auf vielen Maschinen verarbeiten und effizient Berechnungen auf diesen Graphen durchführen. Allerdings sind sie nicht auf Multilayer Netzwerke ausgerichtet und können nur mit klassischen Graphen umgehen.
 
 
 Ein verteiltes Graphsystem, in welchem die Darstellung des Graphen frei gewählt werden kann, ist das von Microsoft Research Asia entwickelte Graph Engine.
@@ -28,5 +28,5 @@ In dieser Arbeit wird untersucht, inwiefern mit Graph Engine ein System zur vert
 um Multilayer Graphen in GE zu speichern. Zudem bietet Graph Engine die Möglichkeit Nachrichten zwischen den einzelnen Maschinen auszutauschen und aufgrund dieser Berechnungen durchzuführen. Auch diese Kommunikation kann frei gestaltet und für die Zwecke der Multilayer Graph Verarbeitung genutzt werden.
 
 
-In dieser Arbeit soll mitfhilfe von Graph Engine ein System erstellt werden, welches Multilayer Graphen laden, veränder und Algorithmen auf ihnen ausführen kann. Dafür müssen eine Client-, Proxy- und Serveranwendung entwickelt werden, die miteinander arbeiten.
+In dieser Arbeit soll mithilfe von Graph Engine ein System erstellt werden, welches Multilayer Graphen laden, verändern und Algorithmen auf ihnen ausführen kann. Dafür müssen eine Client-, Proxy- und Serveranwendung entwickelt werden, die miteinander arbeiten.
 Dabei liegt der Fokus darauf, ein allgemeines System zu erstellen, das erweitert werden kann. 

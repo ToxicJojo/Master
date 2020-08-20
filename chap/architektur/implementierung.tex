@@ -35,8 +35,8 @@ Die Proxy muss von den Servern benachrichtigt werden können, wenn diese asynchr
 Dafür wird ein \verb|PhaseFinished| Protokoll erstellt. Die Server nutzen das Protokoll, um der Proxy eine \verb|PhaseFinishedMessage| zu senden.
 
 Diese Nachricht enthält die Phase, die beendet wurde und eine Liste an Strings, welche das Ergebnis der jeweiligen Phase darstellt. Es wird hier aus zwei Gründen eine Liste an Strings verwendet. Zum einem gibt es Algorithmen, die ein Ergebnis pro Layer des Graphen zurückgegeben wollen.
-Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet, da die Ergbenisse verschiedenen Datentypen haben können, welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus, der Knoten zählt nur Integer Werte zurück, während einer der PageRank Werte zurückgibt Double werte benutzt.
-Die Phasen werden in einer seperaten TSL Datei verwaltet und als Enum abgespeichert.
+Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet, da die Ergebnisse verschiedenen Datentypen haben können, welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus, der Knoten zählt nur Integer Werte zurück, während einer der PageRank Werte zurückgibt Double werte benutzt.
+Die Phasen werden in einer separaten TSL Datei verwaltet und als Enum abgespeichert.
 
 Um von der Proxy Ergebnisse zurück an den Client geben zu können, gibt es das Konstrukt \verb|AlgorithmResult|. Dieses beinhaltet sowohl ein Ergebnis in Tabellenform, als auch die Laufzeit des Algorithmus.
 
@@ -101,7 +101,7 @@ Die Server Definition zieht alle diese Protokolle zusammen, sodass die entsprech
 \subsection{Lib}
 
 
-Die geteilte Bibliothenk stellt eine statische Klasse \verb|Graph| zur Verfügung, die von den anderen Komponenten genutzt wird. Die Klasse ermöglicht es mit dem in GE gespeicherten Graph zu interagieren, ohne die Implementierungsdetails zu kenne. So kann auf Knoten zugegriffen werden, ohne zu wissen, wie ID und Layer in eine GE ZellenID übersetzt werden. 
+Die geteilte Bibliothek stellt eine statische Klasse \verb|Graph| zur Verfügung, die von den anderen Komponenten genutzt wird. Die Klasse ermöglicht es mit dem in GE gespeicherten Graph zu interagieren, ohne die Implementierungsdetails zu kenne. So kann auf Knoten zugegriffen werden, ohne zu wissen, wie ID und Layer in eine GE ZellenID übersetzt werden. 
 Dazu kommen Funktionen, um Knoten zu erstellen und diese zu verändern.
 
 \subsubsection{Ausgabe}
@@ -111,7 +111,7 @@ das Interface \verb|IOutputWriter|, welches die Funktion \verb|void WriteOutput(
 
 \begin{itemize}
   \item \verb|None|, gibt nichts aus
-  \item \verb|Console|, gibt das Ergbniss in der Konsole aus
+  \item \verb|Console|, gibt das Ergebnis in der Konsole aus
   \item \verb|CSV|, gibt das Ergebnis in einer .csv Datei aus
 \end{itemize}
 
@@ -121,7 +121,7 @@ das Interface \verb|IOutputWriter|, welches die Funktion \verb|void WriteOutput(
 Der Client kann über die Kommandozeile gestartet und bedient werden. Mit dem Argument 'interactive' wird eine interaktive Sitzung gestartet,
 in der der Nutzer Befehle eingeben kann, die die Proxy dann ausführt. Im 'batch' Modus wird zudem eine Datei mitgegeben, die Anweisungen erhält.
 
-Der Client verwaltet eine Liste an ausführbaren Kommandos, die vom Nutzer abgerufen werden können. Dazu speichert er die aktuellen Einstellungen zur Ausfürung von Funktionen und Ausgabe der Ergebnisse. Eine Übersicht über die Struktur ist in Abbildung \ref{clientClass} gezeigt.
+Der Client verwaltet eine Liste an ausführbaren Kommandos, die vom Nutzer abgerufen werden können. Dazu speichert er die aktuellen Einstellungen zur Ausführung von Funktionen und Ausgabe der Ergebnisse. Eine Übersicht über die Struktur ist in Abbildung \ref{clientClass} gezeigt.
 
 
 
@@ -138,20 +138,20 @@ Dazu gibt es drei Interface Funktionen:
   \item \verb|Run()|, führt das jeweilige Kommando aus.
 \end{itemize}
 
-Dass die Methoden, die nur Informationen zurückgegeben, sowie das Verfifizieren der Argumente für alle Kommandos gleich funktioniert, gibt es eine abstrakte Klasse
+Dass die Methoden, die nur Informationen zurückgegeben, sowie das Verifizieren der Argumente für alle Kommandos gleich funktioniert, gibt es eine abstrakte Klasse
 \verb|Command|, welche diese bereits implementiert. Die Kommandos erben von dieser Klasse und müssen nur noch \verb|ApplyArguments(string[] arguments)| und \verb|Run()| selbst implementieren.
 Die Kommandos füllen die Informationen über sich selbst jeweils in ihrem Konstruktor aus. Diese sind:
 
 \begin{itemize}
   \item \verb|Name|, der Name des Kommandos
   \item \verb|Keyword|, das Keyword um es aufzurufen
-  \item \verb|Description|, eine kurze Beschriebung was das Kommando macht
+  \item \verb|Description|, eine kurze Beschreibung was das Kommando macht
   \item \verb|Arguments|, eine Liste welche die festhält welche Datentypen die Argumente haben
-  \item \verb|ArgumentsDescription|, eine Beschreibung für die einezelnen Argumente
+  \item \verb|ArgumentsDescription|, eine Beschreibung für die einzelnen Argumente
 \end{itemize}
 
 Die Verifizierung der Argumente findet in zwei Schritten statt. Erst wird die Anzahl der gegeben Argumente mit der Anzahl der Elemente von 'Arguments' verglichen.
-Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das gegeben Argument dem jeweiligen Type enstpricht.
+Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das gegeben Argument dem jeweiligen Type entspricht.
 
 
 \begin{figure}
@@ -208,7 +208,7 @@ Die Abbildung \ref{proxyClass} gibt eine Übersicht über den Aufbau der Proxy-A
 \subsubsection{BaseProxy}
 
 In 'MultiLayerBaseProxy.cs' wird grundlegende Funktionalität der Proxy definiert, die nicht zu einem einzelnem Algorithmus gehört. Dies ist zum einem die Möglichkeit Algorithmen zu starten und deren Ergebnisse auszugeben, zum anderem wird hier die Möglichkeit geboten auf Antworten der einzelnen Servern, sobald diese eine Phase beendet haben, zu warten.
-Hat ein Server eine Phase beendet, sendet er an die Proxy einen \verb|PhaseFinished| Request, der die Phase enthält, die er beendet hat und wenn nötig sein lokales Ergebnis. Die \verb|MultiLayerBaseProxy| handhabt diesen Request und zählt wieviele Server eine jeweilige Phase schon beendet haben und sammelt deren Ergbenisse. Hierfür werden drei Elemente verwendet:
+Hat ein Server eine Phase beendet, sendet er an die Proxy einen \verb|PhaseFinished| Request, der die Phase enthält, die er beendet hat und wenn nötig sein lokales Ergebnis. Die \verb|MultiLayerBaseProxy| handhabt diesen Request und zählt wieviele Server eine jeweilige Phase schon beendet haben und sammelt deren Ergebnisse. Hierfür werden drei Elemente verwendet:
 
 \begin{itemize}
   \item \verb|Dictionary<Phases, int> phaseFinishedCount|, um zu zählen wieviele Server bereits eine bestimmte Phase abgeschlossen haben.
@@ -240,11 +240,11 @@ private void WaitForPhaseAnswers(Phases phase) {
 }
 \end{lstlisting}
 
-Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse zu warten. Außerdem gibt es meherere Methoden, die es erlauben, die Ergbenisse direkt im gewünschten Datentyp zu erhalten.
+Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse zu warten. Außerdem gibt es mehrere Methoden, die es erlauben, die Ergebnisse direkt im gewünschten Datentyp zu erhalten.
 
 \subsubsection{Algorithmen}
 
-Um die Ausfürung, Perfomance Messung und Ausgabe von Ergebnissen einheitlich zu halten, gibt es das Interface \verb|IAlgorithm|, welches die Grundfunktionen der Algorithmen definiert(siehe Abbildung \ref{proxyClass}).
+Um die Ausführung, Perfomance Messung und Ausgabe von Ergebnissen einheitlich zu halten, gibt es das Interface \verb|IAlgorithm|, welches die Grundfunktionen der Algorithmen definiert(siehe Abbildung \ref{proxyClass}).
 Es besitzt vier Methoden:
 
 \begin{itemize}
@@ -255,7 +255,7 @@ Es besitzt vier Methoden:
 \end{itemize}
 
 Das Interface wird von der abstrakten Klasse \verb|Algorithm| implementiert. In dieser Klasse bleibt die \verb|Run()| Methode abstrakt.
-Die Klassen für die einzelnen Algorhtmen erben von \verb|Algorithm| und implementieren entsprechend ihrer Anforderungen die \verb|Run()| Methode.
+Die Klassen für die einzelnen Algorithmen erben von \verb|Algorithm| und implementieren entsprechend ihrer Anforderungen die \verb|Run()| Methode.
 
 Erhält die Proxy eine Anfrage einen bestimmten Algorithmus auszuführen ruft der entsprechende Requesthandler den angefragten Algorithmus auf.
 
@@ -264,8 +264,8 @@ Erhält die Proxy eine Anfrage einen bestimmten Algorithmus auszuführen ruft de
 \subsection{Server}
 
 Wie schon bei der Proxy wird der in TSL definierte Server \verb|MultiLayerServer| zu der abstrakten Klasse \verb|MultiLayerServerBase| kompiliert. Diese hat abstrakte Methoden für die Protokollhandler.
-Die \verb|MultiLayerServerBase| wird von der Klasse \verb|MultiLayerServerImpl| implementiert, welche auch wieder zur besseren Übersicht in einzelne partielle Klassen aufgeteilt wird. Diese partiellen Teile sind in die jeweiligen Algorithmen und eine Basisklasse \verb|MultiLayerBaserServer| aufgeteilt.
-Der \verb|MultiLayerBaserServer| bietet den Algorithmen Methoden, um der Proxy mitzuteilen, dass sie eine Phase beendet haben.
+Die \verb|MultiLayerServerBase| wird von der Klasse \verb|MultiLayerServerImpl| implementiert, welche auch wieder zur besseren Übersicht in einzelne partielle Klassen aufgeteilt wird. Diese partiellen Teile sind in die jeweiligen Algorithmen und eine Basisklasse \verb|MultiLayerBaseServer| aufgeteilt.
+Der \verb|MultiLayerBaseServer| bietet den Algorithmen Methoden, um der Proxy mitzuteilen, dass sie eine Phase beendet haben.
 Der Aufbau der Server-Anwendung ist in Abbildung \ref{serverClass} dargestellt.
 
 
@@ -297,6 +297,74 @@ Die Methoden \verb|GetId| und \verb|GetLayer| sind nötig, damit während des Pu
 Für alle Formate, die unterstützt werden sollen, muss nun eine Klasse erstellt werden, die das Interface implementiert.
 
 
+\subsection{Algorithmen}
+
+Für das Multilayer Graph System wurden bereits Algorithmen bzw. Metriken implementiert. In diesem Abschnitt wird grob die Funktionsweise der einzelnen Algorithmen und deren Optimierungen erläutert.
+
+
+\subsubsection{Knoten- und Kantenanzahl}
+Zum bestimmen der Knote- und Kantenanzahl zählt jeder Server die Knoten bzw. deren Kanten für die er verantwortlich ist. Dabei kann bei der Kantenanzahl festgelegt werden, ob Kanten die von einem Layer in einen anderen gehen mitgezählt werden.
+Die Knoten und Kanten werden pro Layer gezählt und das Ergebnis an die Proxy gesendet. Diese zählt die Ergebnisse aller Server zusammen und bildet das Endergebnis.
+ 
+
+\subsubsection{Graph Dichte}
+
+Die Graph Dichte wird berechnet, indem die Proxy einmal die Knoten und Kanten, wie zuvor beschrieben zählt.
+Danach wird für jeden Layer die Dichte wie in \ref{dichte} beschrieben berechnet.
+
+
+\subsubsection{Knotengrad}
+
+Der Knotengrad für jeden Knoten wird in zwei Schritte ermittelt.
+Da jeder Knoten seine ausgehenden Kanten speichert kann der Ausgangsgrad einfach bestimmt werden. Jeder Server zählt für seine Knoten die Anzahl der ausgehenden Kanten.
+
+Um den Eingangsgrad zu bestimmten geht jeder Server alle seine Knoten durch. Für jede Kante wird geprüft, ob der Zielknoten auf dem gleichen Server liegt. Ist dies der Fall wird der Eingangsgrad des Knoten direkt um 1 erhöht.
+Liegt der Knoten auf einem anderen Server wird diesem eine entsprechende Nachricht zugesandt und dieser erhöht den Eingangsgrad des Knoten.
+
+
+\subsubsection{PageRank}
+
+Das Berechnen der PageRank Werte ist in mehrere Phasen aufgeteilt, deren Ablauf von der Proxy gesteuert wird.
+
+In einer ersten Phase werden die Werte für alle Knoten auf den gleichen initial Wert gesetzt. Dieser kann vom Client gewählt werden.
+
+Danach beginnt die Update Phase, in der die Werte neu berechnet werden. Hier wird, wie in \ref{pageRank} beschrieben, jeweils der neue Wert für jeden Knoten berechnet.
+Dabei geht jeder Server alle seine Knoten und deren Kanten durch. Falls der Zielknoten der Kante auf dem gleichen Server liegt kann der Wert sofort entsprechend geändert werden.
+Liegt der Zielknoten auf einem anderen Server wird sich gemerkt, um wieviel der Wert sich ändern muss und dies dem entfernten Server per Nachricht mitgeteilt.
+
+
+Sind alle Updates abgeschlossen wird die Normalisierung der Werte durchgeführt und bestimmt, wie groß die Gesamtänderung aller PageRank Werte ist.
+Liegt die Gesamtänderung unter einem vom Client gewählten $\epsilon$ wird der Algorithmus beendet. Ansonsten wird eine weitere Update Runde durchgeführt.
+
+
+\subsubsection{HITS}
+
+Zum bestimmen der Hub und Authority Werte läuft der Algorithmus in mehren Phasen ab, die von der Proxy gesteuert werden.
+
+In der ersten Phase werden die Hub und Authority Werte auf einen vom Client festgelegten initial Wert gesetzt.
+
+Danach werden erst die Authority Werte neu berechnet. Dabei wird über jeden Knoten und jede Kante iteriert. Zeigt die Kante auf einen lokalen Knoten kann dessen Authority Werte direkt angepasst werden. Handelt es sich um einen entfernten Knoten auf einem anderen Server
+wird diesem eine Nachricht mit der Wertänderung geschickt.
+
+Sind die Authority Werte neu berechnet werden diese in einer weiteren Phase normalisiert. Dabei wird die Gesamtänderung der Authority Werte bestimmt und der Proxy mitgeteilt.
+
+Danach werden die neuen Hub Werte berechnet. Dazu iteriert jeder Server über alle seine Knoten und deren Kanten. Zeigt die Kante auf einen lokalen Knoten wird dessen Authority Wert genutzt, um den Hub Wert des aktuellen Knotens zu aktualisieren.
+Handelt es sich um einen entfernten Knoten wird sein Authority Wert von dem anderen Server angefragt. 
+
+Anschließen werde auch die Hub Werte normalisiert und deren Gesamtänderung berechnet. Dieser wird der Proxy zugesandt.
+
+Die Proxy prüft nun, ob die Gesamtänderung der Hub und Authority Werte unter einem vom Client gewählten Schwellwert $\epsilon$ liegt. Ist dies nicht der Fall wird wieder mit dem Update der Authority Werte begonnen.
+
+
+\subsubsection{Optimierungen}
+
+Algorithmen, wie PageRank oder HITS müssen auf Werte von Knoten, die auf anderen Servern gespeichert sind, zugreifen.
+Entweder müssen die entfernten Werte aktualisiert oder gelesen werden. Diese Zugriffe direkt zu machen ist, wie in \ref{datenzugriff} erläutert, nicht sehr schnell und erfordert jedes mal Kommunikation zwischen den Servern.
+Da diese Kommunikation jedes mal mit einem gewissen Overhead an Aufwand verbunden ist und für große Graphen mehrere Millionen mal auftritt, muss versucht werden dies zu vermeiden.
+
+Als Lösung für das Problem unterstützt das Multilayer Graph System das verschicken von einer Menge an Schlüssel und Werten Paaren in einer Anfrage. Damit wird der Overhead für die vielen einzelnen Anfragen vermieden.
+Die Implementierung von PageRank, HITS und der Berechnung des Knotengrads verwenden diese Lösung, um entfernte Werte anzufragen oder zu aktualisieren.
+
 
 \subsection{Erweiterbarkeit}
 
@@ -308,10 +376,10 @@ Um den Ablauf zu veranschaulichen, wird dies für eine Beispielfunktion erklärt
 \subsubsection{Model}
 
 Im Model muss eine .tsl Datei für den neuen Algorithmus erstellt werden. In dieser werden die Daten und Protokolle die GE unterstützen muss beschrieben. Im Fall der Beispielfunktion sind zwei Protokolle notwendig.
-Eines damit der Client die Anfrage für die Ausfürung an die Proxy senden kann und ein Weiteres, damit die Proxy die einzelnen Server nach ihrer Anzahl an Knoten mit der gewünschten Menge an Kanten fragen kann.
+Eines damit der Client die Anfrage für die Ausführung an die Proxy senden kann und ein Weiteres, damit die Proxy die einzelnen Server nach ihrer Anzahl an Knoten mit der gewünschten Menge an Kanten fragen kann.
 Dabei müssen bei beiden Protokollen die Anzahl der Kanten mitgegeben werden können.
 
-In der Anfrage an die Proxy sollen zudem die Optionen für die Ausfürung von Algorithmen, sowie die Option für die Ausgabe von Ergebnissen dabei sein.
+In der Anfrage an die Proxy sollen zudem die Optionen für die Ausführung von Algorithmen, sowie die Option für die Ausgabe von Ergebnissen dabei sein.
 
 \begin{lstlisting}{language=c}
 // Proxy Protocol
@@ -341,7 +409,7 @@ protocol GetNEdgeNodesServer {
 
 Diese Protokolle müssen nun in \verb|MultiLayerProxy| und \verb|MultiLayerServer| eingetragen werden, damit die von TSL erzeugte Server/Proxy Basisklasse abstrakte Methoden für diese besitzen.
 
-Damit die Server der Proxy ihre lokalen Ergebnisse zusenden können, muss die 'Phases.tsl' Datei um eine Phase für diesen Algoritmus erweitert werden.
+Damit die Server der Proxy ihre lokalen Ergebnisse zusenden können, muss die 'Phases.tsl' Datei um eine Phase für diesen Algorithmus erweitert werden.
 
 \begin{lstlisting}{language=c}
 enum Phases {
@@ -357,7 +425,7 @@ enum Phases {
 
 Für den neuen Algorithmus muss im Client ein Kommando hinzugefügt werden, um diesen auszuführen. Das Kommando muss dabei die Anzahl der Kanten als Argument nehmen und das zuvor definierte Protokoll nutzen, um die Anfrage an die Proxy zu senden.
 
-Es wird eine neue Klasse \verb|NEdgesNodeCount| erstellt, welche von der abstrakten Klasse \verb|Command| erbt. Im Konstruktor müssen nun die bereits erwähten Daten eingegeben werden. Dabei ist wichtig, dass es ein Argument des Typs \verb|int| gibt, welches die Anzahl der gewünschten Kanten darstellt.
+Es wird eine neue Klasse \verb|NEdgesNodeCount| erstellt, welche von der abstrakten Klasse \verb|Command| erbt. Im Konstruktor müssen nun die bereits erwähnten Daten eingegeben werden. Dabei ist wichtig, dass es ein Argument des Typs \verb|int| gibt, welches die Anzahl der gewünschten Kanten darstellt.
 Nun müssen die Methoden \verb|ApplyArguments| und \verb|Run| implementiert werden.
 In \verb|ApplyArguments| wird das übergebene Argument in einer lokalen Variable gespeichert, sodass es beim Aufruf von \verb|Run| verwendet werden kann.
 In \verb|Run| wird die im Model bereits definierte Nachricht erstellt und an die Proxy gesendet.
@@ -394,14 +462,14 @@ namespace MultiLayerClient.Commands {
 \end{lstlisting}
 
 
-In der \verb|Client| Klasse muss im Konstruktor nun noch das erstellte Kommando registiert werden.
+In der \verb|Client| Klasse muss im Konstruktor nun noch das erstellte Kommando registriet werden.
 
 \subsubsection{Proxy}
 
 Für die Proxy müssen zwei Funktionen implementiert werden. Zum einem der Algorithmus der Anfragen an alle Server sendet ihre Anzahl an lokalen Knoten mit N Kanten zu senden und diese Ergebnisse aggregiert. Zum anderem muss 
-für das in TSL definierten Proxy Protokoll \verb|GetNEdgeNodesProxy| ein entsprechneder Handler erstellt werden, der die Anfrage verarbeitet und den Algorithmus startet.
+für das in TSL definierten Proxy Protokoll \verb|GetNEdgeNodesProxy| ein entsprechender Handler erstellt werden, der die Anfrage verarbeitet und den Algorithmus startet.
 
-Der Algoritmus muss die abstrakte Klasse \verb|Algorithm| implementieren, insbesondere die abstrakte Methode \verb|Run()| und \verb|AlgorithmResult GetResult(OutputOptions outputOptions)|. In \verb|Run()| wird die im Model erstellte Anfrage an alle Server gesendet, welche auf diese mit ihrer lokalen Anzahl an Knoten mit der gewünschten Kantenanzahl antworten. Die Proxy
+Der Algorithmus muss die abstrakte Klasse \verb|Algorithm| implementieren, insbesondere die abstrakte Methode \verb|Run()| und \verb|AlgorithmResult GetResult(OutputOptions outputOptions)|. In \verb|Run()| wird die im Model erstellte Anfrage an alle Server gesendet, welche auf diese mit ihrer lokalen Anzahl an Knoten mit der gewünschten Kantenanzahl antworten. Die Proxy
 wartet bis alle Server Ergebnisse gesendet haben und zählt diese zu einem Gesamtergebnis zusammen.
 
 Die andere Methode dient dazu, die Ergebnisse in einer Tabellenform darzustellen. Dazu wird sich die Anzahl der Knoten pro Layer gemerkt und jeder Layer als eine Reihe in der Tabelle dargestellt. Die erste Spalte ist die ID des Layers, während die zweite die Anzahl der Knoten in diesem Layer ist. Es wird eine weitere Zeile mit der Gesamtanzahl der Knoten hinzugefügt.
@@ -473,7 +541,7 @@ namespace MultiLayerProxy.Proxy {
 
 \subsubsection{Server}
 
-Auf der Serverseite müssen zwei Funktionen implementiert werden. Der Request im Model definierte Handler \verb|GetNEdgeNodesServer|, welcher von der Proxy aufgerufen wird. Dieser muss die Anfrage verarbeiten und die Funktion zur Berechnung der Kantenanzahl starten. Das Ergebniss dieser Funktion muss wieder zurück an die Proxy gesendet werden.
+Auf der Serverseite müssen zwei Funktionen implementiert werden. Der Request im Model definierte Handler \verb|GetNEdgeNodesServer|, welcher von der Proxy aufgerufen wird. Dieser muss die Anfrage verarbeiten und die Funktion zur Berechnung der Kantenanzahl starten. Das Ergebnis dieser Funktion muss wieder zurück an die Proxy gesendet werden.
 Dazu muss natürlich die Funktion implementiert werden, welche die Kantenanzahl zählt.
 
 Der Request Handler passt auch hier thematisch wieder zu der bereits vorhanden Datei \verb|MultiLayerStatsServer|, der eine parteille Klasse der Server Implementierung ist. So wird der Handler hier hinzugefügt.
@@ -489,9 +557,9 @@ public override void GetNEdgeNodesServerHandler(GetNEdgeNodesServerMessageReader
 \end{lstlisting}
 
 Die Funktion zur Berechnung selbst wird als statische Funktion der bereits vorhanden Klasse \verb|Stats| realisiert. Gäbe es keine passende Klasse, kann diese natürlich nach Bedarf erstellt werden.
-In der Funktion selbst wird über alle lokalen Knoten iteriert und die Anzahl der Knoten mit der gewunschten Kantenanzahl pro Layer gezählt. 
+In der Funktion selbst wird über alle lokalen Knoten iteriert und die Anzahl der Knoten mit der gewünschten Kantenanzahl pro Layer gezählt. 
 
-Das Ergebniss wird zurück an die Proxy gesendet.
+Das Ergebnis wird zurück an die Proxy gesendet.
 
 \begin{lstlisting}{language=c}
 public static List<long> GetNEdgeNodeCount(int numberOfEdges) {
