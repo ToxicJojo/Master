@@ -10,11 +10,11 @@ Dazu konnten die Funktion von Graph Engine zum Austausch von Nachrichten zwische
 Diese ermöglicht es eine auf die einzelnen Algorithmen und Funktionen zugeschnittene Kommunikation zu haben.
 
 
-Es wurde eine Client-Anwendung entwickelt, welche auf der Maschine des Benutzer läuft. Diese kann über die Kommandozeilen bedient werden und bietet die Möglichkeit interaktiv Kommandos auszuführen oder in einem Batch Modus eine Reihe an Kommandos aus einer Datei heraus auszuführen.
+Es wurde eine Client-Anwendung entwickelt, die auf der Maschine des Benutzer läuft. Diese kann über die Kommandozeilen bedient werden und bietet die Möglichkeit interaktiv Kommandos auszuführen oder in einem Batch Modus eine Reihe an Kommandos aus einer Datei heraus auszuführen.
 
 Eine Proxy Anwendung wurde erstellt, die als Bindeglied zwischen Client und Server fungiert. Sie kann Anfragen vom Client verarbeiten und die Server anweisen die Anfrage entsprechend zu bearbeiten. Sie koordiniert die Server und kann aus deren Zwischenergebnissen ein Gesamtergebnis bilden, welches an den Client zurückgegeben wird.
 
-Der entwickelte Server kann unter der Koordinierung der Proxy verschiedenen Algorithmen ausführen. Dabei sind die Server in der Lage untereinander zu kommunizieren und nötige Daten auszutauschen.
+Der entwickelte Server kann unter der Koordinierung der Proxy verschiedene Algorithmen ausführen. Dabei sind die Server in der Lage untereinander zu kommunizieren und nötige Daten auszutauschen.
 
 
 Es wurde gezeigt, dass das System in der Lage ist einen große Multi Layer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält, wenn man die Anzahl der Server im Cluster erhöht.
@@ -40,7 +40,7 @@ In Verbindung mit einer grafischen Benutzeroberfläche könnten die .csv Dateien
 
 \subsection{Cluster Verwaltung}
 
-Noch gibt es keine Möglichkeit die Proxy und Server automatisch zusammen starten zu lassen. Die Anwendungen müssen aktuell händisch auf jeder Maschine gestartet werden. Das ist gerade für Cluster mit einer hohen Serveranzahl viel Arbeit.
+Noch gibt es keine Möglichkeit die Proxy und Server automatisch zusammen starten zu lassen. Die Anwendungen müssen aktuell händisch auf jeder Maschine gestartet werden. Das ist gerade für Cluster mit einer hohen Serveranzahl ein erhöhter Arbeitsaufwand.
 Es müsste eine kleine Anwendung entworfen werden, welche die Cluster Konfiguration liest und automatisch auf den entsprechenden Maschinen die Server bzw. Proxy startet.
 
 \subsection{Algorithmen}

@@ -3,10 +3,10 @@
 
 Hubs and Authorities (HITS) ist ein Algorithmus zur Bewertung von Knoten in einem Netzwerk, der von John M. Kleinberg in dem Paper ''Authoritative Sources a Hyperlinked Environment'' vorgestellt wurde \cite{Kleinberg98authoritativesources}.
 
-Dabei werden in einem Netzwerk aufeinander verweisenden Dokumenten beurteilt. Beispiele für solche Netzwerke sind Internetseiten, die aufeinander
-verlinken oder wissenschaftliche Veröffentlichung, die einander referenzieren. Ein Hub sind Dokumente, die auf viele gute Quellen verweisen, während
-Authorities Dokumente gute Quellen sind, auf welche oft verwiesen wird. Der Algorithmus läuft ähnlich zum PageRank-Algorithmus ab, 
-jedoch wird nicht nur ein einzelner Wert für jeden Knoten bestimmt, sondern jeweils ein Hub und Authority Werte pro Knoten.
+Dabei werden in einem Netzwerk aufeinander verweisende Dokumente beurteilt. Beispiele für solche Netzwerke sind Internetseiten, die aufeinander
+verlinken oder wissenschaftliche Veröffentlichungen, die einander referenzieren. Ein Hub sind Dokumente, die auf viele gute Quellen verweisen, während
+Authorities gute Quellen sind, auf die oft verwiesen wird. Der Algorithmus läuft ähnlich zum PageRank-Algorithmus ab, 
+jedoch wird nicht nur ein einzelner Wert für jeden Knoten bestimmt, sondern jeweils ein Hub und Authority Wert pro Knoten.
 
 Für einen gerichteten Graphen $G = (V, E)$ weisen wir jedem Knoten $v \in V$ einen Hub $y_{v}$ und Authority $x_{v}$ Wert zu.
 
@@ -21,7 +21,7 @@ Die Werte für jeden Knoten konvergieren im Laufe der Iterationen.
 Zu Beginn werden Hub und Authority Werte aller Knoten auf 1 gesetzt. Danach wird in jeder Iteration ein Authority und ein Hub Update durchgeführt.
 \subsubsection{Autohrity Update}
 
-Für jeden Knoten $ v \in V $ wird der neue Authority Wert aus der Summe der Hub Werte der eingehenden Kanten gebildet.
+Für jeden Knoten $ v \in V $ wird der neue Authority Wert aus der Summe der Hub Werte der eingehenden Kanten gebildet:
 
 \[ x_{v} = \sum_{v; (u, v) \in E} y_{u} \]
 
@@ -45,4 +45,4 @@ Um den Algorithmus konvergieren zu lassen, wähle ein $ \epsilon $ und prüfe na
 und Hub Werte kleiner als das $ \epsilon $ ist. Ist dies nicht der Fall, werden weitere Iterationen durchgeführt.
 
 
-Alternativ kann auch eine feste Anzahl an Iterationen festgelegt werden. Sobald diese erreicht ist endet der Algorithmus.
+Alternativ kann auch eine feste Anzahl an Iterationen festgelegt werden. Sobald diese erreicht ist, endet der Algorithmus.

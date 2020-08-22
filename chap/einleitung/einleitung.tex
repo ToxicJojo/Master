@@ -1,8 +1,8 @@
 \chapter{Einleitung}
 
 
-Die Untersuchung von komplexen Netzwerken ist für viele verschiedene Forschungsbereiche, wie der Biologie, Soziologie, Transportation, Physik und vielen mehr, relevant. 
-Netzwerke können viele verschiedene reale oder künstliche Systeme darstellen und für die Forschung an diesen genutzt werden. Netzwerke wurden zum Beispiel benutzt um Beziehungen zwischen Personen, Verlinkungen zwischen Websiten, Interaktion zwischen Proteinen und mehr darzustellen.
+Die Untersuchung von komplexen Netzwerken ist für viele verschiedene Forschungsbereiche, wie der Biologie, Soziologie, Transportation, Physik und vielen mehr, relevant \cite{multiLayerMath}. 
+Netzwerke können viele verschiedene reale oder künstliche Systeme darstellen und für die Forschung an diesen genutzt werden. Netzwerke wurden zum Beispiel benutzt, um Beziehungen zwischen Personen, Verlinkungen zwischen Websiten, Interaktion zwischen Proteinen und mehr darzustellen.
 
 In traditionellen Netzwerken gibt es in der Regel nur eine Art von Kante, die alle Verbindungen zwischen Knoten beschreiben muss.
 Diese Einschränkung ist in den meisten Fällen eine Vereinfachung und kann dazu führen, dass gewisse Probleme nur schwer angegangen werden können. 
@@ -14,18 +14,18 @@ So lassen sich Systeme wie Transportnetzwerke mit verschiedenen Modi der Transpo
 In vielen Bereichen steigen die entstehenden Datenmengen, die für Netzwerkanalysen benutzt werden, immer weiter an. Ein großes Beispiel hierfür sind soziale Netzwerke, in denen sich die Verbindungen zwischen Nutzern und deren Interaktionen durch Multilayer Netzwerke darstellen lassen.
 
 
-Zur Analyse von Multilayer Netzwerken wurden bereits verschiedene Anwendungen, wie muxViz entwickelt. Diese Anwendungen können Multilayer Netzwerke laden, verschiedene Statistiken zu ihnen bilden und Algorithmen auf ihnen laufen lassen.
+Zur Analyse von Multilayer Netzwerken wurden bereits verschiedene Anwendungen, wie muxViz \cite{De_Domenico_2014} entwickelt. Diese Anwendungen können Multilayer Netzwerke laden, verschiedene Statistiken zu ihnen bilden und Algorithmen auf ihnen laufen lassen.
 
 Die verschiedene Anwendungen haben jedoch keinen verteilten Ansatz und laufen alle auf einer einzelnen Maschine. Dadurch können Graphen, die zu groß für den Arbeitsspeicher einer Maschine sind, nicht verarbeitet werden. 
-Um solch große Graphen zu handhaben bietet sich ein verteilter Ansatz mit mehreren Maschinen, auf die der Graph aufgeteilt wird, an.
+Um solch große Graphen zu handhaben bietet sich ein verteilter Ansatz mit mehreren Maschinen an, auf die der Graph aufgeteilt wird.
 
 
 Es gibt Systeme zur verteilten Verarbeitung von großen Graphen, wie zum Beispiel Pregel \cite{pregel} oder Apache Giraph. Diese Systeme können große Graphen verteilt auf vielen Maschinen verarbeiten und effizient Berechnungen auf diesen Graphen durchführen. Allerdings sind sie nicht auf Multilayer Netzwerke ausgerichtet und können nur mit klassischen Graphen umgehen.
 
 
-Ein verteiltes Graphsystem, in welchem die Darstellung des Graphen frei gewählt werden kann, ist das von Microsoft Research Asia entwickelte Graph Engine.
-In dieser Arbeit wird untersucht, inwiefern mit Graph Engine ein System zur verteilten Verarbeitung von Multilayer Graphen geschaffen werden kann. Dabei wird geschaut, wie die Freiheiten in der Graph Darstellung und Speicherung von GE genutzt werden können,
-um Multilayer Graphen in GE zu speichern. Zudem bietet Graph Engine die Möglichkeit Nachrichten zwischen den einzelnen Maschinen auszutauschen und aufgrund dieser Berechnungen durchzuführen. Auch diese Kommunikation kann frei gestaltet und für die Zwecke der Multilayer Graph Verarbeitung genutzt werden.
+Ein verteiltes Graphsystem, in welchem die Darstellung des Graphen frei gewählt werden kann, ist das von Microsoft Research Asia entwickelte Graph Engine \cite{graphEngine} \cite{TrinityAndApps}.
+In dieser Arbeit wird untersucht, inwiefern mit Graph Engine ein System zur verteilten Verarbeitung von Multilayer Graphen geschaffen werden kann. Dabei wird untersucht, wie die Freiheiten in der Graph Darstellung und Speicherung von Graph Engine genutzt werden können,
+um Multilayer Graphen in Graph Engine zu speichern. Zudem bietet Graph Engine die Möglichkeit Nachrichten zwischen den einzelnen Maschinen auszutauschen und aufgrund dieser Berechnungen durchzuführen. Auch diese Kommunikation kann frei gestaltet und für die Zwecke der Multilayer Graph Verarbeitung genutzt werden.
 
 
 In dieser Arbeit soll mithilfe von Graph Engine ein System erstellt werden, welches Multilayer Graphen laden, verändern und Algorithmen auf ihnen ausführen kann. Dafür müssen eine Client-, Proxy- und Serveranwendung entwickelt werden, die miteinander arbeiten.

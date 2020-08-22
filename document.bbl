@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{geVersion}
 Nuget graphengine.core version.
@@ -10,7 +10,7 @@ M.~De~Domenico, M.~A. Porter, and A.~Arenas.
 \newblock Muxviz: a tool for multilayer analysis and visualization of networks.
 \newblock {\em Journal of Complex Networks}, 3(2):159–176, Oct 2014.
 
-\bibitem{article}
+\bibitem{multiLayerMath}
 Manlio De~Domenico, Albert Solè-Ribalta, Emanuele Cozzo, Mikko Kivelä, Yamir
   Moreno, Mason Porter, Sergio Gomez, and Alex Arenas.
 \newblock Mathematical formulation of multi-layer networks.
@@ -35,6 +35,12 @@ Grzegorz Malewicz, Matthew Austern, Aart Bik, James Dehnert, Ilan Horn, Naty
 \bibitem{Page98thepagerank}
 Larry Page, Sergey Brin, R.~Motwani, and T.~Winograd.
 \newblock The pagerank citation ranking: Bringing order to the web, 1998.
+
+\bibitem{TrinityAndApps}
+Bin Shao, Yatao Li, Haixun Wang, and Huanhuan Xia.
+\newblock Trinity graph engine and its applications.
+\newblock {\em Bulletin of the Technical Committee on Data Engineering},
+  40(3):18--29, 9 2017.
 
 \bibitem{graphEngine}
 Bin Shao, Haixun Wang, and Yatao Li.

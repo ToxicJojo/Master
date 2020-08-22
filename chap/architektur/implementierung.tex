@@ -6,7 +6,7 @@ Zudem wird auf einige Optimierungen und Designentscheidungen eingegangen.
 
 \subsection{Model}
 
-Um Multilayer Graphen in GE abzubilden wird pro Knoten und Layer eine Zelle erstellt. Die Zellen speichern hierbei ihre ID, ihren Layer, eine Liste der ausgehenden Kanten und die Daten die für die Algorithmen notwendig sind.
+Um Multilayer Graphen in Graph Engine abzubilden wird pro Knoten und Layer eine Zelle erstellt. Die Zellen speichern hierbei ihre ID, ihren Layer, eine Liste der ausgehenden Kanten und die Daten die für die Algorithmen notwendig sind.
 Die Kanten müssen dabei speichern, auf welche ID in welchem Layer sie zeigen.
 
 \begin{lstlisting}[language=c,label={lst:tslModel}, caption={TSl Definition von Multilayer Knoten und Kanten.}]
@@ -29,13 +29,13 @@ cell struct Node {
 }
 \end{lstlisting}
 
-Die Proxy wird mit allen unterstützen Protokollen definiert. 
+Die Proxy wird mit allen unterstützten Protokollen definiert. 
 
 Die Proxy muss von den Servern benachrichtigt werden können, wenn diese asynchrone Aufgaben erfüllt haben. Dabei kann auch ein Ergebnis zurückgegeben werden.
 Dafür wird ein \verb|PhaseFinished| Protokoll erstellt. Die Server nutzen das Protokoll, um der Proxy eine \verb|PhaseFinishedMessage| zu senden.
 
-Diese Nachricht enthält die Phase, die beendet wurde und eine Liste an Strings, welche das Ergebnis der jeweiligen Phase darstellt. Es wird hier aus zwei Gründen eine Liste an Strings verwendet. Zum einem gibt es Algorithmen, die ein Ergebnis pro Layer des Graphen zurückgegeben wollen.
-Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet, da die Ergebnisse verschiedenen Datentypen haben können, welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus, der Knoten zählt nur Integer Werte zurück, während einer der PageRank Werte zurückgibt Double werte benutzt.
+Diese Nachricht enthält die Phase, die beendet wurde und eine Liste an Strings, welche das Ergebnis der jeweiligen Phase darstellt. Es wird hier aus zwei Gründen eine Liste an Strings verwendet. Zum einem gibt es Algorithmen, die ein Ergebnis pro Layer des Graphen zurück gegeben wollen.
+Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet, da die Ergebnisse verschiedenen Datentypen haben können, welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus, der Knoten zählt nur Integer Werte zurück, wohingegen ein Algorithmus der PageRank Werte zurückgibt Double werte benutzt.
 Die Phasen werden in einer separaten TSL Datei verwaltet und als Enum abgespeichert.
 
 Um von der Proxy Ergebnisse zurück an den Client geben zu können, gibt es das Konstrukt \verb|AlgorithmResult|. Dieses beinhaltet sowohl ein Ergebnis in Tabellenform, als auch die Laufzeit des Algorithmus.
@@ -95,13 +95,13 @@ enum Phases {
 \end{lstlisting}
 
 
-Die einzelnen Algorithmen definieren ihre benötigen Protokolle und Nachrichten in eigenen Dateien. Diese sind jeweils auf den jeweiligen Algorithmus zugeschnitten.
+Die einzelnen Algorithmen definieren ihre benötigten Protokolle und Nachrichten in eigenen Dateien. Diese sind jeweils auf den jeweiligen Algorithmus zugeschnitten.
 Die Server Definition zieht alle diese Protokolle zusammen, sodass die entsprechenden abstrakten Methoden in der Serverklasse generiert werden.
 
 \subsection{Lib}
 
 
-Die geteilte Bibliothek stellt eine statische Klasse \verb|Graph| zur Verfügung, die von den anderen Komponenten genutzt wird. Die Klasse ermöglicht es mit dem in GE gespeicherten Graph zu interagieren, ohne die Implementierungsdetails zu kenne. So kann auf Knoten zugegriffen werden, ohne zu wissen, wie ID und Layer in eine GE ZellenID übersetzt werden. 
+Die geteilte Bibliothek stellt eine statische Klasse \verb|Graph| zur Verfügung, die von den anderen Komponenten genutzt wird. Die Klasse ermöglicht es mit dem in Graph Engine gespeicherten Graph zu interagieren, ohne die Implementierungsdetails zu kennen. So kann auf Knoten zugegriffen werden, ohne zu wissen, wie ID und Layer in eine Graph Engine ZellenID übersetzt werden. 
 Dazu kommen Funktionen, um Knoten zu erstellen und diese zu verändern.
 
 \subsubsection{Ausgabe}
@@ -129,16 +129,16 @@ Der Client verwaltet eine Liste an ausführbaren Kommandos, die vom Nutzer abger
 
 Die einzelnen Funktionen des Clients sind in Kommandos aufgeteilt.
 Diese implementieren alle das Interface \verb|ICommand|. Der Client verwaltet ein Dictionary mit allen \verb|ICommands| die er kennt.
-Das Interface bietet Zugang zu Informationen über das Kommando, wie z.B. das Keyword, um es aufzurufen oder welche Argumente das Kommando braucht.
+Das Interface bietet Zugang zu Informationen über das Kommando, wie z.B. das Keyword, um es aufzurufen oder welche Argumente das Kommando benötigt.
 Dazu gibt es drei Interface Funktionen:
 
 \begin{itemize}
   \item \verb|VerifyArguments(string[] arguments)|, prüft ob die Liste der Argumente die der Nutzer dem Kommando gegeben hat legitime Argumente für das Kommando sind.
-  \item \verb|ApplyArguments(string[] arguments)|, wendet die Argumente auf das Kommando an sodass wenn es danach ausgeführt wird die Werte benutzt.
+  \item \verb|ApplyArguments(string[] arguments)|, wendet die Argumente auf das Kommando an sodass es wenn es danach ausgeführt wird die Werte benutzt.
   \item \verb|Run()|, führt das jeweilige Kommando aus.
 \end{itemize}
 
-Dass die Methoden, die nur Informationen zurückgegeben, sowie das Verifizieren der Argumente für alle Kommandos gleich funktioniert, gibt es eine abstrakte Klasse
+Da die Methoden, die nur Informationen zurückgegeben, sowie das Verifizieren der Argumente für alle Kommandos gleich funktioniert, gibt es eine abstrakte Klasse
 \verb|Command|, welche diese bereits implementiert. Die Kommandos erben von dieser Klasse und müssen nur noch \verb|ApplyArguments(string[] arguments)| und \verb|Run()| selbst implementieren.
 Die Kommandos füllen die Informationen über sich selbst jeweils in ihrem Konstruktor aus. Diese sind:
 
@@ -150,8 +150,8 @@ Die Kommandos füllen die Informationen über sich selbst jeweils in ihrem Konst
   \item \verb|ArgumentsDescription|, eine Beschreibung für die einzelnen Argumente
 \end{itemize}
 
-Die Verifizierung der Argumente findet in zwei Schritten statt. Erst wird die Anzahl der gegeben Argumente mit der Anzahl der Elemente von 'Arguments' verglichen.
-Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das gegeben Argument dem jeweiligen Type entspricht.
+Die Verifizierung der Argumente findet in zwei Schritten statt. Zuerst wird die Anzahl der gegebenen Argumente mit der Anzahl der Elemente von 'Arguments' verglichen.
+Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das gegebene Argument dem jeweiligen Typ entspricht.
 
 
 \begin{figure}
@@ -166,7 +166,7 @@ Im zweiten Schritt wird für jeden Eintrag in \verb|Arguments| geprüft, ob das 
 
 \subsubsection{Interaktiver Modus}
 
-Der Batch Modus wird mit dem Argument 'interactive' gestartet. Sobald der Client die Verbindung zum GE Cluster aufgebaut hat, kann der Nutzer Kommandos eingeben.
+Der Batch Modus wird mit dem Argument 'interactive' gestartet. Sobald der Client die Verbindung zum Graph Engine Cluster aufgebaut hat, kann der Nutzer Kommandos eingeben.
 
 
 \begin{lstlisting}[language=bash]
@@ -177,8 +177,8 @@ Der Batch Modus wird mit dem Argument 'interactive' gestartet. Sobald der Client
 \subsubsection{Batch Modus}
  Der Batch Modus wird mit dem Argument 'batch' gestartet. Es muss zudem ein weiteres Argument gegeben werden, welches der Pfad zu der batch Datei ist.
 
- Diese Datei ist eine normale Textdatei, welche pro Zeile ein Kommando enthält. Der Client arbeitet die Datei Zeile für Zeile ab und führt die Kommandos aus.
- Die Verarbeitung ist genau die Gleiche als hätte ein Nutzer das Kommando im interaktiven Modus eingegeben. Wird das Ende der Datei erreicht wird das Client Programm beendet.
+ Diese Datei ist eine normale Textdatei, die pro Zeile ein Kommando enthält. Der Client arbeitet die Datei Zeile für Zeile ab und führt die Kommandos aus.
+ Die Verarbeitung verhält sich genau so, als hätte ein Nutzer das Kommando im interaktiven Modus eingegeben. Wird das Ende der Datei erreicht, wird das Client Programm beendet.
 
 \begin{lstlisting}[language=bash]
   $ dotnet run batch path\to\batch\file 
@@ -191,7 +191,7 @@ Der Batch Modus wird mit dem Argument 'interactive' gestartet. Sobald der Client
 
 Die in den TSL Dateien definierte Proxy \verb|MultiLayerProxy| wird vom TSL Compiler in eine abstrakte Klasse \verb|MultiLayerProxyBase| mit abstrakten Request Handlern kompiliert. Diese wird hier von 'MultiLayerProxyImpl' implementiert.
 
-Da die \verb|MultiLayerProxyImpl| alle Request für alle Protokolle handhaben muss, wird sie über mehrere Dateien als partielle Klasse implementiert. Dies ermöglicht die sonst sehr groß werdende Klasse in kleine Teile aufzuteilen, sodass eine Datei jeweils nur für einen Algorithmus verantwortlich ist.
+Da die \verb|MultiLayerProxyImpl| alle Requests für alle Protokolle handhaben muss, wird sie über mehrere Dateien als partielle Klasse implementiert. Dies vermag die sonst sehr groß werdende Klasse in kleine Teile aufzuteilen, sodass eine Datei jeweils nur für einen Algorithmus verantwortlich ist.
 Die Abbildung \ref{proxyClass} gibt eine Übersicht über den Aufbau der Proxy-Anwendung.
 
 
@@ -207,13 +207,13 @@ Die Abbildung \ref{proxyClass} gibt eine Übersicht über den Aufbau der Proxy-A
 
 \subsubsection{BaseProxy}
 
-In 'MultiLayerBaseProxy.cs' wird grundlegende Funktionalität der Proxy definiert, die nicht zu einem einzelnem Algorithmus gehört. Dies ist zum einem die Möglichkeit Algorithmen zu starten und deren Ergebnisse auszugeben, zum anderem wird hier die Möglichkeit geboten auf Antworten der einzelnen Servern, sobald diese eine Phase beendet haben, zu warten.
+In 'MultiLayerBaseProxy.cs' wird die grundlegende Funktionalität der Proxy definiert, die nicht zu einem einzelnem Algorithmus gehört. Dies ist zum einen die Möglichkeit Algorithmen zu starten und deren Ergebnisse auszugeben, zum anderem wird hier die Möglichkeit geboten auf Antworten der einzelnen Server, sobald diese eine Phase beendet haben, zu warten.
 Hat ein Server eine Phase beendet, sendet er an die Proxy einen \verb|PhaseFinished| Request, der die Phase enthält, die er beendet hat und wenn nötig sein lokales Ergebnis. Die \verb|MultiLayerBaseProxy| handhabt diesen Request und zählt wieviele Server eine jeweilige Phase schon beendet haben und sammelt deren Ergebnisse. Hierfür werden drei Elemente verwendet:
 
 \begin{itemize}
-  \item \verb|Dictionary<Phases, int> phaseFinishedCount|, um zu zählen wieviele Server bereits eine bestimmte Phase abgeschlossen haben.
+  \item \verb|Dictionary<Phases, int> phaseFinishedCount|, um zu zählen ,wieviele Server bereits eine bestimmte Phase abgeschlossen haben.
   \item \verb|List<List<string>> phaseResults|, um die Ergebnisse der einzelnen Server zu aggregieren
-  \item \verb|object phaseFinishedCountLock|, dient als Lock um die Operationen an den anderen beiden Variablen zu schützen
+  \item \verb|object phaseFinishedCountLock|, dient als Lock, um die Operationen an den anderen beiden Variablen zu schützen
 \end{itemize}
 
 Es wird solange gewartet, bis die Anzahl an Servern, die eine Phase als beendet gemeldet haben, der Anzahl aller Server entspricht.
@@ -240,7 +240,7 @@ private void WaitForPhaseAnswers(Phases phase) {
 }
 \end{lstlisting}
 
-Die Proxy stellt den einzelnen Algorithmen damit die Möglichkeit auf Ergebnisse zu warten. Außerdem gibt es mehrere Methoden, die es erlauben, die Ergebnisse direkt im gewünschten Datentyp zu erhalten.
+Die Proxy bietet den einzelnen Algorithmen damit die Möglichkeit, auf Ergebnisse zu warten. Außerdem gibt es mehrere Methoden, die es erlauben, die Ergebnisse direkt im gewünschten Datentyp zu erhalten.
 
 \subsubsection{Algorithmen}
 
@@ -283,13 +283,13 @@ Der Aufbau der Server-Anwendung ist in Abbildung \ref{serverClass} dargestellt.
 
 Das Laden des Graphen findet verteilt über alle vorhandenen Server statt. Die Kanten werden von einer Kantendatei geladen, die je eine Kante pro Zeile speichert. Das genaue Format, wie eine Kante in dieser Kantendatei vorhanden ist, kann verschieden sein. Wichtig ist das jede Kante die Informationen enthält, von welchem Knoten und Layer zu welchem Knoten und Layer sie zeigt.
 
-Jeder Server geht die Kantendatei Zeile für Zeile durch und puffert diese in einer Liste. Die Liste wird solange gefüllt, bis der Knoten wechselt, von dem die Kanten ausgehen. Sobald der Knoten wechselt, wird die gepufferte Liste von Kantenzeilen an einen Threadpool übergeben, der die Kantenzeilen lädt und den Knoten in GE speichert.
+Jeder Server geht die Kantendatei Zeile für Zeile durch und puffert diese in einer Liste. Die Liste wird solange gefüllt, bis der Knoten wechselt, von dem die Kanten ausgehen. Sobald der Knoten wechselt, wird die gepufferte Liste von Kantenzeilen an einen Threadpool übergeben, der die Kantenzeilen lädt und den Knoten in Graph Engine speichert.
 
 Um mehrere Formate an Kantenzeilen zu unterstützen, gibt es ein Interface \verb|IEdgeLoader|. Dieses stellt drei Methoden zur verfügung die implementiert werden müssen.
 
 \begin{itemize}
   \item \verb|Edge LoadEdge(string line)|, lädt eine Kante aus einer Zeile
-  \item \verb|long GetId(string line)|, list die Knoten ID aus einer Zeile aus
+  \item \verb|long GetId(string line)|, liest die Knoten ID aus einer Zeile aus
   \item \verb|int GetLayer(string line)|, liest den Layer aus einer Zeile aus
 \end{itemize}
 
@@ -375,8 +375,8 @@ Um den Ablauf zu veranschaulichen, wird dies für eine Beispielfunktion erklärt
 
 \subsubsection{Model}
 
-Im Model muss eine .tsl Datei für den neuen Algorithmus erstellt werden. In dieser werden die Daten und Protokolle die GE unterstützen muss beschrieben. Im Fall der Beispielfunktion sind zwei Protokolle notwendig.
-Eines damit der Client die Anfrage für die Ausführung an die Proxy senden kann und ein Weiteres, damit die Proxy die einzelnen Server nach ihrer Anzahl an Knoten mit der gewünschten Menge an Kanten fragen kann.
+Im Model muss eine .tsl Datei für den neuen Algorithmus erstellt werden. In dieser werden die Daten und Protokolle die Graph Engine unterstützen muss beschrieben. Im Fall der Beispielfunktion sind zwei Protokolle notwendig.
+Eines damit der Client die Anfrage für die Ausführung an die Proxy senden kann und ein weiteres, damit die Proxy die einzelnen Server nach ihrer Anzahl an Knoten mit der gewünschten Menge an Kanten fragen kann.
 Dabei müssen bei beiden Protokollen die Anzahl der Kanten mitgegeben werden können.
 
 In der Anfrage an die Proxy sollen zudem die Optionen für die Ausführung von Algorithmen, sowie die Option für die Ausgabe von Ergebnissen dabei sein.
@@ -466,13 +466,13 @@ In der \verb|Client| Klasse muss im Konstruktor nun noch das erstellte Kommando 
 
 \subsubsection{Proxy}
 
-Für die Proxy müssen zwei Funktionen implementiert werden. Zum einem der Algorithmus der Anfragen an alle Server sendet ihre Anzahl an lokalen Knoten mit N Kanten zu senden und diese Ergebnisse aggregiert. Zum anderem muss 
-für das in TSL definierten Proxy Protokoll \verb|GetNEdgeNodesProxy| ein entsprechender Handler erstellt werden, der die Anfrage verarbeitet und den Algorithmus startet.
+Für die Proxy müssen zwei Funktionen implementiert werden. Zum einem der Algorithmus der Anfragen an alle Server sendet, um ihre Anzahl an lokalen Knoten mit N Kanten zu senden und diese Ergebnisse aggregiert. Zum anderem muss 
+für das in TSL definierte Proxy Protokoll \verb|GetNEdgeNodesProxy| ein entsprechender Handler erstellt werden, der die Anfrage verarbeitet und den Algorithmus startet.
 
 Der Algorithmus muss die abstrakte Klasse \verb|Algorithm| implementieren, insbesondere die abstrakte Methode \verb|Run()| und \verb|AlgorithmResult GetResult(OutputOptions outputOptions)|. In \verb|Run()| wird die im Model erstellte Anfrage an alle Server gesendet, welche auf diese mit ihrer lokalen Anzahl an Knoten mit der gewünschten Kantenanzahl antworten. Die Proxy
 wartet bis alle Server Ergebnisse gesendet haben und zählt diese zu einem Gesamtergebnis zusammen.
 
-Die andere Methode dient dazu, die Ergebnisse in einer Tabellenform darzustellen. Dazu wird sich die Anzahl der Knoten pro Layer gemerkt und jeder Layer als eine Reihe in der Tabelle dargestellt. Die erste Spalte ist die ID des Layers, während die zweite die Anzahl der Knoten in diesem Layer ist. Es wird eine weitere Zeile mit der Gesamtanzahl der Knoten hinzugefügt.
+Die andere Methode dient dazu, die Ergebnisse in einer Tabellenform darzustellen. Dazu wird die Anzahl der Knoten pro Layer vermerkt und jeder Layer als eine Reihe in der Tabelle dargestellt. Bei der ersten Spalte handelt es sich um die ID des Layers, während die zweite die Anzahl der Knoten in diesem Layer darstellt. Es wird eine weitere Zeile mit der Gesamtanzahl der Knoten hinzugefügt.
 
 \begin{lstlisting}{language=c}
 
@@ -544,7 +544,7 @@ namespace MultiLayerProxy.Proxy {
 Auf der Serverseite müssen zwei Funktionen implementiert werden. Der Request im Model definierte Handler \verb|GetNEdgeNodesServer|, welcher von der Proxy aufgerufen wird. Dieser muss die Anfrage verarbeiten und die Funktion zur Berechnung der Kantenanzahl starten. Das Ergebnis dieser Funktion muss wieder zurück an die Proxy gesendet werden.
 Dazu muss natürlich die Funktion implementiert werden, welche die Kantenanzahl zählt.
 
-Der Request Handler passt auch hier thematisch wieder zu der bereits vorhanden Datei \verb|MultiLayerStatsServer|, der eine parteille Klasse der Server Implementierung ist. So wird der Handler hier hinzugefügt.
+Der Request Handler passt auch hier thematisch wieder zu der bereits vorhandenen Datei \verb|MultiLayerStatsServer|, der eine parteille Klasse der Server Implementierung ist. So wird der Handler hier hinzugefügt.
 Es wird das Parameter \verb|NumberOfEdges| aus der Anfrage gelesen und der Funktion zur Berechnung übergeben. Da die Ergebnisse als String Liste an die Proxy übergeben werden müssen, werden diese zu String konvertiert.
 
 
@@ -556,7 +556,7 @@ public override void GetNEdgeNodesServerHandler(GetNEdgeNodesServerMessageReader
 }
 \end{lstlisting}
 
-Die Funktion zur Berechnung selbst wird als statische Funktion der bereits vorhanden Klasse \verb|Stats| realisiert. Gäbe es keine passende Klasse, kann diese natürlich nach Bedarf erstellt werden.
+Die Funktion zur Berechnung selbst wird als statische Funktion der bereits vorhandenen Klasse \verb|Stats| realisiert. Gäbe es keine passende Klasse, kann diese natürlich nach Bedarf erstellt werden.
 In der Funktion selbst wird über alle lokalen Knoten iteriert und die Anzahl der Knoten mit der gewünschten Kantenanzahl pro Layer gezählt. 
 
 Das Ergebnis wird zurück an die Proxy gesendet.
