@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{muxVizBild}
+muxvix features.
+\newblock \url{http://muxviz.net/features.php}.
+\newblock Accessed: 2020-08-23.
+
 \bibitem{geVersion}
 Nuget graphengine.core version.
 \newblock \url{https://www.nuget.org/packages/GraphEngine.Core/}.

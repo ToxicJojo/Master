@@ -16,7 +16,7 @@ Die genauen Schritte zum Einrichten von Graph Engine sind im Anhang \ref{geSetup
 Graph Engine benutzt eine .xml Konfigurationsdatei, um das Cluster aus Proxy und Servern zu definieren.
 In der Datei können zudem weitere Einstellungen, wie Dateipfade oder Logging, für die Server gemacht werden (siehe \ref{lst:config}).
 
-\begin{lstlisting}[language=xml, label={lst:config}, caption={Beispiel Konfigurationsdatei für ein Cluster mit einer Proxy und zwei Servern}]
+\begin{lstlisting}[float, language=xml, label={lst:config}, caption={Beispiel Konfigurationsdatei für ein Cluster mit einer Proxy und zwei Servern}]
 <Trinity ConfigVersion="2.0">
   <Cluster>
     <Proxy Endpoint="node52:8133" LogDirectory="D:\log-dir" LoggingLevel="Info" />  

@@ -38,7 +38,7 @@ Diese Nachricht enthält die Phase, die beendet wurde und eine Liste an Strings,
 Dabei stellt jedes Element der Liste einen Layer des Graphen dar. Zum anderen werden Strings verwendet, da die Ergebnisse verschiedenen Datentypen haben können, welche allerdings alle in einem String dargestellt werden können. So gibt ein Algorithmus, der Knoten zählt nur Integer Werte zurück, wohingegen ein Algorithmus der PageRank Werte zurückgibt Double werte benutzt.
 Die Phasen werden in einer separaten TSL Datei verwaltet und als Enum abgespeichert.
 
-Um von der Proxy Ergebnisse zurück an den Client geben zu können, gibt es das Konstrukt \verb|AlgorithmResult|. Dieses beinhaltet sowohl ein Ergebnis in Tabellenform, als auch die Laufzeit des Algorithmus.
+Um von der Proxy Ergebnisse zurück an den Client geben zu können, gibt es das Konstrukt \verb|AlgorithmResult|. Dieses beinhaltet ein Ergebnis und die Laufzeit des Algorithmus.
 
 
 \begin{lstlisting}[language=c, caption={Definition für die Proxy Protokolle.}]
@@ -78,7 +78,7 @@ proxy MultiLayerProxy {
 \end{lstlisting}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=c, caption={Definition der einzelnen Phasen.}]
 // This is a list of all the phases for the different algorithms
 // These will be used in the proxies PhaseFinished protocol to identify
 // which phase has been finished.

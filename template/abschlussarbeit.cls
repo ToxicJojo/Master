@@ -328,8 +328,8 @@
       \erstgutachter\\
       Zweitgutachter:\\
       \zweitgutachter\\
-      Betreuer:\\
-      \betreuer\\
+      %Betreuer:\\
+      %\betreuer\\
     \end{center}
   \end{titlepage}
   \clearpage{\pagestyle{empty}\cleardoublepage}
