@@ -12,9 +12,9 @@ A level-1 auxiliary file: chap/anhang.aux
 The style file: plain.bst
 Database file #1: library.bib.bib
 Warning--entry type for "geVersion" isn't style-file defined
---line 69 of file library.bib.bib
+--line 26 of file library.bib.bib
 Warning--entry type for "muxVizBild" isn't style-file defined
---line 115 of file library.bib.bib
+--line 62 of file library.bib.bib
 Warning--to sort, need author or key in muxVizBild
 Warning--to sort, need author or key in geVersion
 Warning--empty booktitle in pregel

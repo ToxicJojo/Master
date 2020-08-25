@@ -1,6 +1,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Multi Layer Netzwerkarten \cite {muxVizBild}\relax }}{6}{figure.caption.3}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Multilayer Netzwerkarten \cite {muxVizBild}\relax }}{6}{figure.caption.3}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Aufbau des Multilayer Clusters\relax }}{16}{figure.caption.17}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Schichten des Multilayer Graph Systems.\relax }}{16}{figure.caption.18}
@@ -11,6 +11,6 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Dauer der Ladezeit abh\IeC {\"a}ngig von der Serveranzahl\relax }}{39}{figure.caption.41}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Dauer der Berechnung der Graph Dichte abh\IeC {\"a}ngig von der Serveranzahl\relax }}{40}{figure.caption.42}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dauer einer HITS Update Runde abh\IeC {\"a}ngig von der Serveranzahl\relax }}{41}{figure.caption.43}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dauer einer HITS Update Runde abh\IeC {\"a}ngig von der Serveranzahl\relax }}{40}{figure.caption.43}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

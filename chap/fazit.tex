@@ -1,11 +1,11 @@
 \chapter{Fazit}
 
-In dieser Arbeit wurde mithilfe von Graph Engine ein erweiterbares System gebaut, welches genutzt werden kann, um Multi Layer Graphen verteilt und skalierbar zu verarbeiten.
+In dieser Arbeit wurde mithilfe von Graph Engine ein erweiterbares System gebaut, welches genutzt werden kann, um Multilayer Graphen verteilt und skalierbar zu verarbeiten.
 Dazu wurden in C\# drei Anwendungen erstellt, die als Client, Proxy und Server miteinander agieren.
 Danach wurde die Performance von verschiedenen Funktionen und Algorithmen in Hinsicht auf ihre Skalierbarkeit mit mehreren Servern gemessen.
 
 
-Es konnte gezeigt werden, dass mit der Freiheit, die Graph Engine bei der Gestaltung der Graphstruktur ermöglicht, Multi Layer Graphen dargestellt werden können.
+Es konnte gezeigt werden, dass mit der Freiheit, die Graph Engine bei der Gestaltung der Graphstruktur ermöglicht, Multilayer Graphen dargestellt werden können.
 Dazu konnten die Funktion von Graph Engine zum Austausch von Nachrichten zwischen einzelnen Komponenten genutzt werden, um eine effiziente Kommunikation zwischen Client, Proxy und Server zu gewährleisten. 
 Diese ermöglicht es eine auf die einzelnen Algorithmen und Funktionen zugeschnittene Kommunikation zu haben.
 
@@ -17,14 +17,14 @@ Eine Proxy Anwendung wurde erstellt, die als Bindeglied zwischen Client und Serv
 Der entwickelte Server kann unter der Koordinierung der Proxy verschiedene Algorithmen ausführen. Dabei sind die Server in der Lage untereinander zu kommunizieren und nötige Daten auszutauschen.
 
 
-Es wurde gezeigt, dass das System in der Lage ist einen große Multi Layer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält, wenn man die Anzahl der Server im Cluster erhöht.
+Es wurde gezeigt, dass das System in der Lage ist einen große Multilayer Graphen zu laden und zu verarbeiten. Dabei konnte beobachtet werden, wie sich die Performance verhält, wenn man die Anzahl der Server im Cluster erhöht.
 Sowohl beim Laden, als auch bei den beiden geprüften Algorithmen konnte gezeigt werden, dass durch die parallele Implementierung eine größere Serveranzahl zu deutlich besserer Performance führt.
 Hierbei wurde insbesondere beobachtet, dass ab einer bestimmten Serverzahl der Overhead der Berechnungen den Großteil der Laufzeit ausmacht, sodass weitere Server nur zu kleineren Verbesserungen führen.
 
 
 \section{Ausblick}
 
-In diesem Abschnitt werden einige mögliche Verbesserungen für das Multi Layer System vorgestellt.
+In diesem Abschnitt werden einige mögliche Verbesserungen für das Multilayer System vorgestellt.
 Sie richten sich an die Nutzbarkeit des Systems für einen Endanwender.
 
 
@@ -45,6 +45,6 @@ Es müsste eine kleine Anwendung entworfen werden, welche die Cluster Konfigurat
 
 \subsection{Algorithmen}
 
-In der aktuellen Form bietet das Multi Layer Graph System noch nicht viele Algorithmen von Haus aus an. Die zwingt Nutzer dazu selber die benötigen Algorithmen zu implementieren. Damit das System einfacher zu benutzen ist,
+In der aktuellen Form bietet das Multilayer Graph System noch nicht viele Algorithmen von Haus aus an. Die zwingt Nutzer dazu selber die benötigen Algorithmen zu implementieren. Damit das System einfacher zu benutzen ist,
 müssten weitere, häufig verwendete, Algorithmen und Metriken hinzugefügt werden.
 

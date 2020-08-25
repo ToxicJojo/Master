@@ -303,8 +303,8 @@ Für das Multilayer Graph System wurden bereits Algorithmen bzw. Metriken implem
 
 
 \subsubsection{Knoten- und Kantenanzahl}
-Zum bestimmen der Knote- und Kantenanzahl zählt jeder Server die Knoten bzw. deren Kanten für die er verantwortlich ist. Dabei kann bei der Kantenanzahl festgelegt werden, ob Kanten die von einem Layer in einen anderen gehen mitgezählt werden.
-Die Knoten und Kanten werden pro Layer gezählt und das Ergebnis an die Proxy gesendet. Diese zählt die Ergebnisse aller Server zusammen und bildet das Endergebnis.
+Zum bestimmen der Knoten- und Kantenanzahl zählt jeder Server die Knoten bzw. deren Kanten für die er verantwortlich ist. Dabei kann bei der Kantenanzahl festgelegt werden, ob Kanten die von einem Layer in einen anderen gehen mitgezählt werden.
+Die Knoten und Kanten werden pro Layer gezählt und das Ergebnis an die Proxy gesendet. Diese summiert die Ergebnisse aller Server zusammen und bildet das Endergebnis.
  
 
 \subsubsection{Graph Dichte}
@@ -316,7 +316,7 @@ Danach wird für jeden Layer die Dichte wie in \ref{dichte} beschrieben berechne
 \subsubsection{Knotengrad}
 
 Der Knotengrad für jeden Knoten wird in zwei Schritte ermittelt.
-Da jeder Knoten seine ausgehenden Kanten speichert kann der Ausgangsgrad einfach bestimmt werden. Jeder Server zählt für seine Knoten die Anzahl der ausgehenden Kanten.
+Da jeder Knoten seine ausgehenden Kanten speichert kann der Ausgangsgrad direkt bestimmt werden. Jeder Server zählt für seine Knoten die Anzahl der ausgehenden Kanten.
 
 Um den Eingangsgrad zu bestimmten geht jeder Server alle seine Knoten durch. Für jede Kante wird geprüft, ob der Zielknoten auf dem gleichen Server liegt. Ist dies der Fall wird der Eingangsgrad des Knoten direkt um 1 erhöht.
 Liegt der Knoten auf einem anderen Server wird diesem eine entsprechende Nachricht zugesandt und dieser erhöht den Eingangsgrad des Knoten.
